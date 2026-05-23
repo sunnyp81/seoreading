@@ -1,0 +1,234 @@
+---
+import Base from '../layouts/Base.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://seoreading.uk/services/" },
+      { "@type": "ListItem", "position": 3, "name": "Free SEO Audit Reading", "item": "https://seoreading.uk/free-seo-audit-reading/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Free SEO Audit Reading | Quick Check",
+    "description": "Get a free SEO health check for your Reading business. Discover how your site performs in Google and what quick wins are available. No obligation.",
+    "url": "https://seoreading.uk/free-seo-audit-reading/",
+    "isPartOf": { "@type": "WebSite", "name": "SEO Reading", "url": "https://seoreading.uk/" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is the free SEO audit really free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The free SEO health check is complimentary with no obligation. You receive a baseline report covering indexation, Core Web Vitals, local SEO presence, top keyword snapshot, and one key recommendation. There is no credit card required and no automatic sign-up to any paid service." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long until I receive my free audit?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You will receive your free SEO health check report within 48 hours of submitting the form. Reports are delivered by email as a PDF document." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between the free audit and the paid audit?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The free audit is a 5-point health check covering indexation status, Core Web Vitals, local SEO presence, a top keyword snapshot, and one key recommendation. The comprehensive paid audit covers 50+ checkpoints across technical health, content gaps, backlink profile, local SEO, and competitor analysis, with a full prioritised action plan and a 1-hour walkthrough call." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you only audit Reading businesses?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The free audit is available to any business, but our local SEO analysis is most detailed for businesses in Reading, Berkshire, and the Thames Valley. We check Reading-specific local signals including Google Business Profile, local directories, and local pack eligibility for your area." }
+      }
+    ]
+  }
+];
+---
+
+<Base title="Free SEO Audit Reading | Quick Check" description="Get a free SEO health check for your Reading business. Discover how your site performs in Google and what quick wins are available. No obligation." schema={schema}>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="prose">
+
+      <h1>Free SEO Audit for Reading Businesses</h1>
+
+      <p>SEO Reading offers a complimentary SEO health check for businesses in Reading and Berkshire. Submit your website URL below and receive a baseline report within 48 hours showing how your site performs in Google, what quick wins are available, and where the biggest opportunities lie.</p>
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> Our free SEO audit is a 5-point health check covering your site's indexation status, Core Web Vitals, local SEO presence, top keyword snapshot, and one key recommendation. No obligation, no credit card, delivered within 48 hours by email.
+      </div>
+
+      <form action="#" method="POST" class="not-prose bg-surface rounded-xl p-6 md:p-8 my-8 border border-border">
+        <h2 class="text-xl font-bold text-brand mb-6">Request Your Free SEO Health Check</h2>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label for="business-name" class="block text-sm font-medium text-text mb-1">Business Name <span class="text-accent">*</span></label>
+            <input type="text" id="business-name" name="business_name" required class="w-full px-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light focus:border-transparent text-text" placeholder="e.g. Smith & Sons Plumbing" />
+          </div>
+          <div>
+            <label for="website-url" class="block text-sm font-medium text-text mb-1">Website URL <span class="text-accent">*</span></label>
+            <input type="url" id="website-url" name="website_url" required class="w-full px-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light focus:border-transparent text-text" placeholder="https://example.co.uk" />
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label for="email" class="block text-sm font-medium text-text mb-1">Email Address <span class="text-accent">*</span></label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light focus:border-transparent text-text" placeholder="you@business.co.uk" />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium text-text mb-1">Phone <span class="text-text-muted">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light focus:border-transparent text-text" placeholder="07xxx xxxxxx" />
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <label for="message" class="block text-sm font-medium text-text mb-1">Anything specific you want checked? <span class="text-text-muted">(optional)</span></label>
+          <textarea id="message" name="message" rows="3" class="w-full px-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light focus:border-transparent text-text resize-y" placeholder="e.g. We recently redesigned our site and traffic dropped..."></textarea>
+        </div>
+
+        <button type="submit" class="w-full md:w-auto bg-accent text-white font-semibold px-8 py-3 rounded-lg hover:bg-accent-light transition-colors cursor-pointer">Send My Free Audit Request</button>
+        <p class="text-sm text-text-muted mt-3">No spam. No obligation. Report delivered within 48 hours.</p>
+      </form>
+
+      <h2>What You Get in Your Free Audit</h2>
+
+      <p>The free SEO health check covers five baseline checks that give you a clear snapshot of your website's current search performance.</p>
+
+      <ol>
+        <li><strong>Indexation status</strong> — how many of your pages are in Google's index, and are there pages missing or pages that should not be there?</li>
+        <li><strong>Core Web Vitals</strong> — does your site meet Google's speed and user experience thresholds? We check LCP, INP, and CLS from real-world data.</li>
+        <li><strong>Local SEO presence</strong> — is your Google Business Profile set up and optimised? Are your NAP details consistent across Reading directories?</li>
+        <li><strong>Top keyword snapshot</strong> — which queries is your site currently appearing for in Google, and what positions are you in?</li>
+        <li><strong>One key recommendation</strong> — the single highest-impact change you can make right now to improve your visibility in Reading search results.</li>
+      </ol>
+
+      <p>This is a focused health check, not a comprehensive audit. It gives you enough information to understand your baseline and decide whether a deeper analysis is worth pursuing.</p>
+
+      <h2>How It Works</h2>
+
+      <h3>Step 1: Submit the Form</h3>
+
+      <p>Fill in your business name, website URL, and email address above. Phone and message are optional but help us tailor the check to your situation. Businesses in <strong>Caversham</strong>, <strong>Earley</strong>, <strong>Tilehurst</strong>, <strong>Woodley</strong>, and across <strong>Reading</strong> are all welcome.</p>
+
+      <h3>Step 2: Receive Your Report</h3>
+
+      <p>Within 48 hours, we send your SEO health check report by email. It is a concise PDF covering the five baseline checks with clear pass/fail indicators and a short explanation for each finding.</p>
+
+      <h3>Step 3: Optional Discussion Call</h3>
+
+      <p>If you would like to discuss the findings, we offer a free 15-minute call to walk through the report and answer questions. This is optional and comes with no sales pressure. Many Reading business owners find it useful to understand what the technical findings mean in practical terms.</p>
+
+      <h2>Why We Offer a Free Audit</h2>
+
+      <p>Every Reading business deserves to know where they stand in Google. Many business owners have no idea whether their site is indexed correctly, whether it meets Core Web Vitals thresholds, or whether their Google Business Profile is optimised. A free baseline check gives you that clarity.</p>
+
+      <p>We also find that once business owners see the data, the value of professional SEO becomes self-evident. The free audit is not a sales trick — it is a genuine diagnostic that you can act on yourself or bring to any SEO provider. If you decide to work with us, the baseline data feeds directly into a comprehensive strategy.</p>
+
+      <h2>Free vs Comprehensive Audit</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Free Health Check</th>
+            <th>Comprehensive Audit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Indexation check</td>
+            <td>Basic (indexed page count)</td>
+            <td>Full crawl with issue identification</td>
+          </tr>
+          <tr>
+            <td>Core Web Vitals</td>
+            <td>Pass/fail summary</td>
+            <td>Page-by-page analysis with fixes</td>
+          </tr>
+          <tr>
+            <td>Local SEO</td>
+            <td>GBP presence check</td>
+            <td>Full local audit (GBP, citations, local pack, reviews)</td>
+          </tr>
+          <tr>
+            <td>Keyword analysis</td>
+            <td>Top 10 keyword snapshot</td>
+            <td>Full keyword gap + striking distance analysis</td>
+          </tr>
+          <tr>
+            <td>Content audit</td>
+            <td>Not included</td>
+            <td>Full content quality + cannibalisation review</td>
+          </tr>
+          <tr>
+            <td>Backlink review</td>
+            <td>Not included</td>
+            <td>Full profile with toxic link identification</td>
+          </tr>
+          <tr>
+            <td>Competitor analysis</td>
+            <td>Not included</td>
+            <td>3-5 competitor benchmark</td>
+          </tr>
+          <tr>
+            <td>Action plan</td>
+            <td>1 key recommendation</td>
+            <td>Full prioritised action plan (30-60 pages)</td>
+          </tr>
+          <tr>
+            <td>Walkthrough call</td>
+            <td>Optional 15 minutes</td>
+            <td>1-hour detailed walkthrough</td>
+          </tr>
+          <tr>
+            <td>Delivery time</td>
+            <td>48 hours</td>
+            <td>7-14 working days</td>
+          </tr>
+          <tr>
+            <td>Cost</td>
+            <td>Free</td>
+            <td>Fixed fee (<a href="/seo-pricing-reading/">see pricing</a>)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The free health check is the right starting point if you have never had an SEO audit and want to understand your baseline. The <a href="/seo-audit-reading/">comprehensive audit</a> is for businesses ready to invest in a detailed strategy.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Is the free SEO audit really free?</h3>
+        <p>Yes. The free SEO health check is complimentary with no obligation. You receive a baseline report covering indexation, Core Web Vitals, local SEO presence, a top keyword snapshot, and one key recommendation. There is no credit card required and no automatic sign-up to any paid service.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How long until I receive my free audit?</h3>
+        <p>You will receive your free SEO health check report within 48 hours of submitting the form. Reports are delivered by email as a PDF document.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What is the difference between the free audit and the paid audit?</h3>
+        <p>The free audit is a 5-point health check. The <a href="/seo-audit-reading/">comprehensive paid audit</a> covers 50+ checkpoints across technical health, content gaps, backlink profile, local SEO, and competitor analysis, with a full prioritised action plan and a 1-hour walkthrough call. See the comparison table above for the full breakdown.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Do you only audit Reading businesses?</h3>
+        <p>The free audit is available to any business, but our local SEO analysis is most detailed for businesses in Reading, Berkshire, and the Thames Valley. We check Reading-specific local signals including Google Business Profile optimisation, local directory presence, and local pack eligibility for your area.</p>
+      </div>
+
+      <div class="cta-box">
+        <h2 style="color: white; margin-top: 0;">Ready for a Deeper Analysis?</h2>
+        <p>The free health check gives you a baseline. Our comprehensive SEO audit gives you a complete strategy. Includes 50+ checkpoints, competitor benchmarking, and a prioritised action plan.</p>
+        <a href="/seo-audit-reading/">Learn About Our Full SEO Audit</a>
+      </div>
+
+      <p>See our <a href="/seo-pricing-reading/">pricing page</a> for audit and retainer costs. Back to <a href="/services/">all services</a> or return to <a href="/">SEO Reading homepage</a>.</p>
+
+    </div>
+  </section>
+</Base>

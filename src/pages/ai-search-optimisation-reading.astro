@@ -1,0 +1,631 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'AI Search Optimisation Reading | AEO';
+const description = 'Get your Reading business cited by ChatGPT, Perplexity, Claude, Copilot, and Google AI Overviews. AI search, AEO, GEO, and LLM SEO services.';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://seoreading.uk/services/" },
+      { "@type": "ListItem", "position": 3, "name": "AI Search Optimisation Reading", "item": "https://seoreading.uk/ai-search-optimisation-reading/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "description": description,
+    "url": "https://seoreading.uk/ai-search-optimisation-reading/",
+    "isPartOf": { "@type": "WebSite", "name": "SEO Reading", "url": "https://seoreading.uk/" },
+    "breadcrumb": { "@id": "https://seoreading.uk/ai-search-optimisation-reading/#breadcrumb" },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".quick-answer"]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Search Optimisation Reading",
+    "description": "AI search optimisation services for Reading and Berkshire businesses. Get cited by ChatGPT, Perplexity, Claude, Microsoft Copilot, and Google AI Overviews.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "SEO Reading",
+      "url": "https://seoreading.uk/",
+      "areaServed": { "@type": "City", "name": "Reading", "containedInPlace": { "@type": "AdministrativeArea", "name": "Berkshire" } }
+    },
+    "serviceType": "AI Search Optimisation",
+    "areaServed": [
+      { "@type": "City", "name": "Reading" },
+      { "@type": "AdministrativeArea", "name": "Berkshire" },
+      { "@type": "AdministrativeArea", "name": "Thames Valley" }
+    ],
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "GBP",
+      "price": "500",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "500",
+        "priceCurrency": "GBP",
+        "unitText": "MONTH",
+        "minPrice": "500",
+        "maxPrice": "2000"
+      },
+      "url": "https://seoreading.uk/seo-pricing-reading/"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is AI search optimisation?",
+        "acceptedAnswer": { "@type": "Answer", "text": "AI search optimisation (also called AEO, GEO, or LLM SEO) is the practice of making your business visible and citable by AI-powered search engines such as ChatGPT, Google AI Overviews, Perplexity, Claude, and Microsoft Copilot. It focuses on entity authority, structured data, citation building, and content formatting that AI systems can parse and attribute to your business." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is AEO different from SEO?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Traditional SEO aims to rank your website in Google's blue link results. AEO (Answer Engine Optimisation) aims to get your business cited in AI-generated answers. The techniques overlap — structured data, quality content, and authority signals matter for both — but AEO adds entity strategy, llms.txt implementation, AI crawler configuration, and citation monitoring across multiple AI platforms." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which AI search engines matter most in 2026?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Google AI Overviews has the largest reach because it appears directly in Google search results. ChatGPT Search and Perplexity are the most popular standalone AI search tools. Microsoft Copilot is significant for enterprise users. Claude and Apple Intelligence are growing. A comprehensive strategy covers all six platforms." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I check if my business appears in ChatGPT?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Open ChatGPT with web browsing enabled and ask it to recommend businesses in your category in Reading. For example, ask 'Who are the best accountants in Reading?' or 'Recommend an IT support company near Thames Valley Park.' If your business is not mentioned, you have an AI visibility gap that needs addressing." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is llms.txt?",
+        "acceptedAnswer": { "@type": "Answer", "text": "llms.txt is a plain text file placed at your website's root (like robots.txt) that provides AI crawlers with a structured summary of your site's content, services, and key information. It follows the specification at llmstxt.org and helps AI systems understand your business quickly and accurately, increasing the likelihood of correct citations." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does AI search optimisation take?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Initial AI citations can appear within 1-3 months of implementing entity strategy, structured data, and citation building. Full AI visibility across all major platforms typically takes 3-6 months. The timeline depends on your existing online authority, the competitiveness of your sector, and how quickly AI crawlers re-index your site." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I still need traditional SEO?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Traditional SEO and AI search optimisation are complementary, not competing strategies. Google still drives the majority of search traffic through blue link results, and strong traditional SEO signals (authority, relevance, technical health) also improve your AI citation probability. The strongest approach combines both." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does AI search optimisation cost in Reading?",
+        "acceptedAnswer": { "@type": "Answer", "text": "AI search optimisation for Reading businesses typically ranges from £500-£2,000 per month as part of an ongoing SEO retainer. A standalone AI visibility audit starts from a few hundred pounds. The investment depends on your industry competitiveness, number of target queries, and the current state of your online entity presence. See our pricing page for detailed breakdowns." }
+      }
+    ]
+  }
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="prose">
+      <h1>AI Search Optimisation for Reading Businesses</h1>
+
+      <p>SEO Reading provides AI search optimisation services that help Reading businesses get cited by ChatGPT, Perplexity, Claude, Microsoft Copilot, and Google AI Overviews. Traditional SEO gets you ranked in the blue links. AI search optimisation gets you mentioned when someone asks an AI assistant to recommend a business in Reading.</p>
+
+      <div class="quick-answer">
+        <strong>Quick Answer:</strong> AI search optimisation (also called AEO, GEO, or LLM SEO) is the practice of making your business visible to AI-powered search engines. If a Reading business owner asks ChatGPT "who's the best accountant in Reading?", AI search optimisation determines whether your firm gets cited in the answer.
+      </div>
+
+      <p>This matters because search behaviour is changing faster than at any point since Google launched. In 2026, millions of UK consumers ask AI assistants for recommendations before they ever look at a traditional search result. Google AI Overviews now appear above the organic listings for the majority of commercial queries. ChatGPT processes over a billion searches per week. Perplexity, Claude, and Copilot are growing month on month. If your Reading business is not structured for AI citation, you are losing visibility you cannot recover through traditional SEO alone.</p>
+
+      <p>We built this service because we watched it happen to our own clients. Businesses with strong Google rankings started losing traffic to AI Overviews that cited other sources. The businesses getting cited had three things in common: clear entity signals, structured data, and presence across authoritative third-party sources. That pattern became our methodology.</p>
+
+      <!-- ================================================ -->
+      <!-- SECTION: What Is AI Search Optimisation?         -->
+      <!-- ================================================ -->
+
+      <h2>What Is AI Search Optimisation?</h2>
+
+      <p>AI search optimisation is the practice of structuring your online presence so that AI-powered search engines can find, understand, and cite your business when answering user queries. It goes by several names, each emphasising a different aspect of the same discipline:</p>
+
+      <ul>
+        <li><strong>AEO (Answer Engine Optimisation)</strong> focuses on getting your content selected as the source for AI-generated answers. The goal is not to rank — it is to be the answer.</li>
+        <li><strong>GEO (Generative Engine Optimisation)</strong> targets the generative AI layer specifically: Google AI Overviews, ChatGPT's synthesised responses, and Perplexity's cited answers.</li>
+        <li><strong>LLM SEO</strong> addresses how large language models (the technology behind ChatGPT, Claude, and Copilot) select and weight information sources during inference.</li>
+      </ul>
+
+      <p>These terms describe the same core challenge: AI search engines do not show a list of ten blue links. They generate a single answer, sometimes citing sources, sometimes not. The business that gets cited captures the user's attention. The businesses that do not get cited are invisible, regardless of their Google ranking.</p>
+
+      <h3>How AI Search Engines Work vs Traditional Google</h3>
+
+      <p>Traditional Google search works on a retrieval model. Google crawls the web, builds an index, and when a user searches, it retrieves the most relevant pages and ranks them. Your position in that ranked list determines your visibility. Click-through rates, title tags, and meta descriptions influence whether users choose your listing over competitors.</p>
+
+      <p>AI search engines work on a generation model. They crawl the web (or use an existing index), but instead of returning a list of pages, they synthesise an answer. The AI reads dozens or hundreds of sources, determines which information is most relevant and trustworthy, and generates a natural language response. It may cite specific sources inline, or it may present the information without attribution.</p>
+
+      <p>This changes the optimisation challenge fundamentally. In traditional SEO, you optimise for ranking signals. In AI search optimisation, you optimise for citation signals — the factors that make an AI system select your content as a trusted source worth referencing in its generated answer.</p>
+
+      <h3>The Shift from Ranking to Being Cited</h3>
+
+      <p>When Google shows AI Overviews for a query like "best IT support companies in Reading", the AI Overview appears above all organic results. Users see the AI-generated answer first. If your business is cited in that answer, you capture attention before the blue links even load. If you are not cited, your organic position — even position one — is pushed below the fold.</p>
+
+      <p>The same pattern plays out across every AI search platform. A user asks Perplexity "recommend a good solicitor in Reading for conveyancing" and gets a structured answer with three or four cited recommendations. A Copilot user asks the same question in Edge and gets a response pulled from Bing's index and third-party sources. In every case, being cited is the new being ranked.</p>
+
+      <h3>Why Reading Businesses Cannot Ignore This</h3>
+
+      <p>Reading has a tech-literate population. The concentration of technology companies at Green Park and Thames Valley Park means that a disproportionate share of Reading's working population uses AI tools daily. These are the people who ask Copilot for a restaurant recommendation during a lunch break, or use ChatGPT to shortlist an accountant before their company's financial year-end. If your business serves the Reading market, your customers are already using AI search. The only question is whether they are finding you.</p>
+
+      <!-- ================================================ -->
+      <!-- SECTION: AI Search Engines That Matter in 2026   -->
+      <!-- ================================================ -->
+
+      <h2>The AI Search Engines That Matter in 2026</h2>
+
+      <p>Six AI search platforms have meaningful UK market share in 2026. Each works differently, crawls differently, and cites differently. A comprehensive AI search optimisation strategy addresses all six.</p>
+
+      <h3>Google AI Overviews</h3>
+
+      <p>Google AI Overviews (formerly Search Generative Experience) is the single most impactful change to search since the introduction of featured snippets. AI Overviews appear at the top of Google search results for an increasing proportion of queries, including commercial and local searches. They synthesise information from multiple indexed pages and present a generated answer with inline citations.</p>
+
+      <p>For Reading businesses, AI Overviews matter because they appear in the same Google search results your customers already use. A user searching "SEO agency Reading" may see an AI Overview summarising the top options before they ever reach the organic listings. The sources cited in AI Overviews tend to be pages with strong E-E-A-T signals, comprehensive structured data, and clear, factual content. Google's existing crawl infrastructure (Googlebot) feeds AI Overviews, so traditional technical SEO remains relevant — but content structure and entity signals become more important than keyword density.</p>
+
+      <h3>ChatGPT Search</h3>
+
+      <p>OpenAI's ChatGPT has evolved from a conversational AI into a full search engine. ChatGPT's web browsing mode uses GPTBot to crawl the web and retrieve current information. When a user asks ChatGPT a question with local intent — "recommend a Reading estate agent for a first-time buyer" — it searches the web, evaluates sources, and generates an answer with clickable citations.</p>
+
+      <p>ChatGPT tends to cite pages that provide direct, declarative answers to the user's implied question. Pages that lead with a clear answer in the first paragraph, use structured headings, and include factual data points are more likely to be selected. ChatGPT also gives weight to sources it encounters frequently across the web, which makes citation building on authoritative third-party sites important.</p>
+
+      <p>GPTBot respects robots.txt directives. If your robots.txt blocks GPTBot, ChatGPT cannot crawl your site and will never cite it. This is a common oversight — many WordPress security plugins block AI crawlers by default.</p>
+
+      <h3>Perplexity</h3>
+
+      <p>Perplexity is a citation-first AI search engine. Every answer Perplexity generates includes numbered inline citations linking to source pages. This makes Perplexity uniquely valuable for businesses because users can click through to the cited source, creating direct referral traffic.</p>
+
+      <p>Perplexity uses PerplexityBot to crawl the web. It prioritises sources that are well-structured, factually accurate, and recently updated. Perplexity's citation algorithm favours pages that contain specific data points, direct answers to common questions, and clear attribution of claims. For Reading businesses, this means your service pages and guides need to be information-dense rather than marketing-heavy.</p>
+
+      <h3>Claude</h3>
+
+      <p>Anthropic's Claude uses ClaudeBot to crawl and index web content. Claude is increasingly integrated into business tools and enterprise search workflows. Its approach to citation emphasises accuracy and nuance — it tends to cite sources that provide balanced, well-evidenced information rather than purely promotional content.</p>
+
+      <p>For professional service businesses around Forbury Square — solicitors, accountants, consultants — Claude's enterprise adoption makes it a relevant platform. Decision-makers using Claude to research service providers in Reading will only find your business if ClaudeBot can access and parse your content.</p>
+
+      <h3>Microsoft Copilot</h3>
+
+      <p>Microsoft Copilot is integrated into Bing, Microsoft Edge, Windows 11, and Microsoft 365. This gives it enormous distribution. Every Windows user with Edge has Copilot available in the sidebar. Every Microsoft 365 subscriber can use Copilot to research topics. Copilot draws on Bing's index, which means your Bing Webmaster Tools data and Bing SEO directly influence your Copilot visibility.</p>
+
+      <p>For Reading businesses, Copilot is particularly relevant in B2B contexts. Employees at Thames Valley Park companies researching suppliers, service providers, or local amenities often use Copilot because it is integrated into their existing Microsoft workflow. Ensuring your business appears in Bing's index with strong structured data and local signals directly improves your Copilot citation probability.</p>
+
+      <h3>Apple Intelligence</h3>
+
+      <p>Apple Intelligence integrates AI-powered search into Siri, Safari, and Spotlight across iPhone, iPad, and Mac. Applebot-Extended is the crawler Apple uses to build the index for its AI features. Apple's approach prioritises user privacy and curated quality, which means it tends to cite established, authoritative sources.</p>
+
+      <p>For consumer-facing Reading businesses — restaurants, retail, personal services — Apple Intelligence is important because of iPhone market share in the UK. When an iPhone user asks Siri "find me a good Thai restaurant in Caversham," the answer is increasingly generated by Apple Intelligence rather than returned as a simple web link. Ensuring Applebot-Extended can access your site is a basic prerequisite.</p>
+
+      <!-- ================================================ -->
+      <!-- SECTION: How AI Search Engines Choose Citations  -->
+      <!-- ================================================ -->
+
+      <h2>How AI Search Engines Choose What to Cite</h2>
+
+      <p>AI search engines do not cite randomly. They evaluate sources against a set of signals that determine trustworthiness, relevance, and citation-worthiness. Understanding these signals is the foundation of effective AI search optimisation.</p>
+
+      <h3>Structured Data and Schema Markup</h3>
+
+      <p>Structured data (implemented as JSON-LD schema markup) is the most direct way to communicate your business identity to AI systems. Schema tells AI crawlers what your business is, what services you offer, where you are located, and how you relate to other entities. Without structured data, AI systems have to infer this information from unstructured text — a process that is slower, less reliable, and more likely to produce errors or omissions.</p>
+
+      <p>For Reading businesses, we implement comprehensive schema including LocalBusiness, Service, FAQPage, Review, and BreadcrumbList types. Each schema type serves a specific purpose: LocalBusiness establishes your entity identity and location, Service defines your offerings, FAQPage provides pre-formatted Q&A that AI can pull directly into answers, and Review provides social proof signals.</p>
+
+      <h3>Authoritative, Well-Structured Content</h3>
+
+      <p>AI systems prefer content that is clearly structured with descriptive headings, declarative opening paragraphs, and logical information hierarchy. The first paragraph of every key page should state what you do, who you serve, and where you operate — in plain, factual language. AI systems frequently pull from the first 150 words of a page when generating citations, so burying your key information below marketing copy is a direct obstacle to AI visibility.</p>
+
+      <p>Content depth matters. Thin pages with 200 words of generic text will not be cited. Comprehensive pages that cover a topic thoroughly, with specific data points and clear expertise signals, are far more likely to be selected as citation sources. This is why we recommend a minimum of 1,500 words for service pages and 2,500 words for cornerstone content.</p>
+
+      <h3>Entity Prominence</h3>
+
+      <p>AI systems build entity graphs — networks of known entities (businesses, people, places, concepts) and the relationships between them. Your business becomes a recognised entity when it is mentioned consistently across multiple authoritative sources with consistent NAP (name, address, phone) data, consistent service descriptions, and links between those mentions.</p>
+
+      <p>For a Reading law firm, entity prominence means being mentioned on the Law Society directory, local business listings, legal comparison sites, Reading Borough Council resources, and relevant industry publications — all with consistent information. The more places your business appears with consistent entity data, the more confident AI systems are in citing you.</p>
+
+      <h3>llms.txt and Machine-Readable Content</h3>
+
+      <p>The <a href="https://llmstxt.org" rel="noopener noreferrer" target="_blank">llms.txt specification</a> provides a standardised way to give AI crawlers a machine-readable summary of your site. Placed at your domain root (e.g., seoreading.uk/llms.txt), this plain text file lists your key pages with brief descriptions, helping AI systems quickly understand your business scope without crawling every page.</p>
+
+      <h3>Freshness and Factual Accuracy</h3>
+
+      <p>AI systems weight recent content more heavily for queries where freshness matters. A page about "best AI tools for small business 2026" needs to be genuinely current. Outdated statistics, defunct product references, or stale pricing information reduce citation likelihood and can lead to your content being deprioritised across AI platforms.</p>
+
+      <p>Factual accuracy is even more critical. AI systems increasingly cross-reference claims against multiple sources. If your content contains verifiably false statements — wrong statistics, incorrect legal information, fabricated testimonials — it damages your entity's trust signal across all AI platforms simultaneously.</p>
+
+      <h3>E-E-A-T Signals</h3>
+
+      <p>Experience, Expertise, Authoritativeness, and Trustworthiness (E-E-A-T) are Google's quality rater guidelines, but they describe signals that all AI systems use. Author credentials, professional affiliations, published case studies, client testimonials, and industry citations all contribute to the trust profile that determines whether an AI system considers your business worth citing.</p>
+
+      <!-- ================================================ -->
+      <!-- SECTION: Our AI Search Optimisation Process      -->
+      <!-- ================================================ -->
+
+      <h2>Our AI Search Optimisation Process</h2>
+
+      <p>We follow an eight-step process that takes a Reading business from AI invisibility to consistent citation across all major AI search platforms. Each step builds on the previous one, creating a compounding effect on your AI visibility over time.</p>
+
+      <h3>Step 1: AI Visibility Audit</h3>
+
+      <p>We start by testing your business across every major AI search platform. We run your core commercial queries through ChatGPT, Perplexity, Claude, Copilot, Google AI Overviews, and Apple Intelligence, documenting whether your business is cited, which competitors are cited instead, and what sources the AI systems are pulling from.</p>
+
+      <p>This audit reveals your AI visibility baseline. Most Reading businesses we audit have zero AI citations. They rank well in traditional Google search but are completely absent from AI-generated answers. The audit quantifies that gap and identifies the specific reasons — missing structured data, blocked AI crawlers, weak entity signals, or content structure issues.</p>
+
+      <p>We also audit the AI citations your competitors receive. If a competing Reading estate agent is consistently cited by Perplexity when users ask about property in Berkshire, we analyse why — what content structure, data sources, and entity signals are driving that citation — and build those signals for your business.</p>
+
+      <h3>Step 2: Entity Strategy</h3>
+
+      <p>Your business needs to exist as a recognised entity in AI knowledge systems. This means consistent, authoritative mentions across the web with matching name, address, description, and service information. We develop an entity strategy that defines your core entity attributes and maps the platforms where those attributes need to appear.</p>
+
+      <p>For a Reading business, entity strategy includes Google Business Profile optimisation, Bing Places, Apple Maps, industry directories, Companies House records, professional body listings, and authoritative local sources like Reading Borough Council's business directory. Each platform reinforces your entity identity, making AI systems more confident in your business's existence and relevance.</p>
+
+      <h3>Step 3: Content Restructuring</h3>
+
+      <p>AI-friendly content follows a specific structure. Every key page opens with a plain, declarative first paragraph that states what you do and who you serve. This is followed by structured H2 and H3 sections that address specific questions your audience asks. Content is written in factual, citation-friendly prose — not marketing copy.</p>
+
+      <p>We restructure your existing content to follow this pattern. Service pages get rewritten with direct opening statements. Blog posts are reformatted with clear question-answer structures. Location pages include specific, verifiable local information. The goal is to make every page a credible source that an AI system would confidently cite.</p>
+
+      <p>We also add Q&A formatted sections to key pages. AI systems frequently pull from Q&A content when generating answers, so having pre-formatted question-and-answer blocks with clear, factual responses significantly increases your citation probability for those specific queries.</p>
+
+      <h3>Step 4: Schema and Structured Data</h3>
+
+      <p>We implement comprehensive JSON-LD schema markup across your site. This goes beyond basic LocalBusiness schema to include Service, FAQPage, HowTo, Review, Article, BreadcrumbList, and SpeakableSpecification types. Each schema type serves a specific citation function:</p>
+
+      <ul>
+        <li><strong>LocalBusiness</strong> — establishes your entity with name, address, geo-coordinates, opening hours, and service area.</li>
+        <li><strong>Service</strong> — defines each service you offer with descriptions, pricing, and area served.</li>
+        <li><strong>FAQPage</strong> — provides pre-formatted Q&A that AI systems can extract directly.</li>
+        <li><strong>SpeakableSpecification</strong> — identifies content sections optimised for voice and AI assistant responses.</li>
+        <li><strong>Review / AggregateRating</strong> — provides social proof signals that influence citation confidence.</li>
+      </ul>
+
+      <p>Schema validation is ongoing. We test all schema through Google's Rich Results Test, Schema.org's validator, and manual inspection of how AI platforms interpret the markup. Broken or invalid schema is worse than no schema — it sends conflicting signals that reduce AI trust in your entity.</p>
+
+      <h3>Step 5: llms.txt Implementation</h3>
+
+      <p>We create and maintain an llms.txt file at your domain root following the <a href="https://llmstxt.org" rel="noopener noreferrer" target="_blank">llmstxt.org specification</a>. This file contains a structured summary of your site: a brief description of your business, a list of key pages with one-line summaries, and metadata that helps AI crawlers understand your site's scope without crawling every page.</p>
+
+      <p>For a Reading law firm, the llms.txt might list each practice area page, the team page, office location details, and key guides — all with concise, factual descriptions. This gives AI systems a reliable index of your content, increasing the chance they reference the right page when answering a relevant query.</p>
+
+      <h3>Step 6: AI Crawler Access</h3>
+
+      <p>Your robots.txt file controls which crawlers can access your site. Many websites inadvertently block AI crawlers, making themselves completely invisible to AI search engines. We audit and configure your robots.txt to ensure access for all relevant AI crawlers:</p>
+
+      <ul>
+        <li><strong>GPTBot</strong> — OpenAI's crawler for ChatGPT search.</li>
+        <li><strong>ClaudeBot</strong> — Anthropic's crawler for Claude.</li>
+        <li><strong>PerplexityBot</strong> — Perplexity's web crawler.</li>
+        <li><strong>Applebot-Extended</strong> — Apple's crawler for Apple Intelligence features.</li>
+        <li><strong>Googlebot</strong> — already allowed on most sites, feeds AI Overviews.</li>
+        <li><strong>Bingbot</strong> — feeds Microsoft Copilot's search capabilities.</li>
+      </ul>
+
+      <p>We also check for Cloudflare Bot Fight Mode, WordPress security plugins, and other middleware that may block AI crawlers at the infrastructure level without any robots.txt directive. A robots.txt that allows GPTBot is useless if your WAF is rejecting GPTBot requests with a 403.</p>
+
+      <h3>Step 7: Citation Building</h3>
+
+      <p>Citation building for AI search is similar to link building for traditional SEO, but with different targets and goals. Instead of acquiring backlinks for PageRank, we build mentions of your business on authoritative sources that AI systems frequently reference. This includes industry directories, professional body listings, local business associations, authoritative guides, and comparison sites.</p>
+
+      <p>For Reading businesses, citation targets include the Thames Valley Chamber of Commerce, Reading UK CIC, local authority business listings, industry-specific directories (Law Society, ICAEW, CompTIA for tech companies), and authoritative editorial content that mentions Reading businesses. Each citation reinforces your entity prominence across the AI knowledge graph.</p>
+
+      <h3>Step 8: Monitoring and Reporting</h3>
+
+      <p>AI citation monitoring is fundamentally different from rank tracking. There is no stable "position" to track. Instead, we monitor whether your business is cited when specific queries are run across each AI platform, how your citations change over time, and which competitors are gaining or losing AI visibility.</p>
+
+      <p>We run regular citation audits across ChatGPT, Perplexity, Claude, Copilot, and Google AI Overviews using your core commercial queries. Reports include citation presence/absence per platform, citation context (how your business is described), competitor citation analysis, and actionable recommendations for improving citation frequency. This gives you a clear picture of your AI visibility trajectory and the return on your AI search investment.</p>
+
+      <!-- ================================================ -->
+      <!-- SECTION: How AI Search Engines Find Your Business — SVG Diagram -->
+      <!-- ================================================ -->
+
+      <h2>How AI Search Engines Find Your Business</h2>
+
+      <p>The following diagram illustrates the journey from your website content to an AI-generated citation. Each stage represents an optimisation opportunity.</p>
+
+      <div class="max-w-lg mx-auto my-8">
+        <svg viewBox="0 0 420 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing how AI search engines find and cite a business: from website content through AI crawling, processing, user query, to AI-generated citation.">
+          <!-- Step 1: Your Website -->
+          <rect x="110" y="10" width="200" height="60" rx="8" fill="#1a365d"/>
+          <text x="210" y="35" text-anchor="middle" fill="white" font-size="13" font-weight="600">Your Website</text>
+          <text x="210" y="53" text-anchor="middle" fill="#a0aec0" font-size="10">Schema, content, llms.txt</text>
+
+          <!-- Arrow 1 -->
+          <line x1="210" y1="70" x2="210" y2="110" stroke="#dd6b20" stroke-width="2"/>
+          <polygon points="204,105 210,117 216,105" fill="#dd6b20"/>
+
+          <!-- Step 2: AI Crawlers -->
+          <rect x="110" y="120" width="200" height="60" rx="8" fill="#2b6cb0"/>
+          <text x="210" y="145" text-anchor="middle" fill="white" font-size="13" font-weight="600">AI Crawlers Scan</text>
+          <text x="210" y="163" text-anchor="middle" fill="#bee3f8" font-size="10">GPTBot, ClaudeBot, PerplexityBot</text>
+
+          <!-- Arrow 2 -->
+          <line x1="210" y1="180" x2="210" y2="220" stroke="#dd6b20" stroke-width="2"/>
+          <polygon points="204,215 210,227 216,215" fill="#dd6b20"/>
+
+          <!-- Step 3: Processed & Indexed -->
+          <rect x="110" y="230" width="200" height="60" rx="8" fill="#1a365d"/>
+          <text x="210" y="255" text-anchor="middle" fill="white" font-size="13" font-weight="600">Processed &amp; Indexed</text>
+          <text x="210" y="273" text-anchor="middle" fill="#a0aec0" font-size="10">Entity graph, trust signals</text>
+
+          <!-- Arrow 3 -->
+          <line x1="210" y1="290" x2="210" y2="330" stroke="#dd6b20" stroke-width="2"/>
+          <polygon points="204,325 210,337 216,325" fill="#dd6b20"/>
+
+          <!-- Step 4: User Asks Question -->
+          <rect x="110" y="340" width="200" height="60" rx="8" fill="#2b6cb0"/>
+          <text x="210" y="365" text-anchor="middle" fill="white" font-size="13" font-weight="600">User Asks a Question</text>
+          <text x="210" y="383" text-anchor="middle" fill="#bee3f8" font-size="10">"Best accountant in Reading?"</text>
+
+          <!-- Arrow 4 -->
+          <line x1="210" y1="400" x2="210" y2="440" stroke="#dd6b20" stroke-width="2"/>
+          <polygon points="204,435 210,447 216,435" fill="#dd6b20"/>
+
+          <!-- Step 5: AI Cites Your Business -->
+          <rect x="85" y="450" width="250" height="60" rx="8" fill="#dd6b20"/>
+          <text x="210" y="475" text-anchor="middle" fill="white" font-size="13" font-weight="700">AI Cites Your Business</text>
+          <text x="210" y="493" text-anchor="middle" fill="#feebc8" font-size="10">Traffic, trust, and new customers</text>
+        </svg>
+      </div>
+
+      <p>At each stage, specific optimisations increase your likelihood of progressing to the next. Missing schema at stage one means AI crawlers extract less structured data at stage two. Weak entity signals at stage three mean the AI is less confident citing you at stage five. Our process addresses every stage systematically.</p>
+
+      <!-- ================================================ -->
+      <!-- SECTION: AI Search vs Traditional SEO            -->
+      <!-- ================================================ -->
+
+      <h2>AI Search vs Traditional SEO — Key Differences</h2>
+
+      <p>AI search optimisation and traditional SEO share a common foundation but diverge in execution and measurement. The following comparison highlights the key differences Reading businesses need to understand.</p>
+
+      <div class="overflow-x-auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Traditional SEO</th>
+              <th>AI Search Optimisation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Goal</strong></td>
+              <td>Rank in blue links</td>
+              <td>Get cited in AI answers</td>
+            </tr>
+            <tr>
+              <td><strong>Content format</strong></td>
+              <td>Keyword-optimised, long-form</td>
+              <td>Entity-first, Q&A structured, citation-friendly</td>
+            </tr>
+            <tr>
+              <td><strong>Technical focus</strong></td>
+              <td>Meta tags, speed, Core Web Vitals</td>
+              <td>Schema, llms.txt, AI crawler access</td>
+            </tr>
+            <tr>
+              <td><strong>Authority signal</strong></td>
+              <td>Backlinks, domain authority</td>
+              <td>Entity prominence, cross-platform citations</td>
+            </tr>
+            <tr>
+              <td><strong>Measurement</strong></td>
+              <td>Position, clicks, impressions</td>
+              <td>Citations, brand mentions, referral traffic from AI</td>
+            </tr>
+            <tr>
+              <td><strong>Timeline</strong></td>
+              <td>3-6 months</td>
+              <td>1-3 months for initial citations</td>
+            </tr>
+            <tr>
+              <td><strong>Platforms</strong></td>
+              <td>Google, Bing</td>
+              <td>Google AI Overviews, ChatGPT, Perplexity, Claude, Copilot, Apple Intelligence</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The most effective strategy combines both. Strong traditional SEO signals improve your AI citation probability because AI systems use many of the same trust indicators that traditional search algorithms rely on. A site that ranks well, has comprehensive structured data, and maintains strong entity presence across the web is far more likely to be cited by AI search engines than a site optimised for only one channel.</p>
+
+      <!-- ================================================ -->
+      <!-- SECTION: SVG Comparison Diagram                  -->
+      <!-- ================================================ -->
+
+      <h2>Traditional SEO vs AI Search — Visual Comparison</h2>
+
+      <div class="max-w-lg mx-auto my-8">
+        <svg viewBox="0 0 440 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Side-by-side comparison of traditional SEO showing blue link rankings versus AI search optimisation showing AI-generated citations.">
+          <!-- Traditional SEO Side -->
+          <rect x="10" y="10" width="195" height="40" rx="6" fill="#1a365d"/>
+          <text x="107" y="35" text-anchor="middle" fill="white" font-size="12" font-weight="700">Traditional SEO</text>
+
+          <rect x="20" y="65" width="175" height="30" rx="4" fill="#edf2f7" stroke="#2b6cb0" stroke-width="1"/>
+          <text x="107" y="84" text-anchor="middle" fill="#1a365d" font-size="10">Optimise for keywords</text>
+
+          <rect x="20" y="105" width="175" height="30" rx="4" fill="#edf2f7" stroke="#2b6cb0" stroke-width="1"/>
+          <text x="107" y="124" text-anchor="middle" fill="#1a365d" font-size="10">Build backlinks</text>
+
+          <rect x="20" y="145" width="175" height="30" rx="4" fill="#edf2f7" stroke="#2b6cb0" stroke-width="1"/>
+          <text x="107" y="164" text-anchor="middle" fill="#1a365d" font-size="10">Improve technical health</text>
+
+          <rect x="20" y="195" width="175" height="30" rx="4" fill="#edf2f7" stroke="#2b6cb0" stroke-width="1"/>
+          <text x="107" y="214" text-anchor="middle" fill="#1a365d" font-size="10">Track position &amp; clicks</text>
+
+          <!-- Result box -->
+          <rect x="20" y="245" width="175" height="50" rx="6" fill="#2b6cb0"/>
+          <text x="107" y="267" text-anchor="middle" fill="white" font-size="11" font-weight="600">Page 1 ranking</text>
+          <text x="107" y="283" text-anchor="middle" fill="#bee3f8" font-size="9">User clicks your blue link</text>
+
+          <!-- AI Search Side -->
+          <rect x="235" y="10" width="195" height="40" rx="6" fill="#dd6b20"/>
+          <text x="332" y="35" text-anchor="middle" fill="white" font-size="12" font-weight="700">AI Search Optimisation</text>
+
+          <rect x="245" y="65" width="175" height="30" rx="4" fill="#feebc8" stroke="#dd6b20" stroke-width="1"/>
+          <text x="332" y="84" text-anchor="middle" fill="#1a365d" font-size="10">Build entity authority</text>
+
+          <rect x="245" y="105" width="175" height="30" rx="4" fill="#feebc8" stroke="#dd6b20" stroke-width="1"/>
+          <text x="332" y="124" text-anchor="middle" fill="#1a365d" font-size="10">Implement schema + llms.txt</text>
+
+          <rect x="245" y="145" width="175" height="30" rx="4" fill="#feebc8" stroke="#dd6b20" stroke-width="1"/>
+          <text x="332" y="164" text-anchor="middle" fill="#1a365d" font-size="10">Structure content for AI</text>
+
+          <rect x="245" y="195" width="175" height="30" rx="4" fill="#feebc8" stroke="#dd6b20" stroke-width="1"/>
+          <text x="332" y="214" text-anchor="middle" fill="#1a365d" font-size="10">Monitor citations &amp; mentions</text>
+
+          <!-- Result box -->
+          <rect x="245" y="245" width="175" height="50" rx="6" fill="#dd6b20"/>
+          <text x="332" y="267" text-anchor="middle" fill="white" font-size="11" font-weight="600">AI cites your business</text>
+          <text x="332" y="283" text-anchor="middle" fill="#feebc8" font-size="9">User trusts AI recommendation</text>
+
+          <!-- Divider -->
+          <line x1="220" y1="20" x2="220" y2="300" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4,4"/>
+        </svg>
+      </div>
+
+      <!-- ================================================ -->
+      <!-- SECTION: What Is llms.txt?                       -->
+      <!-- ================================================ -->
+
+      <h2>What Is llms.txt?</h2>
+
+      <p>llms.txt is a plain text file placed at the root of your website that provides AI crawlers with a structured overview of your site's content. It follows the open specification published at <a href="https://llmstxt.org" rel="noopener noreferrer" target="_blank">llmstxt.org</a> and is conceptually similar to robots.txt (which tells crawlers where they can go) and sitemap.xml (which lists all your pages). The difference is that llms.txt is specifically designed for AI consumption — it provides context that helps large language models understand what your business is and what each page covers.</p>
+
+      <h3>What llms.txt Contains</h3>
+
+      <p>A well-structured llms.txt file includes:</p>
+
+      <ul>
+        <li><strong>Site description</strong> — a one-paragraph summary of your business, location, and core offering.</li>
+        <li><strong>Page list with summaries</strong> — each key page URL followed by a one-line description of its content.</li>
+        <li><strong>Service definitions</strong> — clear statements of what services you offer and to whom.</li>
+        <li><strong>Location information</strong> — where you operate and who you serve.</li>
+      </ul>
+
+      <p>The format is deliberately simple. It is a plain text file, not JSON or XML. This makes it easy for AI systems to parse without needing a schema-specific parser. It also makes it trivially easy to create and maintain.</p>
+
+      <h3>Why llms.txt Matters for AI Citations</h3>
+
+      <p>When an AI crawler visits your site, it has limited time and compute to understand your business. llms.txt gives it a shortcut — a reliable, structured summary that enables faster and more accurate indexing. A site with a well-maintained llms.txt is more likely to be correctly understood and cited than a site that forces the AI crawler to infer business information from scattered, unstructured pages.</p>
+
+      <p>For Reading businesses with complex service offerings — a law firm with twelve practice areas, or a technology consultancy with overlapping service lines — llms.txt is particularly valuable. It eliminates the ambiguity that causes AI systems to misrepresent or omit your services when generating answers.</p>
+
+      <h3>How We Implement llms.txt</h3>
+
+      <p>We create a comprehensive llms.txt for your site, host it at your domain root, and update it whenever your content or services change. We test the file by running your core queries through AI platforms and verifying that the AI's understanding of your business matches the llms.txt content. If there are discrepancies, we refine the file until the AI's representation is accurate.</p>
+
+      <!-- ================================================ -->
+      <!-- SECTION: AI Search for Reading Industries        -->
+      <!-- ================================================ -->
+
+      <h2>AI Search Optimisation for Reading Industries</h2>
+
+      <p>AI search optimisation applies differently depending on your industry, your customer's search behaviour, and the competitive landscape in your sector. Here is how it applies to Reading's major business clusters.</p>
+
+      <h3>Technology Companies at Green Park</h3>
+
+      <p>Reading's Green Park is home to some of the UK's largest technology companies and a growing cluster of scale-ups and SaaS businesses. These companies compete nationally and globally, which means AI search optimisation is not optional — it is a competitive necessity. When a procurement manager asks ChatGPT to "list the top cybersecurity firms in the Thames Valley" or a CTO uses Copilot to research "best managed IT providers near Reading," your company needs to appear in that answer.</p>
+
+      <p>For tech businesses, AI search optimisation focuses on entity authority within your specific niche, thought leadership content that AI systems recognise as expert-level, and structured data that clearly defines your service taxonomy. We build citation presence on platforms like G2, Clutch, TechRadar, and industry-specific directories that AI systems frequently reference for technology recommendations.</p>
+
+      <h3>Law Firms at Forbury Square</h3>
+
+      <p>Reading's legal sector is concentrated around Forbury Square and the town centre. When someone asks an AI assistant "who is the best conveyancing solicitor in Reading?" or "recommend a commercial property lawyer in Berkshire," the AI draws from the Law Society directory, Google Business Profile data, legal comparison sites, and authoritative local sources.</p>
+
+      <p>For law firms, AI search optimisation requires particular attention to E-E-A-T signals. AI systems are cautious about recommending legal services and tend to cite firms with strong professional credentials, published expertise (articles, guides, case studies), and verified reviews. We build the entity profile that demonstrates your firm's authority to AI systems across all platforms.</p>
+
+      <h3>Estate Agents</h3>
+
+      <p>Property search is one of the fastest-growing AI search categories. Users increasingly ask AI assistants questions like "what is the average house price in Caversham?" or "which Reading estate agents specialise in first-time buyers?" AI-powered property search tools are integrating into platforms like Rightmove and Zoopla, and standalone AI property advisors are emerging.</p>
+
+      <p>For Reading estate agents, AI search optimisation means establishing your agency as a recognised entity for specific Reading areas and property types. Structured data for local listings, neighbourhood guides with verifiable data, and citation presence on property portals all contribute to AI visibility in property-related queries.</p>
+
+      <h3>Local Services</h3>
+
+      <p>For local service businesses — electricians, plumbers, accountants, dentists, restaurants — the "near me" query is evolving into the "recommend me" query. Instead of typing "electrician near me" into Google, users ask an AI assistant "can you recommend a reliable electrician in Tilehurst?" The AI generates a recommendation based on entity signals, reviews, citation frequency, and content quality.</p>
+
+      <p>This shift favours businesses with strong entity presence and genuine customer reviews over businesses that simply optimised for "near me" keywords. We help Reading service businesses build the entity profile and citation network that makes AI systems confident in recommending them.</p>
+
+      <!-- ================================================ -->
+      <!-- SECTION: Getting Started                         -->
+      <!-- ================================================ -->
+
+      <h2>Getting Started with AI Search in Reading</h2>
+
+      <p>AI search optimisation is not a future concern. It is a present reality that is already affecting the visibility of Reading businesses. Here is what you should do now.</p>
+
+      <p><strong>Test your AI visibility.</strong> Open ChatGPT, Perplexity, and Copilot. Ask them to recommend a business in your category in Reading. If your business does not appear, you have an AI visibility gap.</p>
+
+      <p><strong>Check your AI crawler access.</strong> Review your robots.txt file. If it blocks GPTBot, ClaudeBot, or PerplexityBot, fix that immediately. Check whether your hosting provider or security plugins are blocking AI crawlers at the infrastructure level.</p>
+
+      <p><strong>Audit your structured data.</strong> Run your key pages through Google's Rich Results Test. If you do not have comprehensive schema markup — LocalBusiness, Service, FAQPage at minimum — you are leaving AI citation opportunities on the table.</p>
+
+      <p><strong>Review your content structure.</strong> Look at the first paragraph of your homepage and service pages. Does it clearly state what you do, who you serve, and where you operate? If the first thing a reader encounters is a marketing slogan rather than a factual description, AI systems will struggle to extract citable information.</p>
+
+      <p>For a comprehensive assessment, request a <a href="/free-seo-audit-reading/">free SEO audit</a> that includes an AI visibility check across all major platforms. We will tell you exactly where you stand and what to prioritise.</p>
+
+      <p>Ready to discuss AI search optimisation for your Reading business? <a href="/contact/">Get in touch</a> to schedule a consultation.</p>
+
+      <!-- ================================================ -->
+      <!-- SECTION: FAQ                                     -->
+      <!-- ================================================ -->
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What is AI search optimisation?</h3>
+        <p>AI search optimisation (also called AEO, GEO, or LLM SEO) is the practice of making your business visible and citable by AI-powered search engines such as ChatGPT, Google AI Overviews, Perplexity, Claude, and Microsoft Copilot. It focuses on entity authority, structured data, citation building, and content formatting that AI systems can parse and attribute to your business. The goal is not to rank in a list of links but to be cited in AI-generated answers.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How is AEO different from SEO?</h3>
+        <p>Traditional SEO aims to rank your website in Google's blue link results. AEO (Answer Engine Optimisation) aims to get your business cited in AI-generated answers. The techniques overlap — structured data, quality content, and authority signals matter for both — but AEO adds entity strategy, llms.txt implementation, AI crawler configuration, and citation monitoring across multiple AI platforms. You need both for maximum visibility.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Which AI search engines matter most?</h3>
+        <p>Google AI Overviews has the largest reach because it appears directly in Google search results. ChatGPT Search and Perplexity are the most popular standalone AI search tools. Microsoft Copilot is significant for enterprise users because of its integration into Microsoft 365 and Edge. Claude and Apple Intelligence are growing. A comprehensive strategy covers all six platforms.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How do I check if my business appears in ChatGPT?</h3>
+        <p>Open ChatGPT with web browsing enabled and ask it to recommend businesses in your category in Reading. For example, ask "Who are the best accountants in Reading?" or "Recommend an IT support company near Thames Valley Park." If your business is not mentioned, you have an AI visibility gap. Repeat this across Perplexity, Copilot, and Claude for a complete picture. Results vary between platforms and sessions, so test multiple times.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What is llms.txt?</h3>
+        <p>llms.txt is a plain text file placed at your website's root (like robots.txt) that provides AI crawlers with a structured summary of your site's content, services, and key information. It follows the open specification at llmstxt.org. The file helps AI systems understand your business quickly and accurately, increasing the likelihood of correct citations. It is easy to create, easy to maintain, and increasingly expected by AI crawlers.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How long does AI search optimisation take?</h3>
+        <p>Initial AI citations can appear within 1-3 months of implementing entity strategy, structured data, and citation building. Full AI visibility across all major platforms typically takes 3-6 months. The timeline depends on your existing online authority, the competitiveness of your sector in Reading, and how quickly AI crawlers re-index your site after optimisation.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Do I still need traditional SEO?</h3>
+        <p>Yes. Traditional SEO and AI search optimisation are complementary. Google still drives the majority of search traffic through blue link results, and strong traditional SEO signals — authority, relevance, technical health — also improve your AI citation probability. AI search engines frequently reference pages that already rank well in traditional search. The strongest approach combines both disciplines. See our <a href="/technical-seo-reading/">technical SEO</a> and <a href="/seo-audit-reading/">SEO audit</a> services for the traditional foundation.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How much does AI search optimisation cost in Reading?</h3>
+        <p>AI search optimisation for Reading businesses typically ranges from £500-£2,000 per month as part of an ongoing SEO retainer that includes both traditional and AI-focused work. A standalone AI visibility audit starts from a few hundred pounds. The investment depends on your industry competitiveness, number of target queries, and the current state of your online entity presence. Visit our <a href="/seo-pricing-reading/">pricing page</a> for detailed breakdowns.</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-box">
+        <h2 style="color: white; margin-top: 0;">Get Your Free AI Visibility Audit</h2>
+        <p>Find out whether ChatGPT, Perplexity, and Google AI Overviews cite your Reading business — or your competitors. Our free audit tests your visibility across all major AI search platforms and gives you a prioritised action plan.</p>
+        <a href="/free-seo-audit-reading/">Request Free Audit</a>
+      </div>
+
+      <p>Back to <a href="/services/">SEO Services</a> or <a href="/">SEO Reading homepage</a>. Explore our <a href="/technical-seo-reading/">technical SEO</a>, <a href="/seo-audit-reading/">SEO audit</a>, and <a href="/seo-pricing-reading/">pricing</a> pages. See real results on our <a href="/case-studies/">case studies</a> page.</p>
+    </div>
+  </section>
+</Base>

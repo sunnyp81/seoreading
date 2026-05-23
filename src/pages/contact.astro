@@ -1,0 +1,166 @@
+---
+import Base from '../layouts/Base.astro';
+
+const faqs = [
+  {
+    q: "How quickly do you respond?",
+    a: "We aim to respond to all enquiries within 24 hours, usually sooner during business hours. If you contact us on a weekday morning, expect a reply the same day. Weekend messages are picked up first thing Monday."
+  },
+  {
+    q: "Do you offer free consultations?",
+    a: "Yes. Every new enquiry gets a free initial consultation where we review your current search visibility, discuss your goals, and outline what an SEO campaign would look like for your business. No obligation, no hard sell."
+  },
+  {
+    q: "Can we meet in person in Reading?",
+    a: "Absolutely. We are based in Reading and happy to meet at your office, a local coffee shop, or a co-working space in the town centre. We also cover Caversham, Tilehurst, Earley, Wokingham, and the wider Berkshire area for face-to-face meetings."
+  },
+  {
+    q: "What should I prepare before getting in touch?",
+    a: "It helps to have your website URL ready, a rough idea of your target keywords or services, and any existing Google Analytics or Search Console access. If you have none of that, no problem — we can start from scratch and audit everything during the consultation."
+  }
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://seoreading.uk/contact/" }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Contact SEO Reading | Get in Touch",
+  "description": "Get in touch with SEO Reading. Based in Reading, Berkshire, serving businesses across the Thames Valley. Free initial consultation available.",
+  "url": "https://seoreading.uk/contact/",
+  "isPartOf": { "@type": "WebSite", "name": "SEO Reading", "url": "https://seoreading.uk/" },
+  "breadcrumb": { "@id": "https://seoreading.uk/contact/#breadcrumb" }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+---
+
+<Base
+  title="Contact SEO Reading | Get in Touch"
+  description="Get in touch with SEO Reading. Based in Reading, Berkshire, serving businesses across the Thames Valley. Free initial consultation available."
+  schema={[breadcrumbSchema, webPageSchema, faqSchema]}
+>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="prose">
+      <nav aria-label="Breadcrumb" class="text-sm text-muted mb-6">
+        <a href="/">Home</a> &raquo; Contact
+      </nav>
+
+      <h1>Contact SEO Reading</h1>
+
+      <p>SEO Reading is based in Reading, Berkshire, and serves businesses across the Thames Valley region. Get in touch to discuss how we can improve your search visibility.</p>
+
+      <div class="quick-answer">
+        <p>Contact Sunny Patel at SEO Reading for a free initial consultation. Based in Reading, covering Caversham, Tilehurst, Earley, Wokingham, and the wider Berkshire area.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 my-8">
+        <div>
+          <h2>Send a Message</h2>
+          <form action="#" method="POST" class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-text mb-1">Name</label>
+              <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light" placeholder="Your name" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-text mb-1">Email</label>
+              <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light" placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-text mb-1">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light" placeholder="07xxx xxxxxx" />
+            </div>
+            <div>
+              <label for="website" class="block text-sm font-medium text-text mb-1">Website URL (optional)</label>
+              <input type="url" id="website" name="website" class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light" placeholder="https://yoursite.co.uk" />
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-text mb-1">Message</label>
+              <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light" placeholder="Tell us about your business and what you need help with"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-accent text-white py-3 px-6 rounded-lg font-semibold hover:bg-accent-light transition-colors">Send Message</button>
+          </form>
+        </div>
+
+        <div>
+          <h2>Contact Details</h2>
+          <div class="space-y-4">
+            <div>
+              <h3 class="font-semibold">Email</h3>
+              <p><a href="mailto:hello@seoreading.uk">hello@seoreading.uk</a></p>
+            </div>
+            <div>
+              <h3 class="font-semibold">Location</h3>
+              <p>Reading, Berkshire</p>
+            </div>
+            <div>
+              <h3 class="font-semibold">Coverage Area</h3>
+              <ul>
+                <li>Reading</li>
+                <li>Caversham</li>
+                <li>Tilehurst</li>
+                <li>Earley</li>
+                <li>Woodley</li>
+                <li>Wokingham</li>
+                <li>Bracknell</li>
+                <li>Wider Thames Valley</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-semibold">Response Time</h3>
+              <p>Typically within 24 hours</p>
+            </div>
+          </div>
+
+          <div class="mt-6 p-4 bg-surface rounded-lg">
+            <p class="font-semibold">Ready for a free audit?</p>
+            <p>Request a <a href="/free-seo-audit-reading/">free SEO audit</a> and we will show you exactly where your site stands in Reading's search results.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2>Areas We Cover</h2>
+
+      <p>We provide SEO services across Reading and the surrounding Berkshire towns. Our clients are based in Reading town centre, Caversham, Tilehurst, Earley, Lower Earley, Woodley, Whitley, Calcot, Shinfield, Wokingham, Bracknell, Henley-on-Thames, Newbury, and Maidenhead. Whether your business serves a single postcode or the entire Thames Valley, we tailor our strategy to match your geographic targeting. See our full <a href="/areas/">areas covered</a> page for location-specific details.</p>
+
+      <h2>Find Us in Reading</h2>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39768.926820892064!2d-1.0175!3d51.4543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48742078d4cbf3ff%3A0x498d6fcde498a4e!2sReading%2C%20UK!5e0!3m2!1sen!2suk!4v1"
+        class="w-full h-96 rounded-lg border border-border"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map showing Reading, Berkshire"
+      ></iframe>
+
+      <h2>Frequently Asked Questions</h2>
+
+      {faqs.map(faq => (
+        <div class="faq-item">
+          <h3 class="faq-question">{faq.q}</h3>
+          <p>{faq.a}</p>
+        </div>
+      ))}
+
+      <h2>Next Steps</h2>
+
+      <p>Not sure where to start? Browse our <a href="/services/">SEO services</a> to see what we offer, check our <a href="/seo-pricing-reading/">pricing</a> for transparent costs, or learn more <a href="/about/">about us</a> and how we work with Reading businesses. Every engagement begins with a conversation — no templates, no generic proposals. We listen first, then build a strategy that fits your market and budget.</p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,313 @@
+---
+import Base from '../layouts/Base.astro';
+
+const faqs = [
+  {
+    q: "What is the minimum contract length?",
+    a: "There is no lock-in. We work on rolling monthly agreements. Most clients stay because they see results, not because a contract forces them to. We ask for a minimum three-month commitment to allow enough time for SEO to take effect."
+  },
+  {
+    q: "Do you guarantee first-page rankings?",
+    a: "No legitimate SEO provider can guarantee specific rankings because Google's algorithm considers over 200 factors. What we guarantee is transparent reporting, ethical practices, and a clear strategy tied to measurable KPIs like organic traffic, leads, and revenue."
+  },
+  {
+    q: "What is included in the monthly retainer?",
+    a: "Every retainer includes technical SEO monitoring, content creation, on-page optimisation, local SEO management, and regular reporting. The exact scope depends on your tier. We also include ad-hoc support for questions and quick fixes."
+  },
+  {
+    q: "When should I expect to see results?",
+    a: "Most Reading businesses see measurable improvements within 3-4 months. Local SEO gains (Google Maps, local pack) often appear faster, within 4-8 weeks. Competitive terms like \"solicitors reading\" or \"accountants reading\" typically take 4-6 months to shift significantly."
+  },
+  {
+    q: "Why are you cheaper than London agencies?",
+    a: "Lower overheads. No Shoreditch office lease, no account manager layer between you and the strategist. You work directly with a senior SEO consultant who lives and works in Reading. The expertise is the same; the postcode tax is removed."
+  },
+  {
+    q: "Can I switch tiers or cancel?",
+    a: "Yes. You can upgrade, downgrade, or cancel with 30 days notice. If your business grows and needs more content or link building, we scale up. If budgets tighten, we scale down to protect the gains already made."
+  }
+];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://seoreading.uk/services/" },
+    { "@type": "ListItem", "position": 3, "name": "SEO Pricing Reading", "item": "https://seoreading.uk/seo-pricing-reading/" }
+  ]
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "SEO Pricing Reading | Transparent Costs",
+  "description": "Transparent SEO pricing for Reading businesses. Monthly retainers from £500, one-off audits from £300. Typically 40-60% less than London agencies.",
+  "url": "https://seoreading.uk/seo-pricing-reading/",
+  "isPartOf": { "@type": "WebSite", "name": "SEO Reading", "url": "https://seoreading.uk/" },
+  "breadcrumb": { "@id": "https://seoreading.uk/seo-pricing-reading/#breadcrumb" }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "SEO Services Reading",
+  "provider": { "@type": "Organization", "name": "SEO Reading" },
+  "areaServed": { "@type": "City", "name": "Reading" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "SEO Packages",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Starter SEO Package",
+        "priceSpecification": { "@type": "PriceSpecification", "price": "500", "priceCurrency": "GBP", "unitText": "MONTH" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Growth SEO Package",
+        "priceSpecification": { "@type": "PriceSpecification", "price": "1000", "priceCurrency": "GBP", "unitText": "MONTH" }
+      },
+      {
+        "@type": "Offer",
+        "name": "Enterprise SEO Package",
+        "priceSpecification": { "@type": "PriceSpecification", "price": "2000", "priceCurrency": "GBP", "unitText": "MONTH" }
+      }
+    ]
+  }
+};
+
+const schema = [breadcrumbSchema, webPageSchema, faqSchema, serviceSchema];
+---
+
+<Base
+  title="SEO Pricing Reading | Transparent Costs"
+  description="Transparent SEO pricing for Reading businesses. Monthly retainers from £500, one-off audits from £300. Typically 40-60% less than London agencies."
+  schema={schema}
+>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="prose">
+
+      <h1>SEO Pricing for Reading Businesses</h1>
+
+      <p>SEO Reading offers transparent, competitive pricing for businesses in Reading and Berkshire — typically 40-60% less than equivalent London agencies while delivering the same expertise with deeper local knowledge.</p>
+
+      <p>Every business has different goals, competition levels, and starting points. A cafe on <strong>Broad Street</strong> competing for "brunch reading" needs a different investment than a law firm at <strong>Forbury Square</strong> targeting "commercial solicitors berkshire." The pricing below reflects that reality.</p>
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> SEO pricing in Reading ranges from £300 for a one-off audit to £500-£2,000/month for ongoing retainers. Most Reading SMEs invest £750-£1,200/month for meaningful organic growth.
+      </div>
+
+      <p>We publish our prices because hidden pricing wastes everyone's time. Below you will find our three monthly retainer tiers, one-off service costs, and a direct comparison against typical London agency fees.</p>
+
+      <h2>Pricing Tiers</h2>
+
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 my-8">
+
+      <div class="pricing-tier">
+        <p class="text-sm font-semibold text-accent uppercase tracking-wide mb-1">Starter</p>
+        <p class="text-3xl font-bold text-brand mb-1">£500<span class="text-base font-normal text-text-muted">/month</span></p>
+        <p class="text-sm text-text-muted mb-4">For small Reading businesses</p>
+        <ul class="text-sm space-y-2 mb-6">
+          <li>Monthly technical SEO monitoring</li>
+          <li>2 optimised content pieces per month</li>
+          <li>Local SEO management (Google Business Profile)</li>
+          <li>Monthly performance report</li>
+          <li>On-page optimisation for key pages</li>
+          <li>Core Web Vitals monitoring</li>
+        </ul>
+        <p class="text-xs text-text-muted"><strong>Best for:</strong> Cafes near Broad Street, independent shops, local tradespeople, new businesses building their first organic presence.</p>
+      </div>
+
+      <div class="pricing-tier featured">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">Most Popular</span>
+        <p class="text-sm font-semibold text-accent uppercase tracking-wide mb-1">Growth</p>
+        <p class="text-3xl font-bold text-brand mb-1">£1,000<span class="text-base font-normal text-text-muted">/month</span></p>
+        <p class="text-sm text-text-muted mb-4">For established Reading businesses</p>
+        <ul class="text-sm space-y-2 mb-6">
+          <li>Full technical SEO audit and ongoing fixes</li>
+          <li>4 optimised content pieces per month</li>
+          <li>Link building (outreach and digital PR)</li>
+          <li>Local SEO management</li>
+          <li>Competitor tracking and gap analysis</li>
+          <li>Fortnightly reporting with strategy calls</li>
+          <li>Schema markup implementation</li>
+        </ul>
+        <p class="text-xs text-text-muted"><strong>Best for:</strong> Estate agents, accountancy firms, law firms at Forbury Square, dental practices, and established service businesses ready to grow.</p>
+      </div>
+
+      <div class="pricing-tier">
+        <p class="text-sm font-semibold text-accent uppercase tracking-wide mb-1">Enterprise</p>
+        <p class="text-3xl font-bold text-brand mb-1">£2,000<span class="text-base font-normal text-text-muted">/month</span></p>
+        <p class="text-sm text-text-muted mb-4">For larger organisations and multi-location</p>
+        <ul class="text-sm space-y-2 mb-6">
+          <li>Everything in Growth, plus:</li>
+          <li>AI search optimisation (ChatGPT, Copilot, Perplexity)</li>
+          <li>Advanced schema and entity strategy</li>
+          <li>Weekly reporting with priority Slack/email support</li>
+          <li>Dedicated SEO strategist</li>
+          <li>Multi-location or multi-service campaign management</li>
+          <li>Conversion rate optimisation recommendations</li>
+        </ul>
+        <p class="text-xs text-text-muted"><strong>Best for:</strong> Companies at Green Park, Thames Valley Park, multi-branch businesses, and organisations targeting national terms alongside local.</p>
+      </div>
+
+    </div>
+
+    <div class="prose">
+
+      <p>All tiers include direct access to a senior SEO consultant — no junior account managers, no middlemen. You speak to the person doing the work.</p>
+
+      <h2>One-Off Services</h2>
+
+      <p>Not every business needs a monthly retainer. If you need a specific piece of work done, these one-off services cover the most common requests we receive from Reading businesses.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>Starting Price</th>
+            <th>What You Get</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="/seo-audit-reading/">SEO Audit</a></td>
+            <td>£300</td>
+            <td>Full technical, on-page, and competitive audit with prioritised action plan</td>
+          </tr>
+          <tr>
+            <td><a href="/technical-seo-reading/">Technical SEO Fix</a></td>
+            <td>£500</td>
+            <td>Hands-on implementation: crawl errors, Core Web Vitals, indexation issues, site speed</td>
+          </tr>
+          <tr>
+            <td>Content Strategy</td>
+            <td>£400</td>
+            <td>Keyword research, topical mapping, content calendar, competitor gap analysis</td>
+          </tr>
+          <tr>
+            <td><a href="/ai-search-optimisation-reading/">AI Search Optimisation Setup</a></td>
+            <td>£750</td>
+            <td>Entity optimisation, structured data, llms.txt, citation-ready content restructuring</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>One-off services are typically delivered within 5-10 working days. Payment is 50% upfront, 50% on delivery.</p>
+
+      <h2>Reading vs London: Price Comparison</h2>
+
+      <p>Reading businesses often get quoted by London agencies first. The sticker shock is real. Here is a direct comparison of what the same services cost.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Service</th>
+            <th>London Agency (Typical)</th>
+            <th>SEO Reading</th>
+            <th>Saving</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monthly SEO retainer</td>
+            <td>£2,000-£5,000</td>
+            <td>£500-£2,000</td>
+            <td>40-75%</td>
+          </tr>
+          <tr>
+            <td>SEO audit</td>
+            <td>£1,000-£3,000</td>
+            <td>£300-£600</td>
+            <td>60-80%</td>
+          </tr>
+          <tr>
+            <td>Content (per piece)</td>
+            <td>£300-£600</td>
+            <td>£150-£300</td>
+            <td>50%</td>
+          </tr>
+          <tr>
+            <td>Technical SEO fix</td>
+            <td>£1,500-£3,000</td>
+            <td>£500-£1,000</td>
+            <td>60-70%</td>
+          </tr>
+          <tr>
+            <td>Link building (per month)</td>
+            <td>£1,000-£2,500</td>
+            <td>£400-£1,000</td>
+            <td>50-60%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The quality gap people assume exists between London and Reading SEO consultants is a myth. The tools are the same (Ahrefs, Screaming Frog, Search Console). The knowledge is the same. The difference is that a Reading-based consultant understands Reading's market, knows which directories matter locally, and does not charge you for a Farringdon office lease.</p>
+
+      <p>A Reading consultant also understands the local business landscape: the Thames Valley tech corridor, the mix of professional services in the town centre, and the commuter-belt dynamics that make local search intent different from central London.</p>
+
+      <h2>What Affects SEO Pricing</h2>
+
+      <p>No two SEO campaigns cost the same. Four factors drive price variation for Reading businesses:</p>
+
+      <h3>1. Competition Level</h3>
+
+      <p>A plumber in Tilehurst faces less online competition than a personal injury solicitor in Reading town centre. Higher competition means more content, more link building, and more time to rank. Competitive verticals like law, finance, and property in Reading typically need the Growth or Enterprise tier.</p>
+
+      <h3>2. Current Site State</h3>
+
+      <p>A brand-new website with no domain authority needs foundational work before it can compete. An established site with existing rankings might only need technical fixes and content gaps filled. We assess this in the <a href="/seo-audit-reading/">initial audit</a> and recommend a tier based on what your site actually needs, not what generates the most revenue for us.</p>
+
+      <h3>3. Goals and Timeline</h3>
+
+      <p>Targeting "reading restaurants" for a new bistro is achievable in 3-4 months at Starter level. Targeting "best estate agents reading" against established firms with years of domain authority requires Growth level and 6+ months. We set realistic expectations upfront based on the data, not vague promises.</p>
+
+      <h3>4. Industry Regulations</h3>
+
+      <p>YMYL (Your Money or Your Life) sectors — health, finance, legal — face stricter quality thresholds in Google. A financial adviser in Reading needs E-E-A-T signals (credentials, authoritative content, trust markers) that a florist does not. This additional content and authority-building work is reflected in pricing.</p>
+
+      <h2>ROI of SEO for Reading Businesses</h2>
+
+      <p>SEO is an investment. Here is how to think about the return.</p>
+
+      <p><strong>Example: a Reading estate agent.</strong> The keyword "estate agents reading" gets approximately 1,300 searches per month. Position 1 captures roughly 28% of clicks — that is 364 visitors per month. The Google Ads equivalent cost for those clicks is approximately £2.50 per click, giving a traffic value of <strong>£910 per month</strong> from a single keyword.</p>
+
+      <p>At our Growth tier (£1,000/month), you would need that one keyword alone to nearly cover the entire investment. In practice, a well-executed SEO campaign targets dozens of related terms: "estate agents in reading berkshire," "best letting agents reading," "property valuations RG1." The compounding effect means ROI typically exceeds 3:1 within 6-12 months.</p>
+
+      <p>Unlike PPC, SEO traffic does not stop when you stop paying. Rankings built over 12 months continue generating traffic even if you pause your campaign. That residual value is what makes SEO the highest-ROI marketing channel for most Reading businesses.</p>
+
+      <p>Local service businesses see particularly strong returns because local search intent converts at much higher rates than generic informational searches. Someone searching "emergency plumber reading" is ready to buy now.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      {faqs.map(f => (
+        <div class="faq-item">
+          <p class="faq-question">{f.q}</p>
+          <p>{f.a}</p>
+        </div>
+      ))}
+
+      <div class="cta-box">
+        <h2 class="text-white text-2xl font-bold" style="margin:0;color:white;">Get Your Free SEO Audit</h2>
+        <p class="text-gray-200 mt-2">Find out exactly where your Reading business stands in search. No obligation, no jargon — just a clear report showing what is working, what is not, and what to fix first.</p>
+        <a href="/free-seo-audit-reading/">Request Free Audit</a>
+      </div>
+
+      <p class="text-sm text-text-muted">Ready to discuss your SEO needs? <a href="/contact/">Get in touch</a> or explore our full range of <a href="/services/">SEO services</a> for Reading businesses.</p>
+
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,208 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'About Sunny Patel | SEO Reading';
+const description = 'Sunny Patel is an SEO consultant based in Reading, Berkshire. Specialising in local SEO, technical SEO, and AI search optimisation for Thames Valley businesses.';
+
+const faqItems = [
+  {
+    q: 'What qualifications do you have?',
+    a: 'I hold an MBA and have professional certifications in Google Analytics, Google Ads, and technical SEO. Beyond formal qualifications, my track record speaks loudest — years of measurable ranking improvements for businesses across Reading and the wider Thames Valley. I stay current through continuous testing, direct GSC data analysis, and hands-on work across dozens of live sites.'
+  },
+  {
+    q: 'How long have you been doing SEO?',
+    a: 'I have been working in SEO professionally for over eight years. During that time, I have managed campaigns for local Reading businesses, national brands, and everything in between. The industry has changed dramatically in that period — from keyword stuffing to entity-based search to AI citations — and I have adapted my methods at every stage.'
+  },
+  {
+    q: 'Do you work with businesses outside Reading?',
+    a: 'Yes. While Reading and Berkshire are my core focus, I work with businesses across the Thames Valley and nationally. I serve clients in Wokingham, Bracknell, Henley-on-Thames, Newbury, and Maidenhead regularly. For businesses outside the region, I offer remote SEO consultancy with the same data-driven approach.'
+  },
+  {
+    q: 'What industries do you specialise in?',
+    a: 'I work across multiple sectors including professional services (solicitors, accountants, financial advisers), trades and home services, healthcare, property, education, and technology companies. Reading\'s diverse economy means I have built expertise across industries rather than narrowing to one vertical. See my industries page for more detail.'
+  },
+  {
+    q: 'How quickly can you start work on my site?',
+    a: 'Most engagements begin within a week of the initial conversation. I start with either a free SEO check or a paid comprehensive audit depending on what your site needs. From there, we agree priorities and I begin implementation immediately. There is no lengthy onboarding process or committee approvals — you deal with me directly.'
+  },
+  {
+    q: 'How do I get started?',
+    a: 'The simplest route is to request a free SEO audit through my audit page. I will review your site, identify the biggest opportunities, and come back to you with a clear recommendation. No obligation, no hard sell. If the numbers make sense for both of us, we discuss next steps.'
+  }
+];
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sunny Patel",
+  "jobTitle": "SEO Consultant",
+  "url": "https://seoreading.uk/about/",
+  "sameAs": [
+    "https://sunnypatel.co.uk",
+    "https://www.linkedin.com/in/sunnypatel81/"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "SEO Reading",
+    "url": "https://seoreading.uk"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Reading",
+    "addressRegion": "Berkshire",
+    "addressCountry": "GB"
+  },
+  "knowsAbout": ["Search Engine Optimisation", "Local SEO", "Technical SEO", "AI Search Optimisation", "Content Strategy"]
+};
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SEO Reading",
+  "url": "https://seoreading.uk",
+  "founder": {
+    "@type": "Person",
+    "name": "Sunny Patel"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Reading",
+    "addressRegion": "Berkshire",
+    "addressCountry": "GB"
+  },
+  "sameAs": ["https://sunnypatel.co.uk"]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+    { "@type": "ListItem", "position": 2, "name": "About", "item": "https://seoreading.uk/about/" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }))
+};
+
+const schema = [personSchema, orgSchema, breadcrumbSchema, faqSchema];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="prose">
+
+      <nav aria-label="Breadcrumb" class="text-sm mb-8">
+        <ol class="flex gap-2">
+          <li><a href="/">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">About</li>
+        </ol>
+      </nav>
+
+      <h1>About Sunny Patel — SEO Consultant in Reading</h1>
+
+      <p>SEO Reading is run by Sunny Patel, an SEO consultant based in Reading, Berkshire, who helps local businesses and national brands improve their visibility in Google and AI-powered search engines.</p>
+
+      <div class="quick-answer">
+        <p><strong>Quick answer:</strong> Sunny Patel is a Reading-based SEO consultant who combines technical SEO expertise with deep knowledge of the Berkshire business landscape. He works with businesses from Caversham to Green Park, delivering measurable organic growth.</p>
+      </div>
+
+      <h2>Who Is Sunny Patel</h2>
+
+      <p>I am an SEO consultant based in Reading, Berkshire. I work with local businesses, professional service firms, and larger organisations across the Thames Valley to improve their search visibility and generate more leads from organic traffic.</p>
+
+      <p>My specialisms are <a href="/technical-seo-reading/">technical SEO</a>, local search optimisation, content strategy, and <a href="/ai-search-optimisation-reading/">AI search optimisation</a>. These are not buzzwords on a slide deck — they are the specific disciplines I apply to every campaign, backed by data from Google Search Console, Ahrefs, and direct measurement.</p>
+
+      <p>I understand the Reading business landscape because I operate within it. I know the difference between the footfall-driven independent shops on Broad Street and the enterprise procurement cycles at Green Park and Thames Valley Park. That context matters when building an SEO strategy. A one-size-fits-all approach from a London agency that has never set foot in Berkshire will miss the nuances that determine whether a campaign converts or stalls.</p>
+
+      <p>My approach is practical and results-focused. Every recommendation I make ties to a measurable outcome — more impressions, better rankings, higher click-through rates, or increased leads. I do not produce 60-page reports full of jargon that gather dust. I identify what will move the needle and execute it.</p>
+
+      <h2>Why I Focus on Reading</h2>
+
+      <p>Reading is one of the UK's most competitive local markets for digital services. The town sits at an intersection of several forces that make SEO here genuinely challenging.</p>
+
+      <p>Reading is home to major technology employers — Microsoft, Oracle, Cisco, and dozens of scale-ups at Thames Valley Park and Green Park. These companies drive demand for sophisticated digital services, which pushes the bar higher for every business competing online in the area. Alongside these corporates sit thousands of SMEs: solicitors around Forbury Square, independent retailers on Harris Arcade and Broad Street, tradespeople serving Caversham, Earley, Tilehurst, and Woodley.</p>
+
+      <p>The Elizabeth Line connection to London intensifies this competition. Reading businesses now compete directly with London firms for digital visibility. A Wokingham accountancy practice is not just competing with other local firms — it is competing with Paddington-based practices that now claim to serve the Thames Valley.</p>
+
+      <p>Reading's distinct areas each have their own search characteristics. Caversham has a village identity with localised search intent. Earley's residential market drives service-based queries. The legal and financial cluster around Forbury Square targets professional service keywords. Green Park's corporate campus generates B2B search demand. Each requires a different approach.</p>
+
+      <p>I chose to specialise in Reading because generic SEO advice does not work here. A Caversham cafe and a Green Park SaaS company need fundamentally different strategies. Understanding those differences is what separates effective local SEO from wasted budget.</p>
+
+      <h2>My Approach to SEO</h2>
+
+      <p>I follow five principles in every engagement. These are not negotiable — they are how I work.</p>
+
+      <p><strong>Audit first.</strong> I never prescribe solutions before understanding the problem. Every engagement starts with a thorough assessment of your current position: technical health, content gaps, backlink profile, local signals, and competitor landscape. This audit shapes everything that follows.</p>
+
+      <p><strong>Data-driven decisions.</strong> I do not guess. Every recommendation is backed by Google Search Console data, Ahrefs analysis, or direct measurement. When I say a page needs rewriting, I can show you the impression count, click-through rate, and ranking position that led to that conclusion. When I prioritise one keyword over another, the data justifies it.</p>
+
+      <p><strong>Transparency.</strong> You see exactly what I am doing and why. I share access to all reporting tools. I explain changes in plain language. There are no black boxes, no proprietary methods that I cannot explain, and no mystique. SEO is not magic — it is structured problem-solving with clear inputs and measurable outputs.</p>
+
+      <p><strong>AI-forward.</strong> The search landscape is shifting from ten blue links to AI-generated answers. Google's AI Overviews, ChatGPT, Perplexity, and Microsoft Copilot are changing how people find businesses. I build this into every campaign as standard — preparing your content to be cited by AI systems, not just ranked by traditional algorithms. This is not optional in 2026.</p>
+
+      <p><strong>No lock-in contracts.</strong> I do not tie clients into 12-month agreements. My work should speak for itself month to month. If I am delivering results, you will want to continue. If I am not, you should be free to leave. This keeps me accountable and ensures you are never paying for inertia.</p>
+
+      <h2>Services I Provide</h2>
+
+      <p>I offer a focused set of SEO services tailored to Reading and Thames Valley businesses:</p>
+
+      <ul>
+        <li><a href="/technical-seo-reading/">Technical SEO</a> — site architecture, crawlability, Core Web Vitals, schema markup, and indexation fixes that give search engines a clean path to your content.</li>
+        <li><a href="/seo-audit-reading/">SEO Audits</a> — comprehensive assessments that identify exactly where your site is underperforming and what to fix first for maximum impact.</li>
+        <li><a href="/ai-search-optimisation-reading/">AI Search Optimisation</a> — ensuring your business gets cited in AI-generated answers from ChatGPT, Perplexity, Google AI Overviews, and Copilot.</li>
+        <li>Local SEO — Google Business Profile optimisation, local citation building, review management, and location-specific content strategy.</li>
+        <li>Content Strategy — keyword-mapped editorial plans that target real search demand, not vanity topics.</li>
+      </ul>
+
+      <p>Full pricing details are on my <a href="/seo-pricing-reading/">SEO pricing page</a>. I also offer a <a href="/free-seo-audit-reading/">free SEO audit</a> as a starting point — no obligation, just a clear picture of where you stand.</p>
+
+      <h2>Areas I Cover</h2>
+
+      <p>My primary service area is Reading and the surrounding towns. Within Reading, I work with businesses in the town centre, Caversham, Tilehurst, Earley, Woodley, Whitley, Calcot, and Shinfield.</p>
+
+      <p>Across wider Berkshire and the Thames Valley, I serve clients in Wokingham, Bracknell, Henley-on-Thames, Newbury, and Maidenhead. I also work with UK-wide businesses that need a local SEO presence in the Reading area.</p>
+
+      <p>See my <a href="/areas/">areas page</a> for location-specific information about SEO in your town.</p>
+
+      <h2>Working with Reading Businesses</h2>
+
+      <p>When you work with me, you work with me — not an account manager relaying messages, not a junior team member learning on your budget. I handle strategy, execution, and reporting personally. You get direct access via email and phone.</p>
+
+      <p>A typical engagement starts in one of two ways. Either you request a <a href="/free-seo-audit-reading/">free SEO audit</a> and I come back with an honest assessment of your opportunities, or we begin with a paid comprehensive audit that maps out a full 6-12 month strategy. From there, most clients move to a monthly retainer where I implement, monitor, and iterate.</p>
+
+      <p>I report monthly with clear metrics: ranking movements, traffic changes, click-through rate improvements, and conversion data where tracking is in place. I flag problems early and adjust strategy based on what the data tells us — not what we assumed three months ago.</p>
+
+      <p>I am selective about who I work with. I take on a limited number of clients at any time to ensure each one gets proper attention. I will not take your money if I do not believe I can deliver meaningful results for your business. That assessment starts with the initial audit.</p>
+
+      <p>Read about past results on my <a href="/case-studies/">case studies page</a>.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      {faqItems.map(item => (
+        <div class="faq-item">
+          <h3 class="faq-question">{item.q}</h3>
+          <p>{item.a}</p>
+        </div>
+      ))}
+
+      <div class="cta-box">
+        <h2>Ready to Improve Your Search Visibility?</h2>
+        <p>Get in touch for a straight conversation about what SEO can do for your Reading business. No jargon, no pressure — just an honest assessment of your opportunities.</p>
+        <p><a href="/contact/">Contact me</a> or request a <a href="/free-seo-audit-reading/">free SEO audit</a> to get started.</p>
+      </div>
+
+    </div>
+  </section>
+</Base>

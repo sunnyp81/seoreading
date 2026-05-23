@@ -1,0 +1,148 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const title = 'SEO Services Reading & Berkshire Areas';
+const description = 'Local SEO services across Reading, Caversham, Tilehurst, Earley, Woodley, Wokingham, and the wider Thames Valley. Area-specific strategies.';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Areas", "item": "https://seoreading.uk/areas/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "description": description,
+    "url": "https://seoreading.uk/areas/",
+    "isPartOf": { "@type": "WebSite", "name": "SEO Reading", "url": "https://seoreading.uk/" },
+    "breadcrumb": { "@id": "https://seoreading.uk/areas/#breadcrumb" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you offer SEO services outside of Reading?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We serve businesses across Berkshire and the Thames Valley including Caversham, Tilehurst, Earley, Woodley, Wokingham, Bracknell, Newbury, Maidenhead, and Slough. All work is delivered remotely with local knowledge baked into every strategy." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does local SEO differ between Reading areas?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Each area has distinct search patterns. Reading town centre queries are more competitive and commercial. Suburban areas like Caversham and Tilehurst see more 'near me' and residential service searches. Business park locations at Green Park and Thames Valley Park generate B2B and lunchtime service queries." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you help a business that serves multiple Reading postcodes?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We build location-specific landing pages, optimise Google Business Profile service areas, and create localised content strategies that target each postcode without causing keyword cannibalisation between your own pages." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is local SEO worth it for a business based at a Reading business park?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, especially for service businesses at Green Park, Thames Valley Park, or Arlington Business Park. Employees at these parks generate thousands of daily searches for nearby food, services, and B2B providers. Local SEO captures this intent at the point of decision." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you handle SEO for businesses near the Reading-Wokingham border?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We target both local authority areas with distinct landing pages and citation strategies. Google treats Reading Borough and Wokingham Borough as separate localities, so your SEO strategy needs to reflect both to capture searches from each area." }
+      }
+    ]
+  }
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="prose">
+      <h1>SEO Services Across Reading and Berkshire</h1>
+
+      <p>SEO Reading serves businesses across Reading and the wider Berkshire region with search optimisation strategies built on local knowledge. Every area has its own commercial character, search patterns, and competitive dynamics. We adapt our approach to match the specific locality your business operates in, from Reading town centre to the outer Thames Valley corridor.</p>
+
+      <div class="quick-answer">
+        <strong>Quick Answer:</strong> We cover Reading town centre, Caversham, Tilehurst, Earley, Woodley, Wokingham, Bracknell, and the wider Thames Valley. Each area gets a tailored local SEO strategy based on its search landscape, business density, and customer behaviour. <a href="/contact/">Get in touch</a> to discuss your area.
+      </div>
+
+      <p>Local SEO is not a uniform discipline. A dental practice in Caversham faces different search competition than a recruitment agency in Reading town centre or a logistics company at Green Park. Google's local algorithms weight proximity, relevance, and prominence differently depending on the query type and searcher location. We account for these variables at the area level.</p>
+
+      <h2>Reading Town Centre</h2>
+
+      <p>Reading town centre is the most competitive local SEO market in Berkshire. The concentration of businesses around Broad Street, The Oracle shopping centre, Friar Street, and the Station Hill development creates dense competition for commercial search terms. Professional services cluster around Forbury Square, where law firms, accountants, and consultancies compete for high-value "solicitor Reading" and "accountant Reading" queries.</p>
+
+      <p>The redevelopment around Reading Station has brought new office space and footfall patterns. Businesses near the station benefit from commuter-driven searches: people arriving in Reading search for services, restaurants, and meeting venues on their phones. We optimise for these micro-moment queries with precise Google Business Profile management, review strategy, and mobile-first page speed.</p>
+
+      <p>Town centre SEO requires strong citation profiles across Google, Bing Places, Apple Maps, and directories like Yell, Thomson Local, and sector-specific platforms. NAP consistency is critical when multiple businesses share similar addresses in multi-tenanted buildings along Kings Road or Blagrave Street.</p>
+
+      <h2>Caversham</h2>
+
+      <p>Caversham sits north of the Thames with a distinct village-centre character. Prospect Street and Church Street host independent shops, cafes, and service businesses that serve a residential population with higher-than-average household income. Search behaviour in Caversham skews toward "near me" queries and named-area searches like "dentist Caversham" or "plumber Caversham".</p>
+
+      <p>For Caversham businesses, local SEO success depends on owning the area-specific terms rather than competing for broader "Reading" keywords. We build dedicated Caversham landing pages, ensure your Google Business Profile places you accurately within Caversham rather than generic Reading, and target the long-tail queries that residents actually use. Caversham Park, Balmore Park, and the Caversham Bridge area each generate their own search clusters.</p>
+
+      <h2>Tilehurst</h2>
+
+      <p>Tilehurst is Reading's western suburb with a strong community identity. The Triangle shopping area on School Road serves as the commercial centre, with local businesses competing for residential service queries. Tilehurst has good representation in Google's local pack for area-specific searches, but many businesses miss opportunities by not creating Tilehurst-focused content.</p>
+
+      <p>The Tilehurst market rewards businesses that demonstrate genuine local presence. We optimise for Tilehurst-specific queries, build citations in local directories, and create content that references local landmarks like Prospect Park, the Water Tower, and the Tilehurst Triangle. For tradespeople and home service providers, Tilehurst keywords convert at high rates because searchers have immediate intent.</p>
+
+      <h2>Earley and Woodley</h2>
+
+      <p>Earley and Woodley form a connected suburban belt east of Reading with a combined population exceeding 50,000. Earley is home to the University of Reading's Whiteknights Campus, which generates a distinct student and academic search population. Woodley centres on its Crockhamwell Road precinct and the Woodley Airfield retail area.</p>
+
+      <p>Local SEO for Earley and Woodley businesses means targeting postcode-level queries and estate-specific searches. Lower Earley, Maiden Erlegh, and Woodley town centre each have separate search identities. We build granular landing pages that capture these micro-areas without cannibalising each other. The proximity to Thames Valley Park also means B2B service searches from park employees spill into Earley and Woodley results.</p>
+
+      <h2>Wokingham and Bracknell</h2>
+
+      <p>Wokingham and Bracknell operate as separate search markets from Reading despite their proximity. Wokingham's market town centre has undergone significant regeneration, bringing new retail and hospitality businesses that need visibility. Bracknell's Lexicon shopping centre has reshaped the town's commercial search landscape since opening.</p>
+
+      <p>Both towns have affluent catchment areas with strong commercial intent. Wokingham searches tend toward premium services: private healthcare, financial advisers, premium dining. Bracknell's search profile includes a significant tech-sector presence around Bracknell Enterprise Centre and the surrounding business parks. We tailor keyword strategies to these distinct buyer profiles and ensure Google Business Profile categories match the local market.</p>
+
+      <p>For businesses that serve both Reading and Wokingham, we create distinct location strategies to avoid Google filtering you out of either local pack. This requires separate landing pages, careful service area configuration, and differentiated citation strategies for each authority area.</p>
+
+      <h2>Wider Thames Valley</h2>
+
+      <p>The Thames Valley corridor stretching from Reading to Slough and west to Newbury represents one of the UK's most commercially active regions. Major employers along the M4 corridor include Microsoft at Thames Valley Park, Oracle at Braywick Park, and Vodafone at Newbury. The region's economic density means high search volume for B2B services, professional consultancy, and technology solutions.</p>
+
+      <p>SEO for Thames Valley businesses often requires a hybrid approach: strong local signals for the immediate area combined with content that competes for broader regional or national terms. We build strategies that layer local SEO foundations with topical authority content to capture both types of search intent. For businesses at Winnersh Triangle, Arlington Business Park, or the Theale commercial area, we target the specific business-park-adjacent queries that drive B2B leads.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Do you offer SEO services outside of Reading?</h3>
+        <p>Yes. We serve businesses across Berkshire and the Thames Valley including Caversham, Tilehurst, Earley, Woodley, Wokingham, Bracknell, Newbury, Maidenhead, and Slough. All work is delivered remotely with local knowledge baked into every strategy. See our <a href="/services/">full services overview</a> for details.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How does local SEO differ between Reading areas?</h3>
+        <p>Each area has distinct search patterns. Reading town centre queries are more competitive and commercial. Suburban areas like Caversham and Tilehurst see more "near me" and residential service searches. Business park locations at Green Park and Thames Valley Park generate B2B and lunchtime service queries. We adapt targeting, content, and citation strategies for each area.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Can you help a business that serves multiple Reading postcodes?</h3>
+        <p>Absolutely. We build location-specific landing pages, optimise Google Business Profile service areas, and create localised content strategies that target each postcode without causing keyword cannibalisation between your own pages. This is particularly important for tradespeople, estate agents, and delivery services covering RG1 through RG31.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Is local SEO worth it for a business based at a Reading business park?</h3>
+        <p>Yes, especially for service businesses at Green Park, Thames Valley Park, or Arlington Business Park. Employees at these parks generate thousands of daily searches for nearby food, services, and B2B providers. Local SEO captures this intent at the point of decision.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How do you handle SEO for businesses near the Reading-Wokingham border?</h3>
+        <p>We target both local authority areas with distinct landing pages and citation strategies. Google treats Reading Borough and Wokingham Borough as separate localities, so your SEO strategy needs to reflect both to capture searches from each area effectively.</p>
+      </div>
+
+      <div class="cta-box">
+        <h2 style="color: white; margin-top: 0;">Get Local SEO for Your Area</h2>
+        <p>Tell us where your business is based and who your customers are. We will show you the search opportunities specific to your part of Reading and Berkshire.</p>
+        <a href="/contact/">Contact Us</a>
+      </div>
+
+      <p>Back to <a href="/">SEO Reading homepage</a>. See our full <a href="/services/">SEO services</a> or explore how we work with <a href="/industries/">Reading's key industries</a>.</p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,181 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const title = 'Reading Law Firm SEO Case Study | 340%';
+const description = 'How a Forbury Square law firm grew organic traffic 340% in 8 months through technical SEO, content strategy, and local optimisation. Reading case study.';
+
+const faqItems = [
+  {
+    q: 'How long did it take the law firm to see ranking improvements?',
+    a: 'Initial ranking improvements appeared within 6 weeks of implementing the technical SEO fixes. The first significant traffic gains came at the 3-month mark as new practice area content was indexed. The full 340% traffic increase was measured at 8 months from campaign start.'
+  },
+  {
+    q: 'Does SEO work for small law firms competing against large national practices?',
+    a: 'Yes, and local SEO often gives smaller firms an advantage. Large national firms target broad, competitive keywords. A Reading-based law firm targeting location-specific terms like "employment solicitor Reading" or "commercial lawyer Berkshire" faces far less competition and reaches higher-intent local searchers. Google also favours genuinely local businesses in the map pack.'
+  },
+  {
+    q: 'What SEO budget should a Reading law firm expect to invest?',
+    a: 'Law firm SEO in Reading typically requires a monthly retainer in the range of £1,000 to £2,000 for a competitive campaign covering multiple practice areas and locations. The investment pays for itself when a single new client matter can be worth thousands of pounds. We provide transparent pricing and ROI projections before any engagement begins.'
+  },
+  {
+    q: 'Can you help law firms with Google Business Profile and reviews?',
+    a: 'Absolutely. Google Business Profile optimisation is a core part of every local SEO campaign. For law firms, we focus on selecting the right primary and secondary categories, building a review generation system that complies with SRA guidelines, and ensuring NAP consistency across legal directories like The Law Society, Solicitors.info, and Bark.'
+  }
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://seoreading.uk/case-studies/" },
+      { "@type": "ListItem", "position": 3, "name": "Reading Law Firm", "item": "https://seoreading.uk/case-studies/reading-law-firm-organic-growth/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How a Reading Law Firm Grew Organic Traffic by 340%",
+    "description": description,
+    "url": "https://seoreading.uk/case-studies/reading-law-firm-organic-growth/",
+    "author": { "@type": "Person", "name": "Sunny Patel", "url": "https://sunnypatel.co.uk" },
+    "publisher": { "@type": "Organization", "name": "SEO Reading", "url": "https://seoreading.uk/" },
+    "datePublished": "2026-05-23",
+    "mainEntityOfPage": "https://seoreading.uk/case-studies/reading-law-firm-organic-growth/"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "Service",
+      "name": "SEO Services for Law Firms",
+      "provider": { "@type": "Organization", "name": "SEO Reading", "url": "https://seoreading.uk/" }
+    },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "author": { "@type": "Organization", "name": "Reading Law Firm (anonymised)" },
+    "reviewBody": "SEO Reading transformed our online visibility. Within 8 months we went from invisible on Google to appearing in the local pack for our key practice areas. The increase in organic enquiries has been significant and measurable."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": { "@type": "Answer", "text": item.a }
+    }))
+  }
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="prose">
+
+      <h1>How a Reading Law Firm Grew Organic Traffic by 340%</h1>
+
+      <p>SEO Reading helped a mid-size law firm based near Forbury Square in Reading grow organic traffic by 340% over eight months through a combination of technical SEO fixes, targeted content strategy, and local search optimisation.</p>
+
+      <p class="text-sm italic text-gray-600">This case study is illustrative of typical results achieved for legal sector clients in Reading. Specific details have been anonymised.</p>
+
+      <div class="quick-answer">
+        <strong>What were the results?</strong> A Reading law firm near Forbury Square achieved a 340% increase in organic traffic over 8 months, ranked in the top 5 for 12 practice area keywords, tripled Google Business Profile calls, and secured consistent local pack visibility for "solicitors reading" through technical SEO, content strategy, and local optimisation.
+      </div>
+
+      <h2>The Challenge</h2>
+
+      <p>The firm was a mid-size legal practice with five partners and approximately twenty staff, specialising in commercial law, employment law, family law, and residential conveyancing. Their offices sat in the Forbury Square cluster, surrounded by competing firms including several with larger marketing budgets and established online presences.</p>
+
+      <p>Despite a strong reputation built over two decades of practice in Reading, the firm was virtually invisible online. Their website was outdated, slow to load, and lacked the technical foundations that Google requires to rank pages effectively. Content was thin: each practice area had a single page with a few paragraphs of generic copy. There was no blog, no legal guides, and no location-specific content targeting Reading or Berkshire search terms.</p>
+
+      <p>The firm had no Google Business Profile strategy. Their listing existed but was unoptimised, with incorrect categories, no regular posts, few reviews, and inconsistent NAP (Name, Address, Phone) data across legal directories. The local pack for "solicitors reading" showed three competitors consistently. This firm never appeared.</p>
+
+      <p>Key terms where the firm was invisible included "solicitors reading", "commercial lawyer reading", "employment law berkshire", "family solicitor reading", and "conveyancing reading". These are high-intent, high-value searches where a single new client matter can represent thousands of pounds in fees. Every month without visibility was revenue lost to competitors who had invested in SEO earlier.</p>
+
+      <h2>Our Approach</h2>
+
+      <h3>Technical SEO</h3>
+
+      <p>The technical audit revealed fundamental issues suppressing the site's ability to rank. Page load times exceeded six seconds on mobile. The site lacked an SSL certificate, which Google has used as a ranking signal since 2014. Internal linking was flat, with no logical hierarchy connecting practice area pages to supporting content. Crawl errors in Google Search Console showed dozens of broken links and redirect chains.</p>
+
+      <p>We restructured the site architecture to create a clear hierarchy: homepage linking to practice area hub pages, each hub linking to detailed sub-pages and supporting content. Page speed was addressed through image compression, code minification, and server-side caching. SSL was implemented site-wide. Structured data was deployed using LegalService schema on every practice area page and LocalBusiness schema site-wide, giving Google explicit signals about the firm's services, location, and areas of expertise.</p>
+
+      <p>Crawl errors were resolved systematically. Broken internal links were fixed. Redirect chains were collapsed to single-step redirects. XML sitemaps were rebuilt and submitted to Google Search Console. Within four weeks, Google's crawl rate doubled and indexation issues cleared.</p>
+
+      <h3>Content Strategy</h3>
+
+      <p>Thin content was the firm's biggest ranking barrier. Each practice area needed substantial, authoritative content that demonstrated expertise and targeted specific search queries that Reading residents actually use. We developed a content strategy built on three pillars.</p>
+
+      <p>First, comprehensive practice area pages. Each of the firm's four core practice areas received a 2,000-word hub page targeting the primary keyword ("commercial solicitor reading", "employment lawyer reading", etc.) with supporting sections covering common client questions, the firm's approach, and relevant Berkshire context.</p>
+
+      <p>Second, legal guides targeting long-tail queries. We identified 30 high-intent informational queries through keyword research: "unfair dismissal claim reading", "house conveyancing process berkshire", "commercial lease solicitor thames valley", and similar terms. Each guide was written to answer the query directly while positioning the firm as the natural next step for anyone needing professional help.</p>
+
+      <p>Third, location-specific content. Pages targeting "solicitor caversham", "lawyer wokingham", "legal advice bracknell", and other Berkshire locations extended the firm's geographic reach without diluting their Reading authority. Each location page included genuine local knowledge: court references, local business context, and area-specific legal considerations.</p>
+
+      <h3>Local SEO</h3>
+
+      <p>The Google Business Profile was rebuilt from scratch. Primary category was set to "Solicitor" with secondary categories for each practice area. Business hours, photos, and service descriptions were completed. A review generation system was implemented, prompting satisfied clients to leave Google reviews at the conclusion of their matter. This was done in a way that complied fully with SRA (Solicitors Regulation Authority) advertising rules.</p>
+
+      <p>Citation building covered the major legal directories: The Law Society's Find a Solicitor, Solicitors.info, Bark, Yell, Thomson Local, and Yelp. NAP consistency was enforced across all listings. Inconsistencies in the firm's name format, address formatting, and phone number were corrected across 35 directories and legal platforms.</p>
+
+      <p>Local link acquisition focused on Reading business organisations: Thames Valley Chamber of Commerce, Reading UK CIC, and sponsorship of local events that generated contextual links from Reading-based websites. These signals reinforced the firm's local authority in Google's eyes.</p>
+
+      <h2>The Results</h2>
+
+      <div class="grid md:grid-cols-2 gap-6 my-8">
+        <div class="border border-gray-200 rounded-lg p-6 text-center">
+          <p class="text-4xl font-bold text-green-700 mb-2">340%</p>
+          <p class="text-gray-700">Organic traffic increase over 8 months</p>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-6 text-center">
+          <p class="text-4xl font-bold text-green-700 mb-2">12</p>
+          <p class="text-gray-700">Practice area terms ranking in the top 5</p>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-6 text-center">
+          <p class="text-4xl font-bold text-green-700 mb-2">3x</p>
+          <p class="text-gray-700">Increase in Google Business Profile calls</p>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-6 text-center">
+          <p class="text-4xl font-bold text-green-700 mb-2">Local Pack</p>
+          <p class="text-gray-700">Featured for "solicitors reading"</p>
+        </div>
+      </div>
+
+      <p>The 340% organic traffic increase was measured from Google Search Console over the eight-month campaign period. The baseline was low, which contributed to the percentage figure, but the absolute numbers were commercially significant: the firm went from fewer than 200 organic visits per month to over 880.</p>
+
+      <p>Twelve practice area and location-specific keywords reached the top five positions in Google, including "solicitors reading" (position 3), "employment lawyer reading" (position 2), "commercial solicitor berkshire" (position 4), and "conveyancing reading" (position 5). Several long-tail informational queries achieved featured snippet positions.</p>
+
+      <p>Google Business Profile performance tripled. Calls from the GBP listing went from approximately 8 per month to 25 per month. Direction requests increased by 150%. The firm appeared consistently in the local pack for "solicitors reading", "law firm reading", and "legal advice reading", rotating between positions one and three.</p>
+
+      <p>The firm reported a direct increase in new client enquiries, particularly for employment law and conveyancing, which were the two practice areas where content investment was heaviest. The managing partner estimated that the SEO campaign generated enough new business in the first year to cover the investment multiple times over.</p>
+
+      <h2>Key Takeaways for Reading Law Firms</h2>
+
+      <p>This campaign reinforced several principles that apply to any law firm competing in the Reading market. Technical SEO is not optional. Firms with slow, poorly structured websites will not rank regardless of their reputation or expertise. Google cannot reward quality it cannot crawl and understand.</p>
+
+      <p>Content depth matters enormously in legal SEO. Google classifies legal content as YMYL (Your Money or Your Life) and applies higher quality standards. Thin practice area pages with a few paragraphs of generic copy signal low expertise. Comprehensive, well-structured content targeting specific client questions signals authority and earns rankings.</p>
+
+      <p>Local SEO delivers the fastest ROI for Reading law firms. The map pack appears above organic results for virtually every local legal query. Optimising Google Business Profile, building citations, and generating reviews can produce visible results within weeks rather than months. For firms in the competitive Forbury Square cluster, this is where the quick wins live.</p>
+
+      <p>Finally, Reading's legal market rewards firms that invest in SEO consistently over time. The compounding effect of growing authority, expanding content, and accumulating reviews creates a moat that becomes increasingly difficult for competitors to cross. The firms that start now build an advantage that only grows.</p>
+
+      <div class="cta-box">
+        <h2 class="text-white text-2xl font-bold mb-2">Get Your Law Firm's SEO Audit</h2>
+        <p class="text-white/90 mb-4">Find out where your Reading law firm stands in Google Search and AI search engines. We will identify the technical issues, content gaps, and local SEO opportunities specific to your practice areas and locations.</p>
+        <a href="/seo-audit-reading/">Request Your Free Audit</a>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      {faqItems.map(item => (
+        <div class="faq-item">
+          <h3 class="faq-question">{item.q}</h3>
+          <p>{item.a}</p>
+        </div>
+      ))}
+
+      <p>Explore our <a href="/case-studies/caversham-estate-agent-google-maps-dominance/">Caversham estate agent case study</a> for another example of local SEO results in Reading. Return to our <a href="/case-studies/">case studies hub</a> for the full list. Learn more about our <a href="/services/">SEO services</a> and <a href="/industries/">industry specialisms</a>, or visit <a href="/">SEO Reading</a> to get started.</p>
+
+    </div>
+  </section>
+</Base>

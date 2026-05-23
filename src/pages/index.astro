@@ -1,0 +1,270 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'SEO Reading | Local SEO Consultant Reading';
+const description = 'SEO Reading helps Berkshire businesses rank in Google and AI search. Local SEO consultant Sunny Patel, based in Reading. Free audit available.';
+
+const faqItems = [
+  {
+    q: 'How much does SEO cost in Reading?',
+    a: 'SEO pricing in Reading varies by scope. A one-off audit starts from around £500. Ongoing monthly SEO retainers typically range from £750 to £2,500 per month depending on competition, number of target keywords, and whether the campaign is local-only or national. We publish transparent pricing on our pricing page and tailor every quote to the business.'
+  },
+  {
+    q: 'How long does it take to see SEO results?',
+    a: 'Most Reading businesses see measurable ranking improvements within 8 to 12 weeks. Local SEO campaigns targeting Google Maps and the local pack can show results faster, sometimes within 4 to 6 weeks. Competitive national keywords take longer, typically 4 to 6 months for significant movement. We set realistic timelines during the strategy phase and report progress monthly.'
+  },
+  {
+    q: 'Do you only work with businesses in Reading?',
+    a: 'We serve the entire Thames Valley including Wokingham, Bracknell, Newbury, Henley-on-Thames, Maidenhead, and Slough. We also work with UK-wide businesses that need local SEO for their Reading or Berkshire presence. Our office is in Reading, which means we can meet face-to-face when needed.'
+  },
+  {
+    q: 'What is local SEO and why does it matter for Reading businesses?',
+    a: 'Local SEO is the practice of optimising your website and online presence to rank in location-specific searches. When someone in Reading searches for "accountant near me" or "solicitor Reading", Google shows local results including the map pack. Local SEO ensures your business appears in those results. For Reading businesses competing against London agencies and national chains, strong local SEO is often the most cost-effective marketing channel.'
+  },
+  {
+    q: 'What is AI search optimisation and do I need it?',
+    a: 'AI search optimisation (also called AEO or GEO) ensures your business gets cited when people use AI tools like ChatGPT, Perplexity, Google AI Overviews, and Microsoft Copilot to find services. These tools are replacing traditional search for many queries. If your competitors are being recommended by AI and you are not, you are losing leads. We build this into every SEO campaign as standard.'
+  },
+  {
+    q: 'Can you help with Google Business Profile optimisation?',
+    a: 'Yes. Google Business Profile (formerly Google My Business) is a core part of our local SEO service. We optimise your profile, manage reviews, post regular updates, add relevant categories and attributes, and ensure NAP consistency across all directories. A well-optimised GBP is often the single biggest driver of local leads.'
+  },
+  {
+    q: 'Do you offer one-off SEO audits?',
+    a: 'We offer a free initial SEO audit that covers the fundamentals: indexation, page speed, schema markup, local signals, and competitor positioning. For a deeper technical audit with a full action plan, we offer a paid comprehensive audit. Both are available through our audit request page.'
+  },
+  {
+    q: 'How is SEO Reading different from a London SEO agency?',
+    a: 'We are based in Reading. We understand Reading search behaviour, local competition, and the Berkshire business landscape from direct experience. London agencies charge London rates and often assign Reading clients to junior staff. We provide senior-level SEO strategy and execution at Thames Valley pricing, with the option to meet in person at your office or ours.'
+  }
+];
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "LocalBusiness"],
+  "name": "SEO Reading",
+  "url": "https://seoreading.uk",
+  "description": "Local SEO consultancy serving Reading, Berkshire and the Thames Valley",
+  "founder": {
+    "@type": "Person",
+    "name": "Sunny Patel",
+    "url": "https://sunnypatel.co.uk"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Reading",
+    "addressRegion": "Berkshire",
+    "addressCountry": "GB"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Reading" },
+    { "@type": "City", "name": "Caversham" },
+    { "@type": "City", "name": "Tilehurst" },
+    { "@type": "City", "name": "Earley" },
+    { "@type": "City", "name": "Woodley" },
+    { "@type": "City", "name": "Wokingham" },
+    { "@type": "City", "name": "Bracknell" },
+    { "@type": "AdministrativeArea", "name": "Berkshire" },
+    { "@type": "AdministrativeArea", "name": "Thames Valley" }
+  ],
+  "email": "hello@seoreading.uk",
+  "sameAs": ["https://sunnypatel.co.uk"]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }))
+};
+
+const schema = [orgSchema, breadcrumbSchema, faqSchema];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="prose">
+
+      <h1>SEO Reading — Local Search Marketing for Berkshire Businesses</h1>
+
+      <p>SEO Reading is a local search marketing consultancy based in Reading, Berkshire, helping businesses across the Thames Valley rank higher in Google and get cited by AI search engines like ChatGPT, Perplexity, and Google AI Overviews.</p>
+
+      <p>Founded by <a href="https://sunnypatel.co.uk">Sunny Patel</a>, an SEO consultant with over a decade of experience in technical SEO, content strategy, and local search, SEO Reading works exclusively with businesses that want more customers from organic search. No paid ads management, no social media packages. Search is what we do.</p>
+
+      <p>Whether you run a law firm on Forbury Square, a tech startup at Green Park, or a trades business serving homes across Tilehurst and Caversham, the goal is the same: get your business in front of people actively searching for what you sell, in the places you serve.</p>
+
+      <div class="quick-answer">
+        <strong>What is SEO Reading?</strong> SEO Reading is a specialist local SEO consultancy serving businesses in Reading, Berkshire and the wider Thames Valley. We help businesses rank in Google Search, Google Maps, and AI search engines through technical optimisation, content strategy, and local authority building. Based in Reading, we offer a <a href="/free-seo-audit-reading/">free initial SEO audit</a> to any local business.
+      </div>
+
+      <h2>Why Reading Businesses Need Local SEO</h2>
+
+      <p>Reading is one of the most commercially active towns in the South East. The town centre around Broad Street and the Oracle Shopping Centre draws thousands of high-intent shoppers daily. Reading Station, now a Crossrail hub connecting directly to Heathrow and central London, has turned Reading into a commuter and business destination that punches well above its size. Forbury Square houses some of the region's most established professional services firms. Green Park and Thames Valley Park are home to major tech companies and corporate headquarters.</p>
+
+      <p>This commercial density means competition for local search visibility is fierce. When a Reading resident searches for "solicitor near me", "best restaurant Reading", or "IT support Berkshire", Google returns a handful of results above the fold. The businesses that appear in those positions capture the majority of clicks and enquiries. Everyone else is invisible.</p>
+
+      <p>The numbers tell a clear story. "SEO Reading" itself gets searched hundreds of times per month, but the principle applies across every industry. "Accountant Reading" pulls significant search volume. "Estate agent Reading" is highly competitive. "Dentist Reading", "plumber Reading", "restaurant Reading" — every one of these queries represents people with immediate intent to buy or book. If your business does not appear on page one, those customers go to your competitors.</p>
+
+      <p>Local SEO is not optional for Reading businesses. It is the primary channel through which new customers find local services. Google Business Profile results (the map pack) appear above organic listings for almost every local query. Review signals, citation consistency, on-page local relevance, and technical health all determine whether your business appears there or not.</p>
+
+      <p>Reading's position in the Thames Valley also creates a unique opportunity. Many businesses here serve not just Reading town centre but the surrounding towns: Caversham to the north, Tilehurst and Calcot to the west, Earley and Woodley to the east, and further out to Wokingham, Bracknell, Newbury, and Henley-on-Thames. A properly structured local SEO campaign can capture search demand across all of these areas without needing separate websites for each location.</p>
+
+      <h2>Our SEO Services for Reading Businesses</h2>
+
+      <p>We offer a focused set of SEO services designed specifically for businesses operating in Reading and the Thames Valley. Every service is built around measurable outcomes: more rankings, more traffic, more leads.</p>
+
+      <h3>Local SEO</h3>
+
+      <p>Local SEO is the foundation of everything we do. This includes Google Business Profile optimisation, local citation building and cleanup, review generation strategy, local link acquisition, and on-page optimisation for location-specific keywords. For Reading businesses, local SEO is typically the highest-ROI marketing investment available. We cover this in detail on our <a href="/services/">services page</a>.</p>
+
+      <h3>Technical SEO</h3>
+
+      <p>Technical issues silently kill rankings. Slow page speed, broken internal links, incorrect canonical tags, missing schema markup, crawl errors, and poor mobile experience all prevent Google from ranking your site as highly as it should. Our <a href="/technical-seo-reading/">technical SEO service</a> identifies and fixes these issues systematically. We audit your site's infrastructure, fix what is broken, and monitor ongoing technical health.</p>
+
+      <h3>SEO Audits</h3>
+
+      <p>Before any strategy work begins, we conduct a thorough <a href="/seo-audit-reading/">SEO audit</a> covering technical health, on-page optimisation, content gaps, backlink profile, local signals, and competitor positioning. The audit produces a prioritised action plan ranked by expected impact. Every recommendation is specific and actionable, not generic advice you could find in a blog post.</p>
+
+      <h3>AI Search Optimisation</h3>
+
+      <p>AI search engines are changing how people find businesses. ChatGPT, Perplexity, Google AI Overviews, and Microsoft Copilot now answer commercial queries directly, often citing specific businesses. Our <a href="/ai-search-optimisation-reading/">AI search optimisation service</a> ensures your business is structured, cited, and authoritative enough to be recommended by these systems. This is not a future concern. It is happening now, and early movers have a significant advantage.</p>
+
+      <h3>Content Strategy</h3>
+
+      <p>Content drives organic rankings. We develop content strategies grounded in actual search demand, building topical authority around your core services and locations. This means keyword-researched service pages, location pages, FAQ content, and editorial pieces that collectively establish your site as the most relevant result for your target terms. Every piece is written to serve search intent first.</p>
+
+      <h2>Areas We Cover Across Berkshire</h2>
+
+      <p>Our primary service area is Reading and the surrounding Thames Valley region. We work with businesses across all of these locations:</p>
+
+      <ul>
+        <li><strong>Reading town centre</strong> — Broad Street, Friar Street, the Oracle Shopping Centre, Forbury Square, and the station quarter</li>
+        <li><strong>Caversham</strong> — including Caversham Heights and Emmer Green, north of the Thames</li>
+        <li><strong>Tilehurst</strong> — residential area west of Reading centre, strong demand for home services</li>
+        <li><strong>Earley</strong> — large suburb south-east of Reading, close to the University of Reading campus</li>
+        <li><strong>Woodley</strong> — east Reading, independent high street with active local commerce</li>
+        <li><strong>Wokingham</strong> — affluent market town with growing commercial centre</li>
+        <li><strong>Bracknell</strong> — regenerated town centre, major employers including tech and finance</li>
+        <li><strong>Newbury</strong> — west Berkshire market town, Vodafone HQ and racecourse economy</li>
+        <li><strong>Henley-on-Thames</strong> — premium services market, high-value client base</li>
+        <li><strong>Maidenhead and Slough</strong> — eastern Berkshire, strong business corridor</li>
+      </ul>
+
+      <p>We build location-specific SEO strategies for each area, ensuring your business ranks not just for "[service] Reading" but for "[service] Caversham", "[service] Wokingham", and every other location where your customers are searching. Explore the full list on our <a href="/areas/">areas page</a>.</p>
+
+      <h2>Industries We Specialise In</h2>
+
+      <p>Reading's economy is diverse, and different industries require different SEO approaches. We have direct experience optimising for the following sectors:</p>
+
+      <h3>Technology and SaaS</h3>
+
+      <p>Green Park, Thames Valley Park, and the wider M4 corridor are home to Microsoft UK, Oracle, Cisco, and hundreds of mid-market tech firms. SaaS companies and B2B tech businesses need SEO strategies that balance product-led content with bottom-of-funnel conversion pages. We understand the technical buyer journey and build content architectures that serve it.</p>
+
+      <h3>Legal Services</h3>
+
+      <p>Reading has a dense concentration of law firms, many clustered around Forbury Square and the town centre. Competition for terms like "solicitor Reading", "family lawyer Reading", and "conveyancing Reading" is intense. We build legal SEO campaigns that target both practice-area and location-based queries while maintaining the authority signals that Google expects from YMYL (Your Money or Your Life) content.</p>
+
+      <h3>Estate Agents and Property</h3>
+
+      <p>The Reading property market is one of the most active outside London. Estate agents face stiff competition from Rightmove and Zoopla in organic search, which means local SEO and Google Business Profile optimisation become critical channels. We help estate agents dominate the local pack and build content strategies around buyer and seller intent keywords.</p>
+
+      <h3>Accountancy and Financial Services</h3>
+
+      <p>Accountants, financial advisers, and bookkeepers in Reading compete for a limited pool of high-value local queries. The SEO challenge here is trust signalling: Google needs to see expertise, authority, and trustworthiness (EEAT) before ranking financial content. We structure sites and content to meet these requirements while targeting the local queries that drive client enquiries.</p>
+
+      <h3>Hospitality and Food</h3>
+
+      <p>Reading's restaurant and hospitality scene has grown significantly, particularly around the Oracle riverside, King's Road, and the emerging independent quarter around Harris Arcade and Smelly Alley. For restaurants, cafes, bars, and hotels, Google Business Profile is the primary discovery channel. We optimise profiles, manage review strategy, and build local visibility that drives footfall.</p>
+
+      <h3>Trades and Home Services</h3>
+
+      <p>Plumbers, electricians, builders, roofers, and other trades serving Reading's residential areas rely heavily on "near me" searches and local pack visibility. We build SEO campaigns for trades businesses that target hyperlocal queries across specific Reading suburbs and surrounding towns. Visit our <a href="/industries/">industries page</a> for more detail on each sector.</p>
+
+      <h2>AI Search Optimisation: The 2026 Differentiator</h2>
+
+      <p>The search landscape has shifted fundamentally. Google AI Overviews now appear on roughly 30% of commercial queries, summarising answers directly in the search results. ChatGPT handles over 100 million queries daily. Perplexity is growing fast among professionals and researchers. Microsoft Copilot is integrated into Bing and the entire Microsoft 365 suite.</p>
+
+      <p>For Reading businesses, this creates both a threat and an opportunity. The threat: if AI systems do not cite your business when answering relevant queries, you lose visibility even if your traditional rankings are strong. The opportunity: most local businesses have done nothing to optimise for AI search, which means early movers capture disproportionate visibility.</p>
+
+      <p>AI search optimisation (sometimes called Answer Engine Optimisation or AEO) involves structuring your website content, schema markup, and external citations so that AI systems can accurately identify, understand, and recommend your business. This includes entity optimisation, structured data, authoritative content that directly answers questions, and building citation presence across the sources that AI models reference.</p>
+
+      <p>We build AI search readiness into every SEO campaign. It is not a separate add-on. It is how SEO works in 2026. Read more about our approach on the <a href="/ai-search-optimisation-reading/">AI search optimisation page</a>.</p>
+
+      <h2>How We Work</h2>
+
+      <p>Our process is straightforward. No mystery, no jargon, no twelve-month lock-in contracts.</p>
+
+      <h3>1. Audit</h3>
+
+      <p>Every engagement starts with a comprehensive SEO audit. We analyse your website's technical health, on-page optimisation, content coverage, backlink profile, local signals, and competitor landscape. The audit identifies exactly where you stand, what is holding you back, and what the biggest opportunities are. We deliver this as a prioritised action plan with clear expected outcomes for each recommendation.</p>
+
+      <h3>2. Strategy</h3>
+
+      <p>Based on the audit findings, we build a 90-day SEO strategy tailored to your business, industry, and location targets. This covers keyword targeting, content requirements, technical fixes, local optimisation tasks, and link building approach. The strategy document is plain English, not agency jargon. You will know exactly what we plan to do and why.</p>
+
+      <h3>3. Implementation</h3>
+
+      <p>We execute the strategy directly. Technical fixes are implemented on your site (we work with all major CMS platforms including WordPress, Shopify, Wix, and custom builds). Content is produced to brief. Local citations are built and cleaned up. Schema markup is deployed. Google Business Profile is optimised. We do the work rather than handing you a list of recommendations and walking away.</p>
+
+      <h3>4. Reporting and Iteration</h3>
+
+      <p>Monthly reporting shows exactly what was done, what changed in rankings and traffic, and what we plan to do next. We track keyword positions, organic traffic, Google Business Profile performance, and conversion metrics. Every month, the strategy is reviewed and adjusted based on what the data shows. SEO is not a set-and-forget activity. It requires ongoing analysis and adaptation.</p>
+
+      <h2>Why Choose SEO Reading Over London Agencies</h2>
+
+      <p>Reading businesses often default to hiring a London SEO agency, assuming that London means better. The reality is usually the opposite for local SEO campaigns.</p>
+
+      <h3>We Know Reading</h3>
+
+      <p>We live and work in Reading. We know that Caversham Heights has different search behaviour to Whitley. We know which business parks drive B2B demand and which high streets drive consumer footfall. We know the competitive landscape across every major industry in the area. A London agency learns your market from a spreadsheet. We know it from experience.</p>
+
+      <h3>Senior-Level Delivery</h3>
+
+      <p>Large London agencies sell you the director and deliver you the intern. Your account gets passed to a junior account manager running templated processes across dozens of clients. At SEO Reading, strategy and execution come from the same person: an experienced SEO consultant who has ranked hundreds of sites across competitive verticals.</p>
+
+      <h3>Thames Valley Pricing</h3>
+
+      <p>London agency overheads are enormous: Shoreditch office, large staff, account management layers. Those costs get passed to you. We operate from Reading with minimal overhead, which means you get the same quality of SEO strategy and execution at a fraction of the London rate. Check our <a href="/seo-pricing-reading/">pricing page</a> for transparent numbers.</p>
+
+      <h3>Face-to-Face Access</h3>
+
+      <p>We can meet at your office, our office, or a coffee shop in the Oracle. No booking a train to London for a quarterly review. Proximity matters for local SEO specifically because understanding the local market is part of doing the job well.</p>
+
+      <h2>Case Studies</h2>
+
+      <p>We let the results speak. Our <a href="/case-studies/">case studies page</a> details specific campaigns for Reading and Berkshire businesses, including the starting position, the strategy executed, and the measurable outcomes achieved. Every case study includes real data: keyword positions, traffic growth, and lead or revenue impact.</p>
+
+      <p>Whether the client is a professional services firm targeting Forbury Square searches, a home services business covering every Reading suburb, or a tech company at Thames Valley Park competing nationally, the pattern is the same: audit, strategy, execution, results.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      {faqItems.map(item => (
+        <div class="faq-item">
+          <h3 class="faq-question">{item.q}</h3>
+          <p>{item.a}</p>
+        </div>
+      ))}
+
+      <div class="cta-box">
+        <h2 class="text-white text-2xl font-bold mb-2">Get Your Free SEO Audit</h2>
+        <p class="text-white/90 mb-4">Find out exactly where your Reading business stands in Google and AI search. No commitment, no sales pitch — just a clear assessment of your SEO health and the opportunities you are missing.</p>
+        <a href="/free-seo-audit-reading/">Request Your Free Audit</a>
+      </div>
+
+    </div>
+  </section>
+</Base>

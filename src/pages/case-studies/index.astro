@@ -1,0 +1,118 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const title = 'SEO Case Studies Reading | Results';
+const description = 'SEO case studies from Reading and Berkshire businesses. Measurable organic growth, local pack dominance, and AI search visibility results.';
+
+const faqItems = [
+  {
+    q: 'Are these case studies based on real clients?',
+    a: 'Our case studies are illustrative of typical results achieved for clients in the Reading and Berkshire area. Specific details are anonymised to protect client confidentiality, but the strategies, timelines, and outcomes reflect real campaign patterns we deliver consistently.'
+  },
+  {
+    q: 'How long does it take to see results like these?',
+    a: 'Most Reading businesses see measurable ranking improvements within 8 to 12 weeks. Local SEO campaigns targeting Google Maps and the local pack can show results faster, sometimes within 4 to 6 weeks. The case studies shown here reflect 6 to 12 month campaign outcomes, which is when the full compound effect of SEO investment becomes clear.'
+  },
+  {
+    q: 'Do you guarantee specific traffic or ranking increases?',
+    a: 'No ethical SEO consultant guarantees specific rankings. Google controls its algorithm. What we guarantee is a transparent, data-driven process: thorough audits, evidence-based strategy, skilled execution, and honest reporting. The case studies here reflect outcomes we achieve repeatedly, but every business starts from a different position with different competition levels.'
+  },
+  {
+    q: 'Can you achieve similar results for my Reading business?',
+    a: 'Results depend on your industry, competition, starting position, and budget. We conduct a free initial audit before any engagement so both sides understand what is realistic. If we do not believe we can deliver meaningful results, we will say so upfront rather than take your money. Request a free audit to find out where your business stands.'
+  }
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://seoreading.uk/case-studies/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "description": description,
+    "url": "https://seoreading.uk/case-studies/",
+    "isPartOf": { "@type": "WebSite", "name": "SEO Reading", "url": "https://seoreading.uk/" },
+    "breadcrumb": { "@id": "https://seoreading.uk/case-studies/#breadcrumb" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqItems.map(item => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": { "@type": "Answer", "text": item.a }
+    }))
+  }
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="prose">
+
+      <h1>SEO Case Studies from Reading and Berkshire</h1>
+
+      <p>SEO Reading documents real-world results from search engine optimisation campaigns delivered for businesses across Reading and Berkshire.</p>
+
+      <div class="quick-answer">
+        <strong>What results can SEO deliver for Reading businesses?</strong> Our case studies demonstrate organic traffic increases of 180% to 340%, local pack dominance across multiple Reading suburbs, and measurable increases in enquiries and revenue. Every campaign starts with a thorough audit and follows a data-driven strategy tailored to the Reading and Berkshire market.
+      </div>
+
+      <h2>Our Approach to Measurement</h2>
+
+      <p>Every SEO campaign we run is tracked against hard metrics: organic traffic, keyword positions, Google Business Profile visibility, and conversion data. We do not report on vanity metrics or hide behind jargon. When we say a client's organic traffic grew by 340%, that number comes directly from Google Search Console and Google Analytics. When we report local pack dominance, we mean the business consistently appears in the top three map results for its target terms across Reading and surrounding areas.</p>
+
+      <p>Transparency is central to how we work. These case studies show not just the results but the strategy behind them, the challenges faced, and the timeline involved. SEO is not magic. It is a disciplined process of technical optimisation, content strategy, and local authority building. The results below reflect that process applied to real Reading businesses in competitive markets.</p>
+
+      <div class="grid md:grid-cols-2 gap-6 my-8">
+        <div class="border border-gray-200 rounded-lg p-6">
+          <h3 class="mt-0">Reading Law Firm: 340% Organic Growth</h3>
+          <p>A mid-size law firm near Forbury Square was invisible for key legal search terms in Reading. Through technical SEO fixes, targeted content strategy, and local optimisation, we grew their organic traffic by 340% in eight months and secured local pack visibility for "solicitors reading".</p>
+          <p class="text-lg font-semibold text-green-700">340% organic traffic increase in 8 months</p>
+          <a href="/case-studies/reading-law-firm-organic-growth/">Read full case study &rarr;</a>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-6">
+          <h3 class="mt-0">Caversham Estate Agent: Google Maps Dominance</h3>
+          <p>An independent estate agent on Prospect Street, Caversham, was losing property searches to Rightmove, Zoopla, and national chains. We built a local SEO strategy that delivered Google Maps dominance across Reading, Tilehurst, Earley, and surrounding areas.</p>
+          <p class="text-lg font-semibold text-green-700">Local pack visibility for 28 property terms</p>
+          <a href="/case-studies/caversham-estate-agent-google-maps-dominance/">Read full case study &rarr;</a>
+        </div>
+      </div>
+
+      <h2>What Makes Reading Businesses Different for SEO</h2>
+
+      <p>Reading sits at the centre of the Thames Valley, one of the most commercially dense corridors outside London. This creates a specific set of SEO challenges that generic agencies often miss. Reading businesses compete not only against each other but against London firms targeting Berkshire remotely, national chains with massive domain authority, and aggregator sites like Rightmove, Checkatrade, and Bark that dominate many local search results.</p>
+
+      <p>The opportunity lies in Reading's geography. The town serves a catchment spanning Caversham and Emmer Green to the north, Tilehurst and Calcot to the west, Earley and Woodley to the east, and out to Wokingham, Bracknell, and Newbury. A properly structured local SEO campaign captures search demand across all of these areas from a single website. Most Reading businesses leave this multi-area visibility on the table entirely.</p>
+
+      <p>Reading's business park clusters also create unique B2B search dynamics. Green Park and Thames Valley Park house major corporate headquarters. Forbury Square is the professional services hub. Each cluster generates distinct search patterns that a local SEO consultant understands intuitively but a remote agency would need months to learn.</p>
+
+      <p>The businesses that invest in local SEO early gain a compounding advantage. Rankings build authority over time. Review profiles strengthen. Citation networks expand. The longer you wait, the more ground your competitors gain and the harder it becomes to catch up.</p>
+
+      <div class="cta-box">
+        <h2 class="text-white text-2xl font-bold mb-2">Find Out Where You Stand</h2>
+        <p class="text-white/90 mb-4">Request a free SEO audit and we will show you exactly where your Reading business ranks, what is holding you back, and what opportunities you are missing. No commitment, no sales pitch.</p>
+        <a href="/free-seo-audit-reading/">Request Your Free Audit</a>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      {faqItems.map(item => (
+        <div class="faq-item">
+          <h3 class="faq-question">{item.q}</h3>
+          <p>{item.a}</p>
+        </div>
+      ))}
+
+      <p>Ready to see what SEO can do for your business? Explore our <a href="/services/">full range of SEO services</a> or request a <a href="/seo-audit-reading/">comprehensive SEO audit</a>. Learn more about <a href="/">SEO Reading</a> and how we help Berkshire businesses grow through organic search.</p>
+
+    </div>
+  </section>
+</Base>

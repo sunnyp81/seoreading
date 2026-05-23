@@ -1,0 +1,310 @@
+---
+import Base from '../layouts/Base.astro';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://seoreading.uk/services/" },
+      { "@type": "ListItem", "position": 3, "name": "Technical SEO Reading", "item": "https://seoreading.uk/technical-seo-reading/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Technical SEO Reading | Site Audits",
+    "description": "Technical SEO services for Reading and Berkshire businesses. Site speed, crawlability, Core Web Vitals, structured data. Green Park and TVP expertise.",
+    "url": "https://seoreading.uk/technical-seo-reading/",
+    "isPartOf": { "@type": "WebSite", "name": "SEO Reading", "url": "https://seoreading.uk/" }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Technical SEO Services in Reading",
+    "description": "Technical SEO audits and implementation for Reading businesses covering site speed, crawlability, Core Web Vitals, and structured data.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "SEO Reading",
+      "url": "https://seoreading.uk/",
+      "areaServed": { "@type": "City", "name": "Reading", "containedInPlace": { "@type": "AdministrativeArea", "name": "Berkshire" } }
+    },
+    "areaServed": { "@type": "City", "name": "Reading" },
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "GBP",
+      "availability": "https://schema.org/InStock"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does a technical SEO audit take?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A thorough technical SEO audit for a typical Reading business website takes 5-10 working days depending on site size. Enterprise sites with thousands of pages may take longer." }
+      },
+      {
+        "@type": "Question",
+        "name": "What tools do you use for technical SEO?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We use Screaming Frog, Google Search Console, PageSpeed Insights, Chrome DevTools, Ahrefs, and structured data testing tools. The specific combination depends on your site's technology stack." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you fix technical SEO issues or just identify them?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Both. We identify issues during the audit phase and implement fixes directly. For sites on WordPress, Shopify, or custom platforms, we work with your developer or handle implementation ourselves." }
+      },
+      {
+        "@type": "Question",
+        "name": "How does technical SEO affect local rankings in Reading?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Technical SEO directly impacts local rankings. Google needs to crawl and index your pages efficiently before local signals like Google Business Profile and citations matter. A technically broken site will not rank in Reading's local pack." }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need technical SEO if my site is on WordPress?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. WordPress sites frequently have crawlability issues from plugin conflicts, bloated code, duplicate content from tag and category archives, and slow loading times from unoptimised themes. Technical SEO resolves these." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between technical SEO and on-page SEO?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Technical SEO focuses on how search engines access and process your site: crawling, indexing, speed, and structured data. On-page SEO focuses on the content itself: keywords, headings, meta tags, and internal linking. Both are necessary for strong rankings." }
+      }
+    ]
+  }
+];
+---
+
+<Base title="Technical SEO Reading | Site Audits" description="Technical SEO services for Reading and Berkshire businesses. Site speed, crawlability, Core Web Vitals, structured data. Green Park and TVP expertise." schema={schema}>
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="prose">
+
+      <h1>Technical SEO for Reading Businesses</h1>
+
+      <p>SEO Reading provides technical SEO services that fix the foundational issues preventing Reading businesses from ranking in Google. Your content strategy and backlink profile are irrelevant if search engines cannot crawl, render, and index your pages correctly. Technical SEO is the infrastructure layer that makes everything else work.</p>
+
+      <div class="quick-answer">
+        <strong>Quick answer:</strong> Technical SEO covers the behind-the-scenes elements that determine whether Google can find, understand, and rank your website. For Reading businesses competing in local and national search, technical health is the difference between page one and page nowhere. We audit, fix, and monitor the technical foundations so your site performs at its best.
+      </div>
+
+      <p>Reading's business landscape spans corporate headquarters at <strong>Green Park</strong> and <strong>Thames Valley Park</strong>, independent retailers in the town centre, and growing startups across <strong>Berkshire</strong>. Each has different technical SEO needs, but all share the same requirement: a site that Google can efficiently crawl and that loads fast for users on any device.</p>
+
+      <h2>What Is Technical SEO</h2>
+
+      <p>Technical SEO is the practice of optimising the infrastructure of your website so search engines can discover, crawl, render, and index your content without obstacles. It sits beneath content and link building as the foundational layer of any SEO strategy.</p>
+
+      <p>The core areas include:</p>
+
+      <ul>
+        <li><strong>Crawlability</strong> — can Google's bots reach every important page on your site?</li>
+        <li><strong>Indexation</strong> — are the right pages appearing in Google's index, and are the wrong ones excluded?</li>
+        <li><strong>Site speed</strong> — do pages load within Google's Core Web Vitals thresholds?</li>
+        <li><strong>Structured data</strong> — does your site communicate entity information to search engines through schema markup?</li>
+        <li><strong>Security</strong> — is HTTPS properly implemented with no mixed content?</li>
+        <li><strong>Mobile usability</strong> — does the site function correctly on mobile devices?</li>
+      </ul>
+
+      <p>When any of these elements break, rankings suffer regardless of how good your content is. A Reading estate agent with excellent property listings will lose to a competitor with worse content but better technical foundations.</p>
+
+      <h2>Core Web Vitals and Site Speed</h2>
+
+      <p>Google's Core Web Vitals measure real-world user experience through three metrics: Largest Contentful Paint (LCP), Interaction to Next Paint (INP), and Cumulative Layout Shift (CLS). These are ranking factors, and Google measures them from actual Chrome user data.</p>
+
+      <h3>Why Speed Matters for Reading Businesses</h3>
+
+      <p>Reading's tech companies at <strong>Green Park</strong> — including Microsoft, Cisco, and Pepsico — operate enterprise websites with complex architectures. These sites often suffer from render-blocking JavaScript, unoptimised images, and excessive third-party scripts that push LCP well beyond the 2.5-second threshold Google recommends.</p>
+
+      <p>Companies at <strong>Thames Valley Park</strong>, including Oracle and Verizon, face similar challenges with large corporate sites that have accumulated technical debt over years of CMS migrations and plugin additions.</p>
+
+      <p>For smaller Reading businesses, speed issues typically stem from:</p>
+
+      <ul>
+        <li>Unoptimised hero images and product photos (often 2-5MB when they should be under 200KB)</li>
+        <li>WordPress themes loading 30+ unused CSS and JavaScript files</li>
+        <li>No browser caching or CDN configuration</li>
+        <li>Shared hosting that cannot handle traffic spikes</li>
+        <li>Uncompressed HTML, CSS, and JavaScript files</li>
+      </ul>
+
+      <h3>What We Fix</h3>
+
+      <p>Our technical SEO process addresses speed at every layer. We implement next-gen image formats (WebP and AVIF), configure proper caching headers, defer non-critical JavaScript, inline critical CSS, and recommend hosting upgrades where shared servers are the bottleneck. For WordPress sites, we audit every active plugin for performance impact and remove or replace the worst offenders.</p>
+
+      <h2>Crawlability and Indexation</h2>
+
+      <p>If Google cannot crawl your pages, they cannot rank. Crawlability issues are invisible to most business owners because the site looks fine in a browser. The problems only surface in server logs and crawl tools.</p>
+
+      <h3>XML Sitemaps</h3>
+
+      <p>An XML sitemap tells Google which pages exist on your site and when they were last updated. Many Reading business websites either have no sitemap, have a sitemap that includes noindexed or redirected URLs, or have a sitemap that has not been updated in months. We generate clean, current sitemaps and submit them through Google Search Console.</p>
+
+      <h3>Robots.txt Configuration</h3>
+
+      <p>The robots.txt file controls which parts of your site search engines can access. Misconfigured robots.txt files are one of the most common technical SEO errors we find. A single disallow rule can block Google from crawling your entire site. We audit your robots.txt to ensure it allows access to all important content while blocking duplicate or low-value pages like internal search results or admin areas.</p>
+
+      <h3>Crawl Budget</h3>
+
+      <p>For larger sites — particularly e-commerce businesses in <strong>Reading town centre</strong> and enterprise sites at Green Park — crawl budget becomes a factor. Google allocates a limited number of pages to crawl per visit. If your site wastes crawl budget on duplicate pages, parameter URLs, faceted navigation, or expired product listings, your important pages get crawled less frequently. We identify and resolve crawl budget waste through log file analysis and crawl data from Search Console.</p>
+
+      <h3>Indexation Issues</h3>
+
+      <p>Common indexation problems we resolve for Reading businesses include:</p>
+
+      <ul>
+        <li>Pages blocked by noindex tags that should be indexed</li>
+        <li>Duplicate content creating index bloat (multiple URLs for the same page)</li>
+        <li>Canonical tags pointing to the wrong URL</li>
+        <li>Orphan pages with no internal links</li>
+        <li>Soft 404 errors where the server returns a 200 status for pages that do not exist</li>
+        <li>Redirect chains and loops</li>
+      </ul>
+
+      <h2>Structured Data and Schema Markup</h2>
+
+      <p>Structured data is code added to your website that helps search engines understand your content. It uses the Schema.org vocabulary and is implemented as JSON-LD in your page's HTML. For Reading businesses, structured data is particularly valuable for local search visibility.</p>
+
+      <h3>LocalBusiness Schema</h3>
+
+      <p>LocalBusiness schema tells Google your business name, address, phone number, opening hours, and service area. For Reading businesses serving specific areas — Caversham, Earley, Woodley, Tilehurst — this structured data reinforces your local relevance. It also enables rich results like star ratings, opening hours, and price ranges directly in search results.</p>
+
+      <h3>Other Schema Types</h3>
+
+      <p>Beyond LocalBusiness, we implement schema types relevant to your business:</p>
+
+      <ul>
+        <li><strong>Service</strong> — defines what you offer with pricing and availability</li>
+        <li><strong>FAQPage</strong> — marks up frequently asked questions for FAQ rich results</li>
+        <li><strong>Product</strong> — for e-commerce sites, enables product rich results with price and stock status</li>
+        <li><strong>Article</strong> — for blog content and news, supports article rich results</li>
+        <li><strong>BreadcrumbList</strong> — shows your site hierarchy in search results</li>
+        <li><strong>Review and AggregateRating</strong> — displays star ratings in search results</li>
+      </ul>
+
+      <p>Structured data does not directly improve rankings, but it significantly improves click-through rates by making your search listings more prominent and informative. A Reading plumber showing star ratings and pricing in search results will attract more clicks than a competitor with a plain blue link.</p>
+
+      <h2>Mobile-First Indexing</h2>
+
+      <p>Google uses the mobile version of your website for indexing and ranking. If your site performs poorly on mobile, your desktop rankings suffer too. This is not optional — Google switched to mobile-first indexing for all sites in 2023.</p>
+
+      <h3>Reading's Mobile Search Context</h3>
+
+      <p><strong>Reading Station</strong> handles over 17 million passenger journeys per year. Commuters searching for local services — lunch spots, dry cleaners, barbers — are doing so on mobile devices while waiting for trains or walking to offices. <strong>Crossrail</strong> (the Elizabeth Line) has increased this further, connecting Reading directly to central London and bringing more mobile-first users through the town.</p>
+
+      <p>If your site has text that is too small to read on mobile, buttons that are too close together, content wider than the screen, or interstitials that block the page, you are losing these mobile searchers to competitors with responsive, mobile-optimised sites.</p>
+
+      <h3>What We Check</h3>
+
+      <ul>
+        <li>Responsive design implementation across all page templates</li>
+        <li>Touch target sizes (minimum 48x48 CSS pixels)</li>
+        <li>Font sizes and readability on small screens</li>
+        <li>Mobile page speed (often significantly worse than desktop)</li>
+        <li>Viewport configuration and content scaling</li>
+        <li>Mobile-specific usability issues flagged in Search Console</li>
+      </ul>
+
+      <h2>HTTPS and Security</h2>
+
+      <p>HTTPS is a confirmed Google ranking signal. Every page on your site should load over HTTPS with a valid SSL certificate. Beyond rankings, HTTPS protects your users' data and builds trust — particularly important for Reading businesses that take online bookings or payments.</p>
+
+      <p>Common HTTPS issues we fix:</p>
+
+      <ul>
+        <li>Mixed content warnings (HTTP resources loaded on HTTPS pages)</li>
+        <li>Expired or incorrectly configured SSL certificates</li>
+        <li>Missing HTTP-to-HTTPS redirects</li>
+        <li>HSTS header not implemented</li>
+        <li>Insecure form submissions</li>
+      </ul>
+
+      <h2>Technical SEO for Enterprise Sites</h2>
+
+      <p>Reading is home to major corporate headquarters that present unique technical SEO challenges at scale.</p>
+
+      <h3>Green Park Business Park</h3>
+
+      <p>Companies like <strong>Microsoft</strong>, <strong>Cisco</strong>, <strong>Pepsico</strong>, and <strong>Bayer</strong> at Green Park operate large multi-language, multi-region websites. Technical SEO at this scale involves hreflang implementation for international targeting, JavaScript rendering for single-page applications, log file analysis across millions of URLs, and coordination between marketing, development, and infrastructure teams.</p>
+
+      <h3>Thames Valley Park</h3>
+
+      <p><strong>Oracle</strong>, <strong>Verizon</strong>, and other Thames Valley Park tenants face similar enterprise challenges. Their sites often run on complex CMS platforms with legacy code, multiple subdomains, and content management workflows that introduce technical debt. We work with in-house development teams to prioritise and implement fixes without disrupting existing workflows.</p>
+
+      <h3>Enterprise-Specific Technical Issues</h3>
+
+      <ul>
+        <li>JavaScript-rendered content that Google cannot see without server-side rendering</li>
+        <li>Faceted navigation creating millions of indexable URL combinations</li>
+        <li>CMS migrations that break internal links and redirect chains</li>
+        <li>CDN configuration affecting crawlability</li>
+        <li>API-driven content that needs pre-rendering for search engines</li>
+        <li>Cross-domain tracking and canonical issues across multiple properties</li>
+      </ul>
+
+      <h2>Our Technical SEO Process</h2>
+
+      <p>We follow a structured four-phase approach for every Reading business we work with.</p>
+
+      <h3>Phase 1: Audit</h3>
+
+      <p>A comprehensive crawl of your site using Screaming Frog, cross-referenced with Google Search Console data and server log analysis. We document every technical issue, categorise by severity, and estimate the ranking impact of each fix. This typically takes 5-10 working days depending on site size.</p>
+
+      <h3>Phase 2: Prioritise</h3>
+
+      <p>Not all technical issues are equal. A canonical tag error on your homepage matters more than a missing alt tag on a deep blog post. We rank every issue by impact and effort, giving you a clear roadmap of what to fix first. Critical issues that block indexation are always top priority.</p>
+
+      <h3>Phase 3: Implement</h3>
+
+      <p>We implement fixes directly where we have CMS access, or provide detailed developer briefs with exact code changes for your team. Every fix is documented with before-and-after states. For WordPress sites, we handle implementation entirely. For custom platforms, we work alongside your developers.</p>
+
+      <h3>Phase 4: Monitor</h3>
+
+      <p>Technical SEO is not a one-off project. Sites change, plugins update, content gets added, and new issues appear. We monitor crawl health, Core Web Vitals, and indexation status on an ongoing basis. When new issues arise, we catch them before they impact rankings.</p>
+
+      <p>For details on what the initial audit covers and what you receive, see our <a href="/seo-audit-reading/">full SEO audit service</a>.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How long does a technical SEO audit take?</h3>
+        <p>A thorough technical SEO audit for a typical Reading business website takes 5-10 working days depending on site size. Enterprise sites with thousands of pages may take longer. You receive a prioritised report with every issue documented and a recommended fix.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What tools do you use for technical SEO?</h3>
+        <p>We use Screaming Frog for crawling, Google Search Console for indexation and performance data, PageSpeed Insights and Chrome DevTools for speed analysis, Ahrefs for backlink and crawl data, and Google's Rich Results Test and Schema Markup Validator for structured data. The specific combination depends on your site's technology stack and the issues we are investigating.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Can you fix technical SEO issues or just identify them?</h3>
+        <p>Both. We identify issues during the audit phase and implement fixes directly. For sites on WordPress, Shopify, or custom platforms, we work with your developer or handle implementation ourselves. Every fix comes with documentation so your team understands what changed and why.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How does technical SEO affect local rankings in Reading?</h3>
+        <p>Technical SEO directly impacts local rankings. Google needs to crawl and index your pages efficiently before local signals like your Google Business Profile and citations take effect. A technically broken site will not rank in Reading's local pack regardless of how many reviews you have or how accurate your NAP citations are.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Do I need technical SEO if my site is on WordPress?</h3>
+        <p>Yes. WordPress sites frequently have crawlability issues from plugin conflicts, bloated code, duplicate content from tag and category archives, and slow loading times from unoptimised themes. WordPress makes it easy to publish content but does not automatically handle technical SEO correctly. Most WordPress sites we audit for Reading businesses have 10-30 technical issues affecting their rankings.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What is the difference between technical SEO and on-page SEO?</h3>
+        <p>Technical SEO focuses on how search engines access and process your site: crawling, indexing, speed, and structured data. On-page SEO focuses on the content itself: keywords, headings, meta tags, and internal linking. Both are necessary for strong rankings in Reading's competitive local search results. We address both through our <a href="/services/">full service offering</a>.</p>
+      </div>
+
+      <div class="cta-box">
+        <h2 style="color: white; margin-top: 0;">Get a Technical SEO Audit for Your Reading Business</h2>
+        <p>Find out what technical issues are holding your site back. We audit your site's crawlability, speed, structured data, and mobile performance, then fix what matters most.</p>
+        <a href="/seo-audit-reading/">Book Your SEO Audit</a>
+      </div>
+
+      <p>Looking for a quick health check first? Try our <a href="/free-seo-audit-reading/">free SEO audit</a> for a baseline assessment, or see our <a href="/seo-pricing-reading/">pricing page</a> for service costs. You can also learn about how we approach <a href="/ai-search-optimisation-reading/">AI search optimisation</a> alongside technical SEO.</p>
+
+      <p>Back to <a href="/services/">all services</a> or return to <a href="/">SEO Reading homepage</a>.</p>
+
+    </div>
+  </section>
+</Base>

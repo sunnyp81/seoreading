@@ -1,0 +1,137 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  schema?: object[];
+}
+
+const { title, description, canonical, schema = [] } = Astro.props;
+const currentPath = Astro.url.pathname;
+const siteUrl = 'https://seoreading.uk';
+const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
+const year = new Date().getFullYear();
+---
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="SEO Reading" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="geo.region" content="GB-RDG" />
+  <meta name="geo.placename" content="Reading, Berkshire" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  {schema.map((s) => (
+    <script type="application/ld+json" set:html={JSON.stringify(s)} />
+  ))}
+</head>
+<body class="min-h-screen flex flex-col">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-brand focus:text-white focus:px-4 focus:py-2 focus:rounded focus:z-50">Skip to content</a>
+
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-border">
+    <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="/" class="text-xl font-bold text-brand hover:text-brand-light transition-colors">
+        SEO Reading
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="/services/" class={`hover:text-brand-light transition-colors ${currentPath.startsWith('/services') ? 'text-brand' : 'text-text-muted'}`}>Services</a>
+        <a href="/areas/" class={`hover:text-brand-light transition-colors ${currentPath.startsWith('/areas') ? 'text-brand' : 'text-text-muted'}`}>Areas</a>
+        <a href="/industries/" class={`hover:text-brand-light transition-colors ${currentPath.startsWith('/industries') ? 'text-brand' : 'text-text-muted'}`}>Industries</a>
+        <a href="/case-studies/" class={`hover:text-brand-light transition-colors ${currentPath.startsWith('/case-studies') ? 'text-brand' : 'text-text-muted'}`}>Case Studies</a>
+        <a href="/about/" class={`hover:text-brand-light transition-colors ${currentPath === '/about/' ? 'text-brand' : 'text-text-muted'}`}>About</a>
+        <a href="/contact/" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-light transition-colors">Get SEO Audit</a>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Open menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-white px-4 pb-4">
+      <a href="/services/" class="block py-2 text-text-muted hover:text-brand">Services</a>
+      <a href="/areas/" class="block py-2 text-text-muted hover:text-brand">Areas</a>
+      <a href="/industries/" class="block py-2 text-text-muted hover:text-brand">Industries</a>
+      <a href="/case-studies/" class="block py-2 text-text-muted hover:text-brand">Case Studies</a>
+      <a href="/about/" class="block py-2 text-text-muted hover:text-brand">About</a>
+      <a href="/contact/" class="block py-2 mt-2 bg-accent text-white text-center rounded-lg hover:bg-accent-light">Get SEO Audit</a>
+    </div>
+  </header>
+
+  <main id="main" class="flex-1">
+    <slot />
+  </main>
+
+  <footer class="bg-brand-dark text-white mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="font-bold text-lg mb-3">SEO Reading</h3>
+          <p class="text-sm text-gray-300 leading-relaxed">Local SEO consultancy serving Reading, Berkshire, and the Thames Valley. Helping businesses rank in Google and get cited by AI search engines.</p>
+        </div>
+        <div>
+          <h3 class="font-bold mb-3">Services</h3>
+          <ul class="text-sm text-gray-300 space-y-2">
+            <li><a href="/services/" class="hover:text-white transition-colors">All Services</a></li>
+            <li><a href="/technical-seo-reading/" class="hover:text-white transition-colors">Technical SEO</a></li>
+            <li><a href="/seo-audit-reading/" class="hover:text-white transition-colors">SEO Audit</a></li>
+            <li><a href="/ai-search-optimisation-reading/" class="hover:text-white transition-colors">AI Search Optimisation</a></li>
+            <li><a href="/seo-pricing-reading/" class="hover:text-white transition-colors">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-3">Resources</h3>
+          <ul class="text-sm text-gray-300 space-y-2">
+            <li><a href="/free-seo-audit-reading/" class="hover:text-white transition-colors">Free SEO Audit</a></li>
+            <li><a href="/case-studies/" class="hover:text-white transition-colors">Case Studies</a></li>
+            <li><a href="/areas/" class="hover:text-white transition-colors">Areas We Cover</a></li>
+            <li><a href="/industries/" class="hover:text-white transition-colors">Industries</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-3">Contact</h3>
+          <ul class="text-sm text-gray-300 space-y-2">
+            <li>Reading, Berkshire</li>
+            <li><a href="mailto:hello@seoreading.uk" class="hover:text-white transition-colors">hello@seoreading.uk</a></li>
+            <li><a href="/about/" class="hover:text-white transition-colors">About Sunny Patel</a></li>
+            <li><a href="/contact/" class="hover:text-white transition-colors">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-600 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+        <p>&copy; {year} SEO Reading. All rights reserved.</p>
+        <div class="flex gap-4 mt-4 md:mt-0">
+          <a href="/sitemap-index.xml" class="hover:text-white transition-colors">Sitemap</a>
+          <a href="/llms.txt" class="hover:text-white transition-colors">llms.txt</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
