@@ -70,13 +70,20 @@ const faqSchema = {
   description="Get in touch with SEO Reading. Based in Reading, Berkshire, serving businesses across the Thames Valley. Book a consultation to discuss your search visibility."
   schema={[breadcrumbSchema, orgSchema, webPageSchema, faqSchema]}
 >
+  <section class="page-hero">
+    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute -bottom-20 -right-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-2" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
+    <div class="max-w-3xl mx-auto relative z-10">
+      <h1 class="fade-up">Contact SEO Reading</h1>
+      <p class="subtitle fade-up" style="transition-delay: 80ms;">Based in Reading, Berkshire, serving the Thames Valley.</p>
+    </div>
+  </section>
+
   <section class="max-w-6xl mx-auto px-4 py-12">
-    <div class="prose">
+    <div class="prose fade-up">
       <nav aria-label="Breadcrumb" class="text-sm text-muted mb-6">
         <a href="/">Home</a> &raquo; Contact
       </nav>
-
-      <h1>Contact SEO Reading</h1>
 
       <p>SEO Reading is based in Reading, Berkshire, and serves businesses across the Thames Valley region. Get in touch to discuss how we can improve your search visibility and drive measurable organic growth.</p>
 

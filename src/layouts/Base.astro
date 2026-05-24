@@ -28,6 +28,9 @@ const navLinks = [
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
@@ -53,65 +56,73 @@ const navLinks = [
 <body class="min-h-screen flex flex-col">
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-brand focus:text-white focus:px-4 focus:py-2 focus:rounded focus:z-50">Skip to content</a>
 
-  <!-- Top bar: subtle gold accent line -->
-  <div class="h-[3px] bg-accent" aria-hidden="true"></div>
+  <header class="sticky top-0 z-40 transition-all duration-300" id="site-header">
+    <!-- Gold accent line -->
+    <div class="h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent" aria-hidden="true"></div>
 
-  <header class="sticky top-0 z-40 bg-white/98 backdrop-blur-sm border-b border-border/60" id="site-header">
-    <nav class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
-      <!-- Logo: serif wordmark -->
-      <a href="/" class="group flex items-center gap-2">
-        <span class="text-[0.7rem] font-semibold text-accent tracking-[0.15em] uppercase mt-[2px]">SEO</span>
-        <span class="text-[1.35rem] font-bold text-brand tracking-tight transition-colors group-hover:text-brand-light" style="font-family: var(--font-serif)">Reading</span>
-      </a>
+    <div class="bg-white/95 backdrop-blur-md border-b border-border/40">
+      <nav class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between transition-all duration-300" id="site-nav">
+        <!-- Logo -->
+        <a href="/" class="group flex items-baseline gap-1.5">
+          <span class="text-[0.65rem] font-bold text-accent tracking-[0.18em] uppercase">SEO</span>
+          <span class="text-[1.4rem] font-bold text-brand tracking-tight transition-colors group-hover:text-brand-light" style="font-family: var(--font-serif)">Reading</span>
+        </a>
 
-      <!-- Desktop nav -->
-      <div class="hidden lg:flex items-center gap-7">
-        {navLinks.map(({ href, label, match }) => (
-          <a
-            href={href}
-            class={`text-[0.9rem] font-medium transition-colors relative pb-0.5 ${
-              currentPath.startsWith(match)
-                ? 'text-brand after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-accent'
-                : 'text-text-muted hover:text-brand'
-            }`}
-          >{label}</a>
-        ))}
-        <a href="/contact/" class="btn btn-primary text-[0.85rem] py-2.5 px-5">Book a Consultation</a>
-      </div>
+        <!-- Desktop nav -->
+        <div class="hidden lg:flex items-center gap-8">
+          {navLinks.map(({ href, label, match }) => (
+            <a
+              href={href}
+              class:list={[
+                'text-[0.9rem] font-medium transition-colors relative pb-1',
+                currentPath.startsWith(match)
+                  ? 'text-brand after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-accent after:rounded-full'
+                  : 'text-text-muted hover:text-brand'
+              ]}
+            >{label}</a>
+          ))}
+          <a href="/contact/" class="btn btn-primary text-[0.85rem] py-2.5 px-5 relative overflow-hidden">
+            <span class="relative z-10">Book a Consultation</span>
+            <span class="shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full"></span>
+          </a>
+        </div>
 
-      <!-- Mobile hamburger -->
-      <button
-        id="mobile-menu-btn"
-        class="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md hover:bg-surface transition-colors"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <span id="burger-top" class="block w-5 h-[2px] bg-brand transition-all duration-300"></span>
-        <span id="burger-mid" class="block w-5 h-[2px] bg-brand mt-[5px] transition-all duration-300"></span>
-        <span id="burger-bot" class="block w-5 h-[2px] bg-brand mt-[5px] transition-all duration-300"></span>
-      </button>
-    </nav>
+        <!-- Mobile hamburger -->
+        <button
+          id="mobile-menu-btn"
+          class="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-surface transition-colors"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span id="burger-top" class="block w-5 h-[2px] bg-brand transition-all duration-300 origin-center"></span>
+          <span id="burger-mid" class="block w-5 h-[2px] bg-brand mt-[5px] transition-all duration-300"></span>
+          <span id="burger-bot" class="block w-5 h-[2px] bg-brand mt-[5px] transition-all duration-300 origin-center"></span>
+        </button>
+      </nav>
+    </div>
 
-    <!-- Mobile menu: slide-down panel -->
+    <!-- Mobile menu: glassmorphism slide-down -->
     <div
       id="mobile-menu"
-      class="hidden lg:hidden bg-white border-t border-border/60 overflow-hidden transition-all duration-300"
+      class="lg:hidden overflow-hidden transition-all duration-400 max-h-0 opacity-0"
       role="navigation"
       aria-label="Mobile navigation"
+      style="backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background: rgba(250, 247, 242, 0.95);"
     >
       <div class="max-w-5xl mx-auto px-5 py-6 flex flex-col gap-1">
         {navLinks.map(({ href, label, match }) => (
           <a
             href={href}
-            class={`block py-3 px-4 rounded-md text-[0.95rem] font-medium transition-colors ${
+            class:list={[
+              'block py-3 px-4 rounded-lg text-[0.95rem] font-medium transition-all duration-200',
               currentPath.startsWith(match)
-                ? 'bg-surface text-brand'
-                : 'text-text-muted hover:bg-surface hover:text-brand'
-            }`}
+                ? 'bg-white text-brand shadow-sm'
+                : 'text-text-muted hover:bg-white hover:text-brand hover:shadow-sm'
+            ]}
           >{label}</a>
         ))}
-        <div class="mt-3 pt-3 border-t border-border">
+        <div class="mt-3 pt-3 border-t border-border/60">
           <a href="/contact/" class="btn btn-primary w-full text-center block">Book a Consultation</a>
         </div>
       </div>
@@ -122,22 +133,25 @@ const navLinks = [
     <slot />
   </main>
 
-  <footer class="bg-brand-dark text-white mt-20">
-    <!-- Gold accent top -->
-    <div class="h-[2px] bg-accent/40" aria-hidden="true"></div>
+  <footer class="bg-brand-dark text-white mt-20 relative overflow-hidden">
+    <!-- Atmospheric elements -->
+    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute -top-32 -right-32 w-64 h-64 rounded-full opacity-10 blur-[80px]" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
 
-    <div class="max-w-5xl mx-auto px-5 pt-14 pb-10">
-      <!-- Footer top: brand + columns -->
+    <!-- Gold accent top -->
+    <div class="h-[2px] bg-gradient-to-r from-transparent via-accent/50 to-transparent relative z-10" aria-hidden="true"></div>
+
+    <div class="max-w-6xl mx-auto px-5 pt-14 pb-10 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
         <!-- Brand column -->
         <div class="md:col-span-4">
-          <div class="flex items-center gap-2 mb-4">
-            <span class="text-[0.65rem] font-semibold text-accent tracking-[0.15em] uppercase mt-[2px]">SEO</span>
+          <div class="flex items-baseline gap-1.5 mb-4">
+            <span class="text-[0.6rem] font-bold text-accent tracking-[0.18em] uppercase">SEO</span>
             <span class="text-xl font-bold tracking-tight" style="font-family: var(--font-serif)">Reading</span>
           </div>
           <p class="text-sm text-gray-400 leading-relaxed max-w-xs">Search marketing consultancy based in Reading, Berkshire. We help Thames Valley businesses achieve prominence in Google and AI-powered search engines.</p>
           <div class="mt-5 flex items-center gap-2 text-sm text-gray-400">
-            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             Reading, Berkshire, UK
           </div>
         </div>
@@ -146,11 +160,11 @@ const navLinks = [
         <div class="md:col-span-3">
           <h4 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Services</h4>
           <ul class="space-y-2.5 text-sm text-gray-400">
-            <li><a href="/services/" class="hover:text-white transition-colors">All Services</a></li>
-            <li><a href="/technical-seo-reading/" class="hover:text-white transition-colors">Technical SEO</a></li>
-            <li><a href="/seo-audit-reading/" class="hover:text-white transition-colors">SEO Audit</a></li>
-            <li><a href="/ai-search-optimisation-reading/" class="hover:text-white transition-colors">AI Search Optimisation</a></li>
-            <li><a href="/seo-pricing-reading/" class="hover:text-white transition-colors">Pricing</a></li>
+            <li><a href="/services/" class="hover:text-white transition-colors duration-200">All Services</a></li>
+            <li><a href="/technical-seo-reading/" class="hover:text-white transition-colors duration-200">Technical SEO</a></li>
+            <li><a href="/seo-audit-reading/" class="hover:text-white transition-colors duration-200">SEO Audit</a></li>
+            <li><a href="/ai-search-optimisation-reading/" class="hover:text-white transition-colors duration-200">AI Search Optimisation</a></li>
+            <li><a href="/seo-pricing-reading/" class="hover:text-white transition-colors duration-200">Pricing</a></li>
           </ul>
         </div>
 
@@ -158,10 +172,10 @@ const navLinks = [
         <div class="md:col-span-2">
           <h4 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Explore</h4>
           <ul class="space-y-2.5 text-sm text-gray-400">
-            <li><a href="/free-seo-audit-reading/" class="hover:text-white transition-colors">Free Audit</a></li>
-            <li><a href="/case-studies/" class="hover:text-white transition-colors">Case Studies</a></li>
-            <li><a href="/areas/" class="hover:text-white transition-colors">Areas</a></li>
-            <li><a href="/industries/" class="hover:text-white transition-colors">Industries</a></li>
+            <li><a href="/free-seo-audit-reading/" class="hover:text-white transition-colors duration-200">Free Audit</a></li>
+            <li><a href="/case-studies/" class="hover:text-white transition-colors duration-200">Case Studies</a></li>
+            <li><a href="/areas/" class="hover:text-white transition-colors duration-200">Areas</a></li>
+            <li><a href="/industries/" class="hover:text-white transition-colors duration-200">Industries</a></li>
           </ul>
         </div>
 
@@ -170,13 +184,13 @@ const navLinks = [
           <h4 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Contact</h4>
           <ul class="space-y-2.5 text-sm text-gray-400">
             <li>
-              <a href="mailto:hello@seoreading.uk" class="hover:text-white transition-colors flex items-center gap-2">
+              <a href="mailto:hello@seoreading.uk" class="hover:text-white transition-colors duration-200 flex items-center gap-2">
                 <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                 hello@seoreading.uk
               </a>
             </li>
-            <li><a href="/about/" class="hover:text-white transition-colors">About Us</a></li>
-            <li><a href="/contact/" class="hover:text-white transition-colors">Get in Touch</a></li>
+            <li><a href="/about/" class="hover:text-white transition-colors duration-200">About Us</a></li>
+            <li><a href="/contact/" class="hover:text-white transition-colors duration-200">Get in Touch</a></li>
           </ul>
         </div>
       </div>
@@ -193,6 +207,7 @@ const navLinks = [
   </footer>
 
   <script>
+    // Mobile menu
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     const burgerTop = document.getElementById('burger-top');
@@ -203,37 +218,88 @@ const navLinks = [
       btn.addEventListener('click', () => {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!expanded));
-        menu.classList.toggle('hidden');
 
-        // Animate burger to X
         if (!expanded) {
+          menu.style.maxHeight = menu.scrollHeight + 'px';
+          menu.style.opacity = '1';
           burgerTop?.classList.add('translate-y-[7px]', 'rotate-45');
-          burgerMid?.classList.add('opacity-0');
+          burgerMid?.classList.add('opacity-0', 'scale-0');
           burgerBot?.classList.add('-translate-y-[7px]', '-rotate-45');
         } else {
+          menu.style.maxHeight = '0';
+          menu.style.opacity = '0';
           burgerTop?.classList.remove('translate-y-[7px]', 'rotate-45');
-          burgerMid?.classList.remove('opacity-0');
+          burgerMid?.classList.remove('opacity-0', 'scale-0');
           burgerBot?.classList.remove('-translate-y-[7px]', '-rotate-45');
         }
       });
     }
 
-    // Shrink header on scroll
+    // Header shrink on scroll
     const header = document.getElementById('site-header');
-    if (header) {
-      let lastScroll = 0;
+    const nav = document.getElementById('site-nav');
+    if (header && nav) {
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const y = window.scrollY;
-        if (y > 60) {
-          header.classList.add('py-0');
-          header.querySelector('nav')?.classList.replace('py-4', 'py-2.5');
-        } else {
-          header.classList.remove('py-0');
-          header.querySelector('nav')?.classList.replace('py-2.5', 'py-4');
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            if (window.scrollY > 60) {
+              nav.classList.replace('py-4', 'py-2');
+            } else {
+              nav.classList.replace('py-2', 'py-4');
+            }
+            ticking = false;
+          });
+          ticking = true;
         }
-        lastScroll = y;
       }, { passive: true });
     }
+
+    // Fade-up scroll observer
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          fadeObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+    // Card spotlight tracking
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+        (e.currentTarget as HTMLElement).style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+        (e.currentTarget as HTMLElement).style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+      });
+    });
+
+    // Animated counters
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const el = e.target as HTMLElement;
+          const target = parseInt(el.dataset.count || '0', 10);
+          const suffix = el.dataset.suffix || '';
+          const prefix = el.dataset.prefix || '';
+          const duration = 1800;
+          const start = performance.now();
+
+          function tick(now: number) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 4);
+            const current = Math.round(target * eased);
+            el.textContent = prefix + current.toLocaleString() + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
   </script>
 </body>
 </html>

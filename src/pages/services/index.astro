@@ -89,9 +89,18 @@ const schema = [
 ---
 
 <Base title={title} description={description} schema={schema}>
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute -bottom-20 -right-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-2" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
+    <div class="max-w-3xl mx-auto relative z-10">
+      <h1 class="fade-up">SEO Services for Reading Businesses</h1>
+      <p class="subtitle fade-up" style="transition-delay: 80ms;">Technical SEO, content strategy, local SEO, and AI search optimisation. Every service is grounded in data and tailored to Reading's commercial landscape.</p>
+    </div>
+  </section>
+
   <section class="max-w-6xl mx-auto px-4 py-12">
-    <div class="prose">
-      <h1>SEO Services for Reading Businesses</h1>
+    <div class="prose fade-up">
 
       <p>SEO Reading provides a comprehensive range of search engine optimisation services designed for businesses operating in Reading, Berkshire, and the Thames Valley corridor. Every service we deliver is grounded in technical rigour, data drawn from Google Search Console and Bing Webmaster Tools, and a thorough understanding of how Reading's commercial landscape shapes local search behaviour.</p>
 
@@ -178,7 +187,7 @@ const schema = [
       </div>
 
       <div class="cta-box">
-        <h2 style="color: white; margin-top: 0;">Book a Consultation</h2>
+        <h2>Book a Consultation</h2>
         <p>Discover where your Reading business stands in search. Our free audit covers indexation, technical health, and three priority actions you can implement straightaway.</p>
         <a href="/free-seo-audit-reading/">Book a Consultation</a>
       </div>
