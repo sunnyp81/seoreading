@@ -3,20 +3,20 @@ import Base from '../layouts/Base.astro';
 
 const faqs = [
   {
-    q: "How quickly do you respond?",
-    a: "We aim to respond to all enquiries within 24 hours, usually sooner during business hours. If you contact us on a weekday morning, expect a reply the same day. Weekend messages are picked up first thing Monday."
+    q: "How quickly does your team respond?",
+    a: "We aim to respond to all enquiries within 24 hours, typically sooner during business hours. If you contact us on a weekday morning, you can expect a reply the same day. Weekend messages are addressed first thing on Monday."
   },
   {
     q: "Do you offer free consultations?",
-    a: "Yes. Every new enquiry gets a free initial consultation where we review your current search visibility, discuss your goals, and outline what an SEO campaign would look like for your business. No obligation, no hard sell."
+    a: "Yes. Every new enquiry receives a complimentary initial consultation in which we review your current search visibility, discuss your objectives, and outline what an SEO campaign would entail for your business. There is no obligation and no pressure."
   },
   {
     q: "Can we meet in person in Reading?",
-    a: "Absolutely. We are based in Reading and happy to meet at your office, a local coffee shop, or a co-working space in the town centre. We also cover Caversham, Tilehurst, Earley, Wokingham, and the wider Berkshire area for face-to-face meetings."
+    a: "Certainly. We are based in Reading and are happy to meet at your office, a suitable venue in the town centre, or a co-working space. We also cover Caversham, Tilehurst, Earley, Wokingham, and the wider Berkshire area for face-to-face meetings."
   },
   {
-    q: "What should I prepare before getting in touch?",
-    a: "It helps to have your website URL ready, a rough idea of your target keywords or services, and any existing Google Analytics or Search Console access. If you have none of that, no problem — we can start from scratch and audit everything during the consultation."
+    q: "What should we prepare before getting in touch?",
+    a: "It is helpful to have your website URL to hand, a general idea of your target keywords or services, and any existing Google Analytics or Search Console access. If you have none of that prepared, there is no cause for concern — we can begin from scratch and conduct a thorough audit during the initial consultation."
   }
 ];
 
@@ -29,13 +29,28 @@ const breadcrumbSchema = {
   ]
 };
 
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Forbury SEO",
+  "url": "https://seoreading.uk",
+  "email": "hello@seoreading.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Reading",
+    "addressRegion": "Berkshire",
+    "addressCountry": "GB"
+  },
+  "sameAs": []
+};
+
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Contact SEO Reading | Get in Touch",
-  "description": "Get in touch with SEO Reading. Based in Reading, Berkshire, serving businesses across the Thames Valley. Free initial consultation available.",
+  "name": "Contact Forbury SEO | Book a Consultation",
+  "description": "Get in touch with Forbury SEO. Based in Reading, Berkshire, serving businesses across the Thames Valley. Book a consultation to discuss your search visibility.",
   "url": "https://seoreading.uk/contact/",
-  "isPartOf": { "@type": "WebSite", "name": "SEO Reading", "url": "https://seoreading.uk/" },
+  "isPartOf": { "@type": "WebSite", "name": "Forbury SEO", "url": "https://seoreading.uk/" },
   "breadcrumb": { "@id": "https://seoreading.uk/contact/#breadcrumb" }
 };
 
@@ -51,9 +66,9 @@ const faqSchema = {
 ---
 
 <Base
-  title="Contact SEO Reading | Get in Touch"
-  description="Get in touch with SEO Reading. Based in Reading, Berkshire, serving businesses across the Thames Valley. Free initial consultation available."
-  schema={[breadcrumbSchema, webPageSchema, faqSchema]}
+  title="Contact Forbury SEO | Book a Consultation"
+  description="Get in touch with Forbury SEO. Based in Reading, Berkshire, serving businesses across the Thames Valley. Book a consultation to discuss your search visibility."
+  schema={[breadcrumbSchema, orgSchema, webPageSchema, faqSchema]}
 >
   <section class="max-w-6xl mx-auto px-4 py-12">
     <div class="prose">
@@ -61,12 +76,12 @@ const faqSchema = {
         <a href="/">Home</a> &raquo; Contact
       </nav>
 
-      <h1>Contact SEO Reading</h1>
+      <h1>Contact Forbury SEO</h1>
 
-      <p>SEO Reading is based in Reading, Berkshire, and serves businesses across the Thames Valley region. Get in touch to discuss how we can improve your search visibility.</p>
+      <p>Forbury SEO is based in Reading, Berkshire, and serves businesses across the Thames Valley region. Get in touch to discuss how we can improve your search visibility and drive measurable organic growth.</p>
 
       <div class="quick-answer">
-        <p>Contact Sunny Patel at SEO Reading for a free initial consultation. Based in Reading, covering Caversham, Tilehurst, Earley, Wokingham, and the wider Berkshire area.</p>
+        <p>Book a consultation with Forbury SEO to discuss your search visibility. We are based in Reading and cover Caversham, Tilehurst, Earley, Wokingham, and the wider Berkshire area.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 my-8">
@@ -93,7 +108,7 @@ const faqSchema = {
               <label for="message" class="block text-sm font-medium text-text mb-1">Message</label>
               <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light" placeholder="Tell us about your business and what you need help with"></textarea>
             </div>
-            <button type="submit" class="w-full bg-accent text-white py-3 px-6 rounded-lg font-semibold hover:bg-accent-light transition-colors">Send Message</button>
+            <button type="submit" class="w-full bg-accent text-white py-3 px-6 rounded-lg font-semibold hover:bg-accent-light transition-colors">Book a Consultation</button>
           </form>
         </div>
 
@@ -160,7 +175,7 @@ const faqSchema = {
 
       <h2>Next Steps</h2>
 
-      <p>Not sure where to start? Browse our <a href="/services/">SEO services</a> to see what we offer, check our <a href="/seo-pricing-reading/">pricing</a> for transparent costs, or learn more <a href="/about/">about us</a> and how we work with Reading businesses. Every engagement begins with a conversation — no templates, no generic proposals. We listen first, then build a strategy that fits your market and budget.</p>
+      <p>Not certain where to begin? Browse our <a href="/services/">SEO services</a> to see what we offer, review our <a href="/seo-pricing-reading/">pricing</a> for transparent costs, or learn more <a href="/about/">about our consultancy</a> and how we work with Reading businesses. Every engagement begins with a conversation — no templates, no generic proposals. We listen first, then construct a strategy that fits your market and budget.</p>
     </div>
   </section>
 </Base>

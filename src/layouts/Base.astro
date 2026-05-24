@@ -27,7 +27,7 @@ const year = new Date().getFullYear();
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalUrl} />
-  <meta property="og:site_name" content="SEO Reading" />
+  <meta property="og:site_name" content="Forbury SEO" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_GB" />
   <meta name="twitter:card" content="summary" />
@@ -37,7 +37,7 @@ const year = new Date().getFullYear();
   <meta name="geo.placename" content="Reading, Berkshire" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
   {schema.map((s) => (
     <script type="application/ld+json" set:html={JSON.stringify(s)} />
   ))}
@@ -47,8 +47,8 @@ const year = new Date().getFullYear();
 
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-border">
     <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold text-brand hover:text-brand-light transition-colors">
-        SEO Reading
+      <a href="/" class="text-xl font-bold text-brand hover:text-brand-light transition-colors" style="font-family: var(--font-serif)">
+        Forbury SEO
       </a>
       <div class="hidden md:flex items-center gap-6 text-sm font-medium">
         <a href="/services/" class={`hover:text-brand-light transition-colors ${currentPath.startsWith('/services') ? 'text-brand' : 'text-text-muted'}`}>Services</a>
@@ -56,7 +56,7 @@ const year = new Date().getFullYear();
         <a href="/industries/" class={`hover:text-brand-light transition-colors ${currentPath.startsWith('/industries') ? 'text-brand' : 'text-text-muted'}`}>Industries</a>
         <a href="/case-studies/" class={`hover:text-brand-light transition-colors ${currentPath.startsWith('/case-studies') ? 'text-brand' : 'text-text-muted'}`}>Case Studies</a>
         <a href="/about/" class={`hover:text-brand-light transition-colors ${currentPath === '/about/' ? 'text-brand' : 'text-text-muted'}`}>About</a>
-        <a href="/contact/" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-light transition-colors">Get SEO Audit</a>
+        <a href="/contact/" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-light transition-colors">Book a Consultation</a>
       </div>
       <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Open menu" aria-expanded="false">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -68,7 +68,7 @@ const year = new Date().getFullYear();
       <a href="/industries/" class="block py-2 text-text-muted hover:text-brand">Industries</a>
       <a href="/case-studies/" class="block py-2 text-text-muted hover:text-brand">Case Studies</a>
       <a href="/about/" class="block py-2 text-text-muted hover:text-brand">About</a>
-      <a href="/contact/" class="block py-2 mt-2 bg-accent text-white text-center rounded-lg hover:bg-accent-light">Get SEO Audit</a>
+      <a href="/contact/" class="block py-2 mt-2 bg-accent text-white text-center rounded-lg hover:bg-accent-light">Book a Consultation</a>
     </div>
   </header>
 
@@ -80,8 +80,8 @@ const year = new Date().getFullYear();
     <div class="max-w-6xl mx-auto px-4 py-12">
       <div class="grid md:grid-cols-4 gap-8">
         <div>
-          <h3 class="font-bold text-lg mb-3">SEO Reading</h3>
-          <p class="text-sm text-gray-300 leading-relaxed">Local SEO consultancy serving Reading, Berkshire, and the Thames Valley. Helping businesses rank in Google and get cited by AI search engines.</p>
+          <h3 class="font-bold text-lg mb-3" style="font-family: var(--font-serif)">Forbury SEO</h3>
+          <p class="text-sm text-gray-300 leading-relaxed">A Reading-based search marketing consultancy serving Berkshire and the Thames Valley. We help businesses achieve prominence in Google and AI-powered search engines.</p>
         </div>
         <div>
           <h3 class="font-bold mb-3">Services</h3>
@@ -107,13 +107,13 @@ const year = new Date().getFullYear();
           <ul class="text-sm text-gray-300 space-y-2">
             <li>Reading, Berkshire</li>
             <li><a href="mailto:hello@seoreading.uk" class="hover:text-white transition-colors">hello@seoreading.uk</a></li>
-            <li><a href="/about/" class="hover:text-white transition-colors">About Sunny Patel</a></li>
+            <li><a href="/about/" class="hover:text-white transition-colors">About Forbury SEO</a></li>
             <li><a href="/contact/" class="hover:text-white transition-colors">Get in Touch</a></li>
           </ul>
         </div>
       </div>
       <div class="border-t border-gray-600 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-        <p>&copy; {year} SEO Reading. All rights reserved.</p>
+        <p>&copy; {year} Forbury SEO. All rights reserved.</p>
         <div class="flex gap-4 mt-4 md:mt-0">
           <a href="/sitemap-index.xml" class="hover:text-white transition-colors">Sitemap</a>
           <a href="/llms.txt" class="hover:text-white transition-colors">llms.txt</a>

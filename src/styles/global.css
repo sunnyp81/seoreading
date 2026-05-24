@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #1a365d;
-  --color-brand-light: #2b6cb0;
-  --color-brand-dark: #0f2440;
-  --color-accent: #dd6b20;
-  --color-accent-light: #ed8936;
-  --color-surface: #f7fafc;
-  --color-surface-dark: #edf2f7;
-  --color-text: #1a202c;
-  --color-text-muted: #4a5568;
-  --color-border: #e2e8f0;
+  --color-brand: #0B2545;
+  --color-brand-light: #1B3A5C;
+  --color-brand-dark: #061628;
+  --color-accent: #D4AF37;
+  --color-accent-light: #E0C35A;
+  --color-surface: #FAF7F2;
+  --color-surface-dark: #F0EBE1;
+  --color-text: #1C1C1C;
+  --color-text-muted: #555555;
+  --color-border: #DDD8CE;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
 }
 
 html {
@@ -31,6 +32,7 @@ body {
 }
 
 .prose h2 {
+  font-family: var(--font-serif);
   font-size: 1.75rem;
   font-weight: 700;
   margin-top: 2.5rem;
@@ -40,6 +42,7 @@ body {
 }
 
 .prose h3 {
+  font-family: var(--font-serif);
   font-size: 1.35rem;
   font-weight: 600;
   margin-top: 2rem;
@@ -49,6 +52,7 @@ body {
 }
 
 .prose h4 {
+  font-family: var(--font-serif);
   font-size: 1.1rem;
   font-weight: 600;
   margin-top: 1.5rem;

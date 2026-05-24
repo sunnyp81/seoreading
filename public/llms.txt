@@ -1,18 +1,18 @@
-# SEO Reading
+# Forbury SEO
 
-> Local SEO consultancy serving Reading, Berkshire, and the Thames Valley. Run by Sunny Patel.
+> A Reading-based search marketing consultancy serving Berkshire and the Thames Valley.
 
 ## Pages
 
-- [Home](https://seoreading.uk/): SEO Reading is a local search marketing consultancy helping Reading and Berkshire businesses rank in Google and AI search engines.
+- [Home](https://seoreading.uk/): Forbury SEO is a local search marketing consultancy helping Reading and Berkshire businesses rank in Google and AI search engines.
 - [Services](https://seoreading.uk/services/): Full range of SEO services for Reading businesses including technical SEO, content strategy, local SEO, and AI search optimisation.
 - [Areas We Cover](https://seoreading.uk/areas/): SEO services across Reading, Caversham, Tilehurst, Earley, Woodley, Wokingham, Bracknell, and the wider Thames Valley.
 - [Industries](https://seoreading.uk/industries/): Specialist SEO for Reading's dominant sectors: technology, legal, financial services, estate agents, and hospitality.
 - [Technical SEO Reading](https://seoreading.uk/technical-seo-reading/): Technical SEO audits and implementation for Reading businesses, with expertise in enterprise sites at Green Park and Thames Valley Park.
-- [SEO Audit Reading](https://seoreading.uk/seo-audit-reading/): Comprehensive paid SEO audit service covering technical health, content gaps, backlink profile, and local visibility for Reading businesses.
+- [SEO Audit Reading](https://seoreading.uk/seo-audit-reading/): Comprehensive SEO audit service covering technical health, content gaps, backlink profile, and local visibility for Reading businesses.
 - [Free SEO Audit Reading](https://seoreading.uk/free-seo-audit-reading/): Complimentary SEO health check for Reading businesses — receive a baseline report on your site's Google visibility.
 - [SEO Pricing Reading](https://seoreading.uk/seo-pricing-reading/): Transparent SEO pricing for Reading businesses. Tiered packages from one-off audits to monthly retainers, typically 40-60% less than London agencies.
 - [AI Search Optimisation Reading](https://seoreading.uk/ai-search-optimisation-reading/): How to get your Reading business cited by ChatGPT, Perplexity, Claude, Copilot, and Google AI Overviews. Covers AEO, GEO, LLM SEO, and llms.txt.
-- [Case Studies](https://seoreading.uk/case-studies/): SEO case studies from Reading and Berkshire businesses showing measurable organic growth results.
-- [About](https://seoreading.uk/about/): About Sunny Patel — SEO consultant based in Reading, Berkshire with experience across local, technical, and AI search optimisation.
-- [Contact](https://seoreading.uk/contact/): Get in touch with SEO Reading. Based in Reading, Berkshire, serving the Thames Valley.
+- [Case Studies](https://seoreading.uk/case-studies/): SEO case studies from Reading and Berkshire businesses demonstrating measurable organic growth.
+- [About](https://seoreading.uk/about/): About Forbury SEO — a Reading-based consultancy with expertise across local, technical, and AI search optimisation.
+- [Contact](https://seoreading.uk/contact/): Get in touch with Forbury SEO. Based in Reading, Berkshire, serving the Thames Valley.
