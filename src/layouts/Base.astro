@@ -13,6 +13,14 @@ const currentPath = Astro.url.pathname;
 const siteUrl = 'https://seoreading.uk';
 const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
 const year = new Date().getFullYear();
+
+const navLinks = [
+  { href: '/services/', label: 'Services', match: '/services' },
+  { href: '/areas/', label: 'Areas', match: '/areas' },
+  { href: '/industries/', label: 'Industries', match: '/industries' },
+  { href: '/case-studies/', label: 'Case Studies', match: '/case-studies' },
+  { href: '/about/', label: 'About', match: '/about' },
+];
 ---
 
 <!DOCTYPE html>
@@ -27,7 +35,7 @@ const year = new Date().getFullYear();
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalUrl} />
-  <meta property="og:site_name" content="Forbury SEO" />
+  <meta property="og:site_name" content="SEO Reading" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_GB" />
   <meta name="twitter:card" content="summary" />
@@ -45,30 +53,68 @@ const year = new Date().getFullYear();
 <body class="min-h-screen flex flex-col">
   <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-brand focus:text-white focus:px-4 focus:py-2 focus:rounded focus:z-50">Skip to content</a>
 
-  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-border">
-    <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="/" class="text-xl font-bold text-brand hover:text-brand-light transition-colors" style="font-family: var(--font-serif)">
-        Forbury SEO
+  <!-- Top bar: subtle gold accent line -->
+  <div class="h-[3px] bg-accent" aria-hidden="true"></div>
+
+  <header class="sticky top-0 z-40 bg-white/98 backdrop-blur-sm border-b border-border/60" id="site-header">
+    <nav class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
+      <!-- Logo: serif wordmark -->
+      <a href="/" class="group flex items-center gap-2">
+        <span class="text-[0.7rem] font-semibold text-accent tracking-[0.15em] uppercase mt-[2px]">SEO</span>
+        <span class="text-[1.35rem] font-bold text-brand tracking-tight transition-colors group-hover:text-brand-light" style="font-family: var(--font-serif)">Reading</span>
       </a>
-      <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-        <a href="/services/" class={`hover:text-brand-light transition-colors ${currentPath.startsWith('/services') ? 'text-brand' : 'text-text-muted'}`}>Services</a>
-        <a href="/areas/" class={`hover:text-brand-light transition-colors ${currentPath.startsWith('/areas') ? 'text-brand' : 'text-text-muted'}`}>Areas</a>
-        <a href="/industries/" class={`hover:text-brand-light transition-colors ${currentPath.startsWith('/industries') ? 'text-brand' : 'text-text-muted'}`}>Industries</a>
-        <a href="/case-studies/" class={`hover:text-brand-light transition-colors ${currentPath.startsWith('/case-studies') ? 'text-brand' : 'text-text-muted'}`}>Case Studies</a>
-        <a href="/about/" class={`hover:text-brand-light transition-colors ${currentPath === '/about/' ? 'text-brand' : 'text-text-muted'}`}>About</a>
-        <a href="/contact/" class="bg-accent text-white px-4 py-2 rounded-lg hover:bg-accent-light transition-colors">Book a Consultation</a>
+
+      <!-- Desktop nav -->
+      <div class="hidden lg:flex items-center gap-7">
+        {navLinks.map(({ href, label, match }) => (
+          <a
+            href={href}
+            class={`text-[0.9rem] font-medium transition-colors relative pb-0.5 ${
+              currentPath.startsWith(match)
+                ? 'text-brand after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-accent'
+                : 'text-text-muted hover:text-brand'
+            }`}
+          >{label}</a>
+        ))}
+        <a href="/contact/" class="btn btn-primary text-[0.85rem] py-2.5 px-5">Book a Consultation</a>
       </div>
-      <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Open menu" aria-expanded="false">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md hover:bg-surface transition-colors"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span id="burger-top" class="block w-5 h-[2px] bg-brand transition-all duration-300"></span>
+        <span id="burger-mid" class="block w-5 h-[2px] bg-brand mt-[5px] transition-all duration-300"></span>
+        <span id="burger-bot" class="block w-5 h-[2px] bg-brand mt-[5px] transition-all duration-300"></span>
       </button>
     </nav>
-    <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-white px-4 pb-4">
-      <a href="/services/" class="block py-2 text-text-muted hover:text-brand">Services</a>
-      <a href="/areas/" class="block py-2 text-text-muted hover:text-brand">Areas</a>
-      <a href="/industries/" class="block py-2 text-text-muted hover:text-brand">Industries</a>
-      <a href="/case-studies/" class="block py-2 text-text-muted hover:text-brand">Case Studies</a>
-      <a href="/about/" class="block py-2 text-text-muted hover:text-brand">About</a>
-      <a href="/contact/" class="block py-2 mt-2 bg-accent text-white text-center rounded-lg hover:bg-accent-light">Book a Consultation</a>
+
+    <!-- Mobile menu: slide-down panel -->
+    <div
+      id="mobile-menu"
+      class="hidden lg:hidden bg-white border-t border-border/60 overflow-hidden transition-all duration-300"
+      role="navigation"
+      aria-label="Mobile navigation"
+    >
+      <div class="max-w-5xl mx-auto px-5 py-6 flex flex-col gap-1">
+        {navLinks.map(({ href, label, match }) => (
+          <a
+            href={href}
+            class={`block py-3 px-4 rounded-md text-[0.95rem] font-medium transition-colors ${
+              currentPath.startsWith(match)
+                ? 'bg-surface text-brand'
+                : 'text-text-muted hover:bg-surface hover:text-brand'
+            }`}
+          >{label}</a>
+        ))}
+        <div class="mt-3 pt-3 border-t border-border">
+          <a href="/contact/" class="btn btn-primary w-full text-center block">Book a Consultation</a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -76,16 +122,30 @@ const year = new Date().getFullYear();
     <slot />
   </main>
 
-  <footer class="bg-brand-dark text-white mt-16">
-    <div class="max-w-6xl mx-auto px-4 py-12">
-      <div class="grid md:grid-cols-4 gap-8">
-        <div>
-          <h3 class="font-bold text-lg mb-3" style="font-family: var(--font-serif)">Forbury SEO</h3>
-          <p class="text-sm text-gray-300 leading-relaxed">A Reading-based search marketing consultancy serving Berkshire and the Thames Valley. We help businesses achieve prominence in Google and AI-powered search engines.</p>
+  <footer class="bg-brand-dark text-white mt-20">
+    <!-- Gold accent top -->
+    <div class="h-[2px] bg-accent/40" aria-hidden="true"></div>
+
+    <div class="max-w-5xl mx-auto px-5 pt-14 pb-10">
+      <!-- Footer top: brand + columns -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
+        <!-- Brand column -->
+        <div class="md:col-span-4">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-[0.65rem] font-semibold text-accent tracking-[0.15em] uppercase mt-[2px]">SEO</span>
+            <span class="text-xl font-bold tracking-tight" style="font-family: var(--font-serif)">Reading</span>
+          </div>
+          <p class="text-sm text-gray-400 leading-relaxed max-w-xs">Search marketing consultancy based in Reading, Berkshire. We help Thames Valley businesses achieve prominence in Google and AI-powered search engines.</p>
+          <div class="mt-5 flex items-center gap-2 text-sm text-gray-400">
+            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Reading, Berkshire, UK
+          </div>
         </div>
-        <div>
-          <h3 class="font-bold mb-3">Services</h3>
-          <ul class="text-sm text-gray-300 space-y-2">
+
+        <!-- Services column -->
+        <div class="md:col-span-3">
+          <h4 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Services</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
             <li><a href="/services/" class="hover:text-white transition-colors">All Services</a></li>
             <li><a href="/technical-seo-reading/" class="hover:text-white transition-colors">Technical SEO</a></li>
             <li><a href="/seo-audit-reading/" class="hover:text-white transition-colors">SEO Audit</a></li>
@@ -93,30 +153,40 @@ const year = new Date().getFullYear();
             <li><a href="/seo-pricing-reading/" class="hover:text-white transition-colors">Pricing</a></li>
           </ul>
         </div>
-        <div>
-          <h3 class="font-bold mb-3">Resources</h3>
-          <ul class="text-sm text-gray-300 space-y-2">
-            <li><a href="/free-seo-audit-reading/" class="hover:text-white transition-colors">Free SEO Audit</a></li>
+
+        <!-- Resources column -->
+        <div class="md:col-span-2">
+          <h4 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Explore</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li><a href="/free-seo-audit-reading/" class="hover:text-white transition-colors">Free Audit</a></li>
             <li><a href="/case-studies/" class="hover:text-white transition-colors">Case Studies</a></li>
-            <li><a href="/areas/" class="hover:text-white transition-colors">Areas We Cover</a></li>
+            <li><a href="/areas/" class="hover:text-white transition-colors">Areas</a></li>
             <li><a href="/industries/" class="hover:text-white transition-colors">Industries</a></li>
           </ul>
         </div>
-        <div>
-          <h3 class="font-bold mb-3">Contact</h3>
-          <ul class="text-sm text-gray-300 space-y-2">
-            <li>Reading, Berkshire</li>
-            <li><a href="mailto:hello@seoreading.uk" class="hover:text-white transition-colors">hello@seoreading.uk</a></li>
-            <li><a href="/about/" class="hover:text-white transition-colors">About Forbury SEO</a></li>
+
+        <!-- Contact column -->
+        <div class="md:col-span-3">
+          <h4 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Contact</h4>
+          <ul class="space-y-2.5 text-sm text-gray-400">
+            <li>
+              <a href="mailto:hello@seoreading.uk" class="hover:text-white transition-colors flex items-center gap-2">
+                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                hello@seoreading.uk
+              </a>
+            </li>
+            <li><a href="/about/" class="hover:text-white transition-colors">About Us</a></li>
             <li><a href="/contact/" class="hover:text-white transition-colors">Get in Touch</a></li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-gray-600 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-        <p>&copy; {year} Forbury SEO. All rights reserved.</p>
-        <div class="flex gap-4 mt-4 md:mt-0">
-          <a href="/sitemap-index.xml" class="hover:text-white transition-colors">Sitemap</a>
-          <a href="/llms.txt" class="hover:text-white transition-colors">llms.txt</a>
+
+      <!-- Footer bottom -->
+      <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+        <p>&copy; {year} SEO Reading. All rights reserved.</p>
+        <div class="flex gap-5">
+          <a href="/sitemap-index.xml" class="hover:text-gray-300 transition-colors">Sitemap</a>
+          <a href="/llms.txt" class="hover:text-gray-300 transition-colors">llms.txt</a>
         </div>
       </div>
     </div>
@@ -125,12 +195,44 @@ const year = new Date().getFullYear();
   <script>
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
+    const burgerTop = document.getElementById('burger-top');
+    const burgerMid = document.getElementById('burger-mid');
+    const burgerBot = document.getElementById('burger-bot');
+
     if (btn && menu) {
       btn.addEventListener('click', () => {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!expanded));
         menu.classList.toggle('hidden');
+
+        // Animate burger to X
+        if (!expanded) {
+          burgerTop?.classList.add('translate-y-[7px]', 'rotate-45');
+          burgerMid?.classList.add('opacity-0');
+          burgerBot?.classList.add('-translate-y-[7px]', '-rotate-45');
+        } else {
+          burgerTop?.classList.remove('translate-y-[7px]', 'rotate-45');
+          burgerMid?.classList.remove('opacity-0');
+          burgerBot?.classList.remove('-translate-y-[7px]', '-rotate-45');
+        }
       });
+    }
+
+    // Shrink header on scroll
+    const header = document.getElementById('site-header');
+    if (header) {
+      let lastScroll = 0;
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (y > 60) {
+          header.classList.add('py-0');
+          header.querySelector('nav')?.classList.replace('py-4', 'py-2.5');
+        } else {
+          header.classList.remove('py-0');
+          header.querySelector('nav')?.classList.replace('py-2.5', 'py-4');
+        }
+        lastScroll = y;
+      }, { passive: true });
     }
   </script>
 </body>
