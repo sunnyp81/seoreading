@@ -1,0 +1,314 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const title = 'Free Local SEO Checklist | Score Your Business';
+const description = 'Interactive local SEO audit checklist for Reading businesses. Score your Google Business Profile, citations, reviews, on-page SEO, and schema markup. Free, no signup required.';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://seoreading.uk/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Local SEO Checklist", "item": "https://seoreading.uk/tools/local-seo-checklist/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Local SEO Checklist",
+    "description": description,
+    "url": "https://seoreading.uk/tools/local-seo-checklist/",
+    "applicationCategory": "SEO Tool",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "provider": { "@type": "Organization", "name": "SEO Reading", "url": "https://seoreading.uk/", "sameAs": [] }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a local SEO checklist?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A local SEO checklist is a structured list of optimisation tasks that help a business rank in local search results, including Google Maps and the local pack. It covers Google Business Profile, citations, reviews, on-page signals, and technical elements like schema markup." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the local SEO score calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Each checklist item is weighted by its impact on local rankings. Google Business Profile items carry the highest weight as they directly influence map pack visibility. The score is calculated as a percentage of total possible points based on which items you have completed." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this checklist specific to Reading businesses?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The checklist applies to any local business, but includes recommendations specific to Reading and Berkshire directories, local citation sources, and area-specific optimisation strategies that are particularly relevant to Thames Valley businesses." }
+      }
+    ]
+  }
+];
+
+const categories = [
+  {
+    id: 'gbp',
+    title: 'Google Business Profile',
+    weight: 5,
+    items: [
+      { id: 'gbp-claimed', text: 'GBP listing claimed and verified', tip: 'Search your business on Google Maps. If unclaimed, visit business.google.com to verify ownership.' },
+      { id: 'gbp-category', text: 'Primary category is specific (e.g. "Solicitor" not "Professional services")', tip: 'Use the most specific category available. Add secondary categories for other services.' },
+      { id: 'gbp-description', text: 'Business description includes key services and locations served', tip: 'Use all 750 characters. Mention Reading, your area, and core services naturally.' },
+      { id: 'gbp-hours', text: 'Opening hours are accurate and up to date', tip: 'Include special hours for bank holidays. Incorrect hours erode trust and rankings.' },
+      { id: 'gbp-photos', text: '10+ high-quality photos uploaded (exterior, interior, team, work)', tip: 'Geo-tag photos with EXIF data. Upload at least 3 new photos monthly.' },
+      { id: 'gbp-posts', text: 'Regular Google posts (at least weekly)', tip: 'Post updates, offers, or news weekly. Each post includes a CTA and relevant image.' },
+      { id: 'gbp-services', text: 'Services/products section fully completed', tip: 'List every service with a description and price range where applicable.' },
+      { id: 'gbp-attributes', text: 'All relevant business attributes selected', tip: 'Wheelchair accessible, free Wi-Fi, appointment links — every attribute feeds ranking signals.' },
+      { id: 'gbp-areas', text: 'Service areas configured for all locations you serve', tip: 'Add every town and suburb: Reading, Caversham, Tilehurst, Earley, Woodley, etc.' },
+      { id: 'gbp-qa', text: 'Q&A section has owner-seeded questions and answers', tip: 'Pre-populate with common questions. Answer all user questions within 24 hours.' },
+    ]
+  },
+  {
+    id: 'reviews',
+    title: 'Reviews & Reputation',
+    weight: 4,
+    items: [
+      { id: 'rev-count', text: '20+ Google reviews', tip: 'Aim to match or exceed your top local pack competitor\'s review count.' },
+      { id: 'rev-rating', text: 'Average rating of 4.5 stars or above', tip: 'Respond to every negative review professionally. Address the issue, don\'t argue.' },
+      { id: 'rev-recent', text: 'At least 3 reviews in the last 30 days', tip: 'Recency matters. Build a systematic review request process into your workflow.' },
+      { id: 'rev-respond', text: 'Every review has a personalised owner response', tip: 'Mention the service and location naturally in responses. Avoid template replies.' },
+      { id: 'rev-process', text: 'Systematic review generation process in place', tip: 'Send a direct Google review link within 48 hours of service completion.' },
+      { id: 'rev-diverse', text: 'Reviews mention specific services and locations', tip: 'Gently guide reviewers: "We\'d love to hear about your experience with [service]."' },
+    ]
+  },
+  {
+    id: 'citations',
+    title: 'Citations & Directories',
+    weight: 3,
+    items: [
+      { id: 'cit-nap', text: 'NAP (Name, Address, Phone) is identical across all listings', tip: 'Even small differences (Ltd vs Limited, St vs Street) confuse search engines.' },
+      { id: 'cit-general', text: 'Listed on Yell, Thomson Local, Yelp, FreeIndex, Cylex', tip: 'These are foundational UK directories. Claim and complete each profile fully.' },
+      { id: 'cit-industry', text: 'Listed on industry-specific directories', tip: 'Law Society, NAEA, Checkatrade, Bark — whichever applies to your sector.' },
+      { id: 'cit-local', text: 'Listed on local Reading/Berkshire directories', tip: 'Reading business directories, Berkshire platforms, Thames Valley Chamber listings.' },
+      { id: 'cit-apple', text: 'Apple Maps listing claimed via Apple Business Connect', tip: 'Critical for iPhone users. Visit businessconnect.apple.com to claim.' },
+      { id: 'cit-bing', text: 'Bing Places listing claimed and optimised', tip: 'Bing powers Alexa, Cortana, and many AI assistants. Don\'t neglect it.' },
+      { id: 'cit-facebook', text: 'Facebook business page with correct NAP and category', tip: 'Facebook is a citation source even if you don\'t actively post there.' },
+    ]
+  },
+  {
+    id: 'onpage',
+    title: 'On-Page Local Signals',
+    weight: 3,
+    items: [
+      { id: 'op-title', text: 'Title tags include location + service (e.g. "Solicitor Reading")', tip: 'Keep under 60 characters. Format: Primary Keyword Location | Brand.' },
+      { id: 'op-h1', text: 'H1 on each page includes the target location', tip: 'One H1 per page. Include the area naturally — don\'t stuff keywords.' },
+      { id: 'op-content', text: 'Service pages have 800+ words of unique, relevant content', tip: 'Thin pages signal low expertise. Cover the topic thoroughly with local context.' },
+      { id: 'op-location', text: 'Dedicated location pages for each area you serve', tip: 'Caversham, Tilehurst, Earley, Wokingham — each area deserves unique content.' },
+      { id: 'op-internal', text: 'Internal links connect service pages to location pages', tip: 'Build a hub-and-spoke structure. Service hubs link to area-specific variants.' },
+      { id: 'op-nap', text: 'NAP visible on every page (footer or header)', tip: 'Consistent, crawlable NAP across the site reinforces local relevance.' },
+      { id: 'op-map', text: 'Embedded Google Map on contact page', tip: 'Use an iframe embed of your GBP location. Reinforces geographic signals.' },
+      { id: 'op-mobile', text: 'Site is fully mobile responsive', tip: 'Over 60% of local searches happen on mobile. Test with Google\'s mobile-friendly tool.' },
+    ]
+  },
+  {
+    id: 'technical',
+    title: 'Technical & Schema',
+    weight: 3,
+    items: [
+      { id: 'tech-schema', text: 'LocalBusiness schema markup on homepage', tip: 'Include name, address, phone, opening hours, geo coordinates, and areaServed.' },
+      { id: 'tech-service', text: 'Service schema on each service page', tip: 'Use the Service type with provider, areaServed, and serviceType properties.' },
+      { id: 'tech-faq', text: 'FAQPage schema on pages with FAQ sections', tip: 'Marks up questions and answers for potential rich result display in Google.' },
+      { id: 'tech-breadcrumb', text: 'BreadcrumbList schema implemented', tip: 'Helps Google understand site hierarchy. Shows breadcrumbs in search results.' },
+      { id: 'tech-speed', text: 'Page load time under 3 seconds on mobile', tip: 'Test with PageSpeed Insights. Compress images, minify CSS/JS, use caching.' },
+      { id: 'tech-https', text: 'Site served over HTTPS', tip: 'HTTPS has been a ranking signal since 2014. Non-HTTPS sites show a warning.' },
+      { id: 'tech-sitemap', text: 'XML sitemap submitted to Google Search Console and Bing', tip: 'Submit at search.google.com/search-console and bing.com/webmasters.' },
+      { id: 'tech-robots', text: 'robots.txt allows crawling of important pages', tip: 'Check for accidental Disallow rules blocking key pages or CSS/JS resources.' },
+    ]
+  }
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute -bottom-20 -right-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-2" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
+    <div class="max-w-3xl mx-auto relative z-10">
+      <h1 class="fade-up">Local SEO Checklist</h1>
+      <p class="subtitle fade-up" style="transition-delay: 80ms;">Score your local search presence across 39 ranking factors. Free, no signup required. Progress saved automatically.</p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 py-12">
+    <!-- Score display -->
+    <div class="bg-white border border-border rounded-xl p-6 mb-10 text-center sticky top-[70px] z-30 shadow-sm fade-up" id="score-bar">
+      <div class="flex items-center justify-between gap-4 flex-wrap">
+        <div class="text-left">
+          <p class="text-sm text-text-muted">Your Local SEO Score</p>
+          <p class="text-4xl font-bold text-brand" style="font-family: var(--font-serif);" id="score-display">0%</p>
+        </div>
+        <div class="flex-1 max-w-md mx-4 hidden sm:block">
+          <div class="w-full h-3 bg-surface-dark rounded-full overflow-hidden">
+            <div class="h-full rounded-full transition-all duration-500 ease-out" id="score-bar-fill" style="width: 0%; background: linear-gradient(90deg, #B8962E, #D4AF37, #E0C35A);"></div>
+          </div>
+          <div class="flex justify-between text-xs text-text-muted mt-1">
+            <span>Needs work</span>
+            <span>Good</span>
+            <span>Excellent</span>
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <button id="reset-btn" class="text-xs text-text-muted hover:text-brand transition-colors px-3 py-1.5 rounded border border-border hover:border-brand">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checklist categories -->
+    {categories.map((cat, catIndex) => (
+      <div class="mb-10 fade-up stagger-child" style={`--i: ${catIndex}`}>
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl font-bold text-brand" style="font-family: var(--font-serif);">{cat.title}</h2>
+          <span class="text-sm text-text-muted" id={`${cat.id}-progress`}>0/{cat.items.length}</span>
+        </div>
+        <div class="space-y-2">
+          {cat.items.map(item => (
+            <label class="group flex items-start gap-3 p-4 bg-white border border-border rounded-lg cursor-pointer transition-all duration-200 hover:border-accent/50 hover:shadow-sm" data-category={cat.id} data-weight={cat.weight}>
+              <input type="checkbox" id={item.id} class="checklist-item mt-0.5 w-5 h-5 rounded border-2 border-border text-accent accent-accent shrink-0 cursor-pointer" />
+              <div class="flex-1 min-w-0">
+                <span class="text-[0.95rem] text-brand font-medium group-hover:text-accent-dark transition-colors">{item.text}</span>
+                <p class="text-sm text-text-muted mt-1 leading-relaxed hidden" data-tip>{item.tip}</p>
+              </div>
+              <button class="tip-toggle shrink-0 w-6 h-6 rounded-full border border-border text-text-muted hover:border-accent hover:text-accent transition-colors text-xs font-bold" aria-label="Show tip">?</button>
+            </label>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <!-- Results interpretation -->
+    <div class="bg-white border border-border rounded-xl p-6 mb-10 fade-up" id="results-box" style="display: none;">
+      <h2 class="text-xl font-bold text-brand mb-3" style="font-family: var(--font-serif);">Your Results</h2>
+      <div id="results-text"></div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="prose fade-up">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3 class="faq-question">What is a local SEO checklist?</h3>
+        <p>A local SEO checklist is a structured list of optimisation tasks that help a business rank in local search results, including Google Maps and the local pack. It covers Google Business Profile, citations, reviews, on-page signals, and technical elements like schema markup.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">How is the local SEO score calculated?</h3>
+        <p>Each checklist item is weighted by its impact on local rankings. Google Business Profile items carry the highest weight as they directly influence map pack visibility. The score is calculated as a percentage of total possible points based on which items you have completed.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-question">Is this checklist specific to Reading businesses?</h3>
+        <p>The checklist applies to any local business, but includes recommendations specific to Reading and Berkshire directories, local citation sources, and area-specific optimisation strategies that are particularly relevant to Thames Valley businesses.</p>
+      </div>
+
+      <div class="cta-box">
+        <h2>Want a Professional Local SEO Audit?</h2>
+        <p>This checklist covers the fundamentals. Our professional audit goes deeper: competitor analysis, keyword gap identification, citation audit, and a prioritised action plan specific to your Reading business.</p>
+        <a href="/free-seo-audit-reading/">Get Your Free Audit</a>
+      </div>
+
+      <p>Explore our <a href="/services/">full range of SEO services</a> or learn more about <a href="/areas/">the areas we cover</a> across Reading and Berkshire. Return to <a href="/">SEO Reading</a>.</p>
+    </div>
+  </section>
+
+  <script>
+    const STORAGE_KEY = 'seoreading-checklist';
+
+    function loadState() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      } catch { return {}; }
+    }
+
+    function saveState(state: Record<string, boolean>) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function calculateScore() {
+      const items = document.querySelectorAll('.checklist-item') as NodeListOf<HTMLInputElement>;
+      let totalWeight = 0;
+      let earnedWeight = 0;
+      const catCounts: Record<string, { done: number; total: number }> = {};
+
+      items.forEach(item => {
+        const label = item.closest('label');
+        const cat = label?.dataset.category || '';
+        const weight = parseInt(label?.dataset.weight || '1', 10);
+
+        if (!catCounts[cat]) catCounts[cat] = { done: 0, total: 0 };
+        catCounts[cat].total++;
+        totalWeight += weight;
+
+        if (item.checked) {
+          earnedWeight += weight;
+          catCounts[cat].done++;
+        }
+      });
+
+      const pct = totalWeight > 0 ? Math.round((earnedWeight / totalWeight) * 100) : 0;
+
+      const display = document.getElementById('score-display');
+      const bar = document.getElementById('score-bar-fill');
+      if (display) display.textContent = pct + '%';
+      if (bar) bar.style.width = pct + '%';
+
+      Object.entries(catCounts).forEach(([cat, { done, total }]) => {
+        const el = document.getElementById(`${cat}-progress`);
+        if (el) el.textContent = `${done}/${total}`;
+      });
+
+      const resultsBox = document.getElementById('results-box');
+      const resultsText = document.getElementById('results-text');
+      if (resultsBox && resultsText && earnedWeight > 0) {
+        resultsBox.style.display = 'block';
+        let msg = '';
+        if (pct < 30) {
+          msg = '<p class="text-text-muted">Your local SEO foundation needs significant work. Focus on <strong>Google Business Profile</strong> first — it has the highest impact on local pack visibility. Claim, verify, and fully complete your listing before moving to other areas.</p>';
+        } else if (pct < 60) {
+          msg = '<p class="text-text-muted">You have a reasonable foundation but there are clear gaps. Look at the unchecked items in your weakest category and prioritise those. <strong>Reviews and citations</strong> are often the quickest wins at this stage.</p>';
+        } else if (pct < 85) {
+          msg = '<p class="text-text-muted">Good progress. You are ahead of most Reading businesses. Focus on the remaining items in <strong>Technical & Schema</strong> and <strong>On-Page</strong> categories to move from competitive to dominant in local search.</p>';
+        } else {
+          msg = '<p class="text-text-muted">Excellent local SEO health. You are doing more than the vast majority of Reading businesses. Maintain your review velocity, keep posting to GBP, and consider <a href="/ai-search-optimisation-reading/" class="text-brand underline">AI search optimisation</a> as your next growth lever.</p>';
+        }
+        resultsText.innerHTML = msg;
+      }
+    }
+
+    const state = loadState();
+    const items = document.querySelectorAll('.checklist-item') as NodeListOf<HTMLInputElement>;
+
+    items.forEach(item => {
+      if (state[item.id]) item.checked = true;
+
+      item.addEventListener('change', () => {
+        const s = loadState();
+        s[item.id] = item.checked;
+        saveState(s);
+        calculateScore();
+      });
+    });
+
+    document.querySelectorAll('.tip-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const tip = (btn as HTMLElement).closest('label')?.querySelector('[data-tip]');
+        if (tip) tip.classList.toggle('hidden');
+      });
+    });
+
+    document.getElementById('reset-btn')?.addEventListener('click', () => {
+      localStorage.removeItem(STORAGE_KEY);
+      items.forEach(item => { item.checked = false; });
+      calculateScore();
+      const resultsBox = document.getElementById('results-box');
+      if (resultsBox) resultsBox.style.display = 'none';
+    });
+
+    calculateScore();
+  </script>
+</Base>

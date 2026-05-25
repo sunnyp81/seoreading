@@ -139,7 +139,7 @@ const schema = [breadcrumbSchema, webPageSchema, faqSchema, serviceSchema];
       </div>
 
       <div class="pricing-tier featured">
-        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">Most Popular</span>
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-brand-dark text-xs font-bold px-3 py-1 rounded-full">Most Popular</span>
         <p class="text-sm font-semibold text-accent uppercase tracking-wide mb-1">Growth</p>
         <p class="text-3xl font-bold text-brand mb-1">£1,000<span class="text-base font-normal text-text-muted">/month</span></p>
         <p class="text-sm text-text-muted mb-4">For established Reading businesses</p>
@@ -302,7 +302,7 @@ const schema = [breadcrumbSchema, webPageSchema, faqSchema, serviceSchema];
 
       {faqs.map(f => (
         <div class="faq-item">
-          <p class="faq-question">{f.q}</p>
+          <h3 class="faq-question">{f.q}</h3>
           <p>{f.a}</p>
         </div>
       ))}

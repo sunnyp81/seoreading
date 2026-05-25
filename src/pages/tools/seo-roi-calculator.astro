@@ -1,0 +1,364 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const title = 'Free SEO ROI Calculator | Estimate Your Returns';
+const description = 'Calculate the potential return on investment from SEO for your business. Input your industry, customer value, and search volume to estimate traffic and revenue growth.';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://seoreading.uk/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "SEO ROI Calculator", "item": "https://seoreading.uk/tools/seo-roi-calculator/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SEO ROI Calculator",
+    "description": description,
+    "url": "https://seoreading.uk/tools/seo-roi-calculator/",
+    "applicationCategory": "SEO Tool",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "provider": { "@type": "Organization", "name": "SEO Reading", "url": "https://seoreading.uk/", "sameAs": [] }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How accurate is an SEO ROI calculator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "An SEO ROI calculator provides estimates based on industry averages for click-through rates and conversion rates. Actual results depend on your specific market, competition, website quality, and SEO execution. Use the output as a directional guide for investment decisions, not a guarantee of specific returns." }
+      },
+      {
+        "@type": "Question",
+        "name": "What click-through rates does the calculator use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The calculator uses widely-cited CTR data: position 1 receives approximately 31.7% of clicks, position 2 receives 24.7%, position 3 receives 18.7%, and positions decline from there. These are based on aggregated studies of Google search behaviour and represent averages across industries." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to achieve SEO ROI?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Most businesses begin to see positive ROI from SEO within 6-12 months. Local SEO campaigns in less competitive markets like Reading suburbs can deliver returns faster, sometimes within 3-4 months. The calculator projects 12-month returns to account for the typical ramp-up period." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a typical conversion rate for SEO traffic?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Organic search conversion rates typically range from 2% to 5% depending on industry and search intent. Service businesses in Reading often see higher rates (3-6%) because local searches carry strong purchase intent. The calculator defaults to 3% but allows you to adjust this based on your data." }
+      }
+    ]
+  }
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute -bottom-20 -right-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-2" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
+    <div class="max-w-3xl mx-auto relative z-10">
+      <h1 class="fade-up">SEO ROI Calculator</h1>
+      <p class="subtitle fade-up" style="transition-delay: 80ms;">Estimate the traffic and revenue you could gain from improved search rankings. Adjust the inputs to match your business.</p>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-5 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+      <!-- Inputs -->
+      <div class="lg:col-span-2 fade-up">
+        <div class="bg-white border border-border rounded-xl p-6">
+          <h2 class="text-lg font-bold text-brand mb-5" style="font-family: var(--font-serif);">Your Business</h2>
+
+          <div class="space-y-5">
+            <div>
+              <label class="form-label" for="roi-keywords">Number of Target Keywords</label>
+              <input type="number" id="roi-keywords" class="form-input" value="10" min="1" max="500" />
+              <p class="text-xs text-text-muted mt-1">How many search terms you want to rank for</p>
+            </div>
+
+            <div>
+              <label class="form-label" for="roi-volume">Average Monthly Search Volume (per keyword)</label>
+              <input type="number" id="roi-volume" class="form-input" value="200" min="10" max="100000" />
+              <p class="text-xs text-text-muted mt-1">Check Google Keyword Planner or Ahrefs for your terms</p>
+            </div>
+
+            <div>
+              <label class="form-label" for="roi-current-pos">Current Average Position</label>
+              <select id="roi-current-pos" class="form-input">
+                <option value="0">Not ranking (page 2+)</option>
+                <option value="10">Position 10</option>
+                <option value="8">Position 8</option>
+                <option value="5" selected>Position 5</option>
+                <option value="3">Position 3</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="form-label" for="roi-target-pos">Target Position After SEO</label>
+              <select id="roi-target-pos" class="form-input">
+                <option value="1">Position 1</option>
+                <option value="2">Position 2</option>
+                <option value="3" selected>Position 3</option>
+                <option value="5">Position 5</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="form-label" for="roi-conversion">Conversion Rate (%)</label>
+              <input type="number" id="roi-conversion" class="form-input" value="3" min="0.5" max="20" step="0.5" />
+              <p class="text-xs text-text-muted mt-1">Percentage of visitors that become leads/customers. 2-5% is typical.</p>
+            </div>
+
+            <div>
+              <label class="form-label" for="roi-value">Average Customer Value (£)</label>
+              <input type="number" id="roi-value" class="form-input" value="500" min="10" max="1000000" step="10" />
+              <p class="text-xs text-text-muted mt-1">Revenue from one new customer or client matter</p>
+            </div>
+
+            <div>
+              <label class="form-label" for="roi-investment">Monthly SEO Investment (£)</label>
+              <input type="number" id="roi-investment" class="form-input" value="1000" min="100" max="50000" step="50" />
+              <p class="text-xs text-text-muted mt-1">Your monthly SEO budget</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="lg:col-span-3 fade-up stagger-child" style="--i: 1">
+        <div class="sticky top-[70px]">
+          <!-- Results cards -->
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="bg-white border border-border rounded-xl p-5 text-center">
+              <p class="text-sm text-text-muted mb-1">Current Monthly Traffic</p>
+              <p class="text-3xl font-bold text-text-muted" style="font-family: var(--font-serif);" id="roi-current-traffic">0</p>
+            </div>
+            <div class="bg-white border border-accent rounded-xl p-5 text-center">
+              <p class="text-sm text-text-muted mb-1">Projected Monthly Traffic</p>
+              <p class="text-3xl font-bold text-accent" style="font-family: var(--font-serif);" id="roi-projected-traffic">0</p>
+            </div>
+            <div class="bg-white border border-border rounded-xl p-5 text-center">
+              <p class="text-sm text-text-muted mb-1">Additional Leads/Month</p>
+              <p class="text-3xl font-bold text-brand" style="font-family: var(--font-serif);" id="roi-leads">0</p>
+            </div>
+            <div class="bg-white border border-border rounded-xl p-5 text-center">
+              <p class="text-sm text-text-muted mb-1">Additional Revenue/Month</p>
+              <p class="text-3xl font-bold text-brand" style="font-family: var(--font-serif);" id="roi-revenue">£0</p>
+            </div>
+          </div>
+
+          <!-- ROI summary -->
+          <div class="bg-brand rounded-xl p-6 text-white relative overflow-hidden mb-6">
+            <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
+            <div class="relative z-10">
+              <h3 class="text-lg font-bold mb-4" style="font-family: var(--font-serif);">12-Month Projection</h3>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <p class="text-gray-400 text-sm">Total Investment</p>
+                  <p class="text-2xl font-bold text-white" id="roi-total-investment">£0</p>
+                </div>
+                <div>
+                  <p class="text-gray-400 text-sm">Projected Revenue</p>
+                  <p class="text-2xl font-bold text-accent" id="roi-total-revenue">£0</p>
+                </div>
+                <div>
+                  <p class="text-gray-400 text-sm">Net Return</p>
+                  <p class="text-2xl font-bold" id="roi-net-return">£0</p>
+                </div>
+                <div>
+                  <p class="text-gray-400 text-sm">ROI</p>
+                  <p class="text-2xl font-bold text-accent" id="roi-percentage">0%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Growth chart -->
+          <div class="bg-white border border-border rounded-xl p-5">
+            <h3 class="text-sm font-bold text-brand mb-3" style="font-family: var(--font-serif);">Monthly Revenue Growth</h3>
+            <div class="relative h-48" id="roi-chart">
+              <svg viewBox="0 0 400 160" class="w-full h-full" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <linearGradient id="roiGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <!-- Grid lines -->
+                <line x1="40" y1="10" x2="40" y2="140" stroke="#DDD8CE" stroke-width="0.5"/>
+                <line x1="40" y1="140" x2="390" y2="140" stroke="#DDD8CE" stroke-width="0.5"/>
+                <line x1="40" y1="75" x2="390" y2="75" stroke="#DDD8CE" stroke-width="0.5" stroke-dasharray="4"/>
+                <line x1="40" y1="10" x2="390" y2="10" stroke="#DDD8CE" stroke-width="0.5" stroke-dasharray="4"/>
+                <!-- Axis labels -->
+                <text x="15" y="145" fill="#555" font-size="9" font-family="Inter">£0</text>
+                <text x="5" y="80" fill="#555" font-size="9" font-family="Inter" id="roi-chart-mid">£0</text>
+                <text x="5" y="15" fill="#555" font-size="9" font-family="Inter" id="roi-chart-max">£0</text>
+                <!-- Month labels -->
+                <text x="65" y="155" fill="#555" font-size="8" font-family="Inter">M1</text>
+                <text x="155" y="155" fill="#555" font-size="8" font-family="Inter">M4</text>
+                <text x="245" y="155" fill="#555" font-size="8" font-family="Inter">M8</text>
+                <text x="370" y="155" fill="#555" font-size="8" font-family="Inter">M12</text>
+                <!-- Revenue line + fill drawn by JS -->
+                <path id="roi-chart-fill" d="" fill="url(#roiGradient)"/>
+                <path id="roi-chart-line" d="" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+                <!-- Investment line -->
+                <line id="roi-chart-investment" x1="40" y1="140" x2="390" y2="140" stroke="#0B2545" stroke-width="1.5" stroke-dasharray="6" opacity="0.4"/>
+              </svg>
+              <div class="flex justify-center gap-6 mt-1 text-xs text-text-muted">
+                <span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-accent inline-block rounded"></span> Revenue</span>
+                <span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-brand inline-block rounded opacity-40" style="border-top: 1.5px dashed #0B2545;"></span> Investment</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-text-muted mt-3 leading-relaxed">Estimates use aggregated CTR data from multiple studies. Actual results depend on competition, website quality, and execution. The model assumes a gradual ramp: 25% of target traffic at month 1, reaching full potential by month 8.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content + FAQ -->
+    <div class="prose mt-16 fade-up">
+      <h2>Understanding SEO Return on Investment</h2>
+
+      <p>SEO is one of the highest-ROI marketing channels available to local businesses, but quantifying the return requires understanding how search rankings translate to traffic, leads, and revenue. This calculator models that conversion path using industry-standard click-through rate data and allows you to input your specific business metrics.</p>
+
+      <h3>How the Calculator Works</h3>
+
+      <p>The calculation follows a straightforward chain: search volume multiplied by click-through rate yields traffic; traffic multiplied by conversion rate yields leads; leads multiplied by customer value yields revenue. The click-through rates used are based on aggregated research across millions of Google searches.</p>
+
+      <p>Position 1 in Google receives approximately 31.7% of all clicks for a given query. Position 2 drops to 24.7%. Position 3 receives 18.7%. By position 10, the click-through rate falls below 3%. Pages beyond the first page of results receive negligible traffic. Moving from position 5 to position 3 for a keyword with 500 monthly searches represents an increase from approximately 35 monthly visits to 93 — a 166% improvement from just a two-position improvement.</p>
+
+      <h3>Why Local SEO Often Delivers Higher ROI</h3>
+
+      <p>Local searches carry stronger commercial intent than informational queries. When someone in Reading searches "solicitor near me" or "plumber Reading", they are typically ready to engage a professional. This means local organic traffic converts at higher rates — often 3-6% compared to 1-2% for generic informational content. The calculator allows you to adjust the conversion rate to reflect your actual data.</p>
+
+      <h3>The Compounding Effect</h3>
+
+      <p>The 12-month projection accounts for the ramp-up period inherent in SEO. Rankings do not improve overnight. The model assumes you reach 25% of your target traffic in month 1, scaling to full potential by month 8 as content matures, links accumulate, and rankings stabilise. This produces a compounding revenue curve where later months deliver substantially more than early months.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How accurate is an SEO ROI calculator?</h3>
+        <p>An SEO ROI calculator provides estimates based on industry averages for click-through rates and conversion rates. Actual results depend on your specific market, competition, website quality, and SEO execution. Use the output as a directional guide for investment decisions, not a guarantee of specific returns.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What click-through rates does the calculator use?</h3>
+        <p>The calculator uses widely-cited CTR data: position 1 receives approximately 31.7% of clicks, position 2 receives 24.7%, position 3 receives 18.7%, and positions decline from there. These are based on aggregated studies of Google search behaviour and represent averages across industries.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How long does it take to achieve SEO ROI?</h3>
+        <p>Most businesses begin to see positive ROI from SEO within 6-12 months. Local SEO campaigns in less competitive markets like Reading suburbs can deliver returns faster, sometimes within 3-4 months. The calculator projects 12-month returns to account for the typical ramp-up period.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What is a typical conversion rate for SEO traffic?</h3>
+        <p>Organic search conversion rates typically range from 2% to 5% depending on industry and search intent. Service businesses in Reading often see higher rates (3-6%) because local searches carry strong purchase intent. The calculator defaults to 3% but allows you to adjust this based on your data.</p>
+      </div>
+
+      <div class="cta-box">
+        <h2>Get a Custom ROI Projection</h2>
+        <p>This calculator uses averages. We build projections using your actual keyword data, competitor analysis, and market-specific conversion rates. Request a free audit to receive a tailored SEO business case.</p>
+        <a href="/free-seo-audit-reading/">Get Your Free Audit</a>
+      </div>
+
+      <p>Try our <a href="/tools/local-seo-checklist/">Local SEO Checklist</a> or <a href="/tools/schema-generator/">Schema Markup Generator</a>. View our <a href="/seo-pricing-reading/">SEO pricing</a> or return to <a href="/">SEO Reading</a>.</p>
+    </div>
+  </section>
+
+  <script>
+    const CTR: Record<number, number> = {
+      0: 0.005, 1: 0.317, 2: 0.247, 3: 0.187, 4: 0.108, 5: 0.075, 6: 0.052, 7: 0.038, 8: 0.031, 9: 0.026, 10: 0.023
+    };
+
+    function getCTR(pos: number): number {
+      return CTR[pos] || 0.005;
+    }
+
+    function fmt(n: number): string {
+      return '£' + Math.round(n).toLocaleString();
+    }
+
+    function calculate() {
+      const keywords = parseInt((document.getElementById('roi-keywords') as HTMLInputElement).value) || 10;
+      const volume = parseInt((document.getElementById('roi-volume') as HTMLInputElement).value) || 200;
+      const currentPos = parseInt((document.getElementById('roi-current-pos') as HTMLSelectElement).value);
+      const targetPos = parseInt((document.getElementById('roi-target-pos') as HTMLSelectElement).value);
+      const convRate = (parseFloat((document.getElementById('roi-conversion') as HTMLInputElement).value) || 3) / 100;
+      const custValue = parseFloat((document.getElementById('roi-value') as HTMLInputElement).value) || 500;
+      const investment = parseFloat((document.getElementById('roi-investment') as HTMLInputElement).value) || 1000;
+
+      const totalVolume = keywords * volume;
+      const currentTraffic = Math.round(totalVolume * getCTR(currentPos));
+      const targetTraffic = Math.round(totalVolume * getCTR(targetPos));
+      const additionalTraffic = targetTraffic - currentTraffic;
+      const additionalLeads = Math.round(additionalTraffic * convRate);
+      const additionalRevenue = additionalLeads * custValue;
+
+      (document.getElementById('roi-current-traffic') as HTMLElement).textContent = currentTraffic.toLocaleString();
+      (document.getElementById('roi-projected-traffic') as HTMLElement).textContent = targetTraffic.toLocaleString();
+      (document.getElementById('roi-leads') as HTMLElement).textContent = additionalLeads.toLocaleString();
+      (document.getElementById('roi-revenue') as HTMLElement).textContent = fmt(additionalRevenue);
+
+      // 12-month projection with ramp
+      const ramp = [0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 1.0, 1.0, 1.0, 1.0, 1.0];
+      let totalRev = 0;
+      const monthlyRevs: number[] = [];
+      ramp.forEach(r => {
+        const rev = additionalRevenue * r;
+        totalRev += rev;
+        monthlyRevs.push(rev);
+      });
+
+      const totalInvest = investment * 12;
+      const netReturn = totalRev - totalInvest;
+      const roiPct = totalInvest > 0 ? Math.round(((totalRev - totalInvest) / totalInvest) * 100) : 0;
+
+      (document.getElementById('roi-total-investment') as HTMLElement).textContent = fmt(totalInvest);
+      (document.getElementById('roi-total-revenue') as HTMLElement).textContent = fmt(totalRev);
+
+      const netEl = document.getElementById('roi-net-return') as HTMLElement;
+      netEl.textContent = fmt(netReturn);
+      netEl.className = `text-2xl font-bold ${netReturn >= 0 ? 'text-green-400' : 'text-red-400'}`;
+
+      (document.getElementById('roi-percentage') as HTMLElement).textContent = roiPct + '%';
+
+      // Draw chart
+      const maxRev = Math.max(...monthlyRevs, investment);
+      const chartH = 130;
+      const chartW = 350;
+      const startX = 40;
+
+      const points = monthlyRevs.map((rev, i) => {
+        const x = startX + (i / 11) * chartW;
+        const y = 140 - (rev / maxRev) * chartH;
+        return `${x},${y}`;
+      });
+
+      const lineD = `M${points.join(' L')}`;
+      const fillD = `M${startX},140 L${points.join(' L')} L${startX + chartW},140 Z`;
+
+      (document.getElementById('roi-chart-line') as SVGPathElement).setAttribute('d', lineD);
+      (document.getElementById('roi-chart-fill') as SVGPathElement).setAttribute('d', fillD);
+
+      const investY = 140 - (investment / maxRev) * chartH;
+      const investLine = document.getElementById('roi-chart-investment') as SVGLineElement;
+      investLine.setAttribute('y1', String(investY));
+      investLine.setAttribute('y2', String(investY));
+
+      (document.getElementById('roi-chart-mid') as SVGTextElement).textContent = fmt(maxRev / 2);
+      (document.getElementById('roi-chart-max') as SVGTextElement).textContent = fmt(maxRev);
+    }
+
+    document.querySelectorAll('#roi-keywords, #roi-volume, #roi-current-pos, #roi-target-pos, #roi-conversion, #roi-value, #roi-investment').forEach(el => {
+      el.addEventListener('input', calculate);
+      el.addEventListener('change', calculate);
+    });
+
+    calculate();
+  </script>
+</Base>

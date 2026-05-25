@@ -1,0 +1,372 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const title = 'Free Local Business Schema Generator | JSON-LD';
+const description = 'Generate valid LocalBusiness schema markup (JSON-LD) for your website. Enter your business details and copy the structured data code. Free, no signup required.';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://seoreading.uk/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Schema Generator", "item": "https://seoreading.uk/tools/schema-generator/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Local Business Schema Generator",
+    "description": description,
+    "url": "https://seoreading.uk/tools/schema-generator/",
+    "applicationCategory": "SEO Tool",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+    "provider": { "@type": "Organization", "name": "SEO Reading", "url": "https://seoreading.uk/", "sameAs": [] }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is LocalBusiness schema markup?",
+        "acceptedAnswer": { "@type": "Answer", "text": "LocalBusiness schema is structured data in JSON-LD format that tells search engines specific details about your business: name, address, phone number, opening hours, services, and geographic area served. It helps Google display rich results and improves local search visibility." }
+      },
+      {
+        "@type": "Question",
+        "name": "Where do I add the schema code to my website?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Paste the generated JSON-LD script tag into the <head> section of your homepage HTML. If you use WordPress, plugins like Yoast or RankMath can inject it automatically. For other CMS platforms, add it to your theme's header template." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I validate my schema markup?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Use Google's Rich Results Test (search.google.com/test/rich-results) or Schema.org's validator (validator.schema.org). Paste your page URL or the raw JSON-LD code to check for errors and warnings." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does schema markup directly improve rankings?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Schema markup is not a direct ranking factor, but it helps search engines understand your business accurately, which can improve how you appear in search results. For local businesses, it strengthens entity signals that influence local pack rankings and AI search citations." }
+      }
+    ]
+  }
+];
+
+const businessTypes = [
+  'LocalBusiness',
+  'AccountingService',
+  'Attorney',
+  'AutoRepair',
+  'Bakery',
+  'BarOrPub',
+  'BeautySalon',
+  'CafeOrCoffeeShop',
+  'Dentist',
+  'Electrician',
+  'FinancialService',
+  'FurnitureStore',
+  'GeneralContractor',
+  'HairSalon',
+  'HealthAndBeautyBusiness',
+  'HomeAndConstructionBusiness',
+  'Hotel',
+  'InsuranceAgency',
+  'LegalService',
+  'Locksmith',
+  'MedicalBusiness',
+  'Optician',
+  'Physician',
+  'Plumber',
+  'RealEstateAgent',
+  'Restaurant',
+  'RoofingContractor',
+  'Store',
+  'TravelAgency',
+  'VeterinaryCare',
+];
+
+const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute -bottom-20 -left-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-1" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
+    <div class="max-w-3xl mx-auto relative z-10">
+      <h1 class="fade-up">Local Business Schema Generator</h1>
+      <p class="subtitle fade-up" style="transition-delay: 80ms;">Generate valid JSON-LD structured data for your business. Fill in the form, copy the code, paste it into your site.</p>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-5 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Form -->
+      <div class="fade-up">
+        <div class="bg-white border border-border rounded-xl p-6">
+          <h2 class="text-lg font-bold text-brand mb-5" style="font-family: var(--font-serif);">Business Details</h2>
+
+          <div class="space-y-4">
+            <div>
+              <label class="form-label" for="biz-name">Business Name *</label>
+              <input type="text" id="biz-name" class="form-input" placeholder="e.g. Smith & Co Solicitors" />
+            </div>
+
+            <div>
+              <label class="form-label" for="biz-type">Business Type *</label>
+              <select id="biz-type" class="form-input">
+                {businessTypes.map(t => (
+                  <option value={t}>{t.replace(/([A-Z])/g, ' $1').trim()}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label class="form-label" for="biz-url">Website URL</label>
+              <input type="url" id="biz-url" class="form-input" placeholder="https://example.co.uk" />
+            </div>
+
+            <div>
+              <label class="form-label" for="biz-description">Business Description</label>
+              <textarea id="biz-description" class="form-input" rows="3" placeholder="Brief description of your business and services"></textarea>
+            </div>
+
+            <div>
+              <label class="form-label" for="biz-email">Email</label>
+              <input type="email" id="biz-email" class="form-input" placeholder="info@example.co.uk" />
+            </div>
+
+            <div>
+              <label class="form-label" for="biz-phone">Phone</label>
+              <input type="tel" id="biz-phone" class="form-input" placeholder="+44 118 xxx xxxx" />
+            </div>
+
+            <fieldset class="border border-border rounded-lg p-4">
+              <legend class="form-label px-1">Address</legend>
+              <div class="space-y-3">
+                <input type="text" id="biz-street" class="form-input" placeholder="Street address" />
+                <div class="grid grid-cols-2 gap-3">
+                  <input type="text" id="biz-city" class="form-input" placeholder="City (e.g. Reading)" />
+                  <input type="text" id="biz-region" class="form-input" placeholder="County (e.g. Berkshire)" />
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <input type="text" id="biz-postcode" class="form-input" placeholder="Postcode (e.g. RG1 1AZ)" />
+                  <input type="text" id="biz-country" class="form-input" placeholder="Country code (e.g. GB)" value="GB" />
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset class="border border-border rounded-lg p-4">
+              <legend class="form-label px-1">Opening Hours</legend>
+              <div class="space-y-2">
+                {days.map(day => (
+                  <div class="flex items-center gap-2">
+                    <label class="w-20 text-sm text-text-muted shrink-0">{day.slice(0, 3)}</label>
+                    <input type="checkbox" class="day-enabled accent-accent" data-day={day} checked={day !== 'Sunday'} />
+                    <input type="time" class="form-input py-1.5 text-sm flex-1" data-day-open={day} value={day === 'Saturday' ? '09:00' : '09:00'} />
+                    <span class="text-text-muted text-sm">to</span>
+                    <input type="time" class="form-input py-1.5 text-sm flex-1" data-day-close={day} value={day === 'Saturday' ? '13:00' : '17:30'} />
+                  </div>
+                ))}
+              </div>
+            </fieldset>
+
+            <div>
+              <label class="form-label" for="biz-areas">Areas Served (comma-separated)</label>
+              <input type="text" id="biz-areas" class="form-input" placeholder="e.g. Reading, Caversham, Tilehurst, Earley" />
+            </div>
+
+            <div>
+              <label class="form-label" for="biz-geo-lat">Coordinates (optional)</label>
+              <div class="grid grid-cols-2 gap-3">
+                <input type="text" id="biz-geo-lat" class="form-input" placeholder="Latitude" />
+                <input type="text" id="biz-geo-lng" class="form-input" placeholder="Longitude" />
+              </div>
+              <p class="text-xs text-text-muted mt-1">Find yours at maps.google.com — right-click your location.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Output -->
+      <div class="fade-up stagger-child" style="--i: 1">
+        <div class="sticky top-[70px]">
+          <div class="bg-brand-dark rounded-xl p-6 text-white">
+            <div class="flex items-center justify-between mb-4">
+              <h2 class="text-lg font-bold" style="font-family: var(--font-serif);">Generated Schema</h2>
+              <button id="copy-btn" class="text-xs bg-accent text-brand-dark px-3 py-1.5 rounded font-semibold hover:bg-accent-light transition-colors">Copy Code</button>
+            </div>
+            <pre id="schema-output" class="text-sm leading-relaxed overflow-x-auto max-h-[65vh] overflow-y-auto text-gray-300" style="font-family: 'Courier New', monospace; tab-size: 2;"><code></code></pre>
+          </div>
+          <p class="text-sm text-text-muted mt-3">Paste this inside a <code class="bg-surface-dark px-1.5 py-0.5 rounded text-xs">&lt;script type="application/ld+json"&gt;</code> tag in your page's <code class="bg-surface-dark px-1.5 py-0.5 rounded text-xs">&lt;head&gt;</code>.</p>
+          <div class="mt-3 flex gap-2">
+            <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener noreferrer" class="text-xs text-accent hover:text-accent-dark transition-colors underline">Validate with Google</a>
+            <span class="text-text-muted text-xs">|</span>
+            <a href="https://validator.schema.org/" target="_blank" rel="noopener noreferrer" class="text-xs text-accent hover:text-accent-dark transition-colors underline">Schema.org Validator</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="prose mt-16 fade-up">
+      <h2>How to Use This Schema Generator</h2>
+
+      <p>Structured data helps search engines understand your business. LocalBusiness schema tells Google your name, address, phone number, opening hours, and the areas you serve. This information feeds into Google's Knowledge Graph, influences local pack rankings, and strengthens your entity presence for AI search engines like ChatGPT and Perplexity.</p>
+
+      <h3>Step 1: Fill in Your Details</h3>
+      <p>Enter your business information in the form. Fields marked with * are required for valid schema. The more fields you complete, the stronger the signal to search engines. Pay particular attention to business type — select the most specific option available rather than the generic "Local Business".</p>
+
+      <h3>Step 2: Copy the Code</h3>
+      <p>The JSON-LD code updates in real time as you type. Click "Copy Code" when you are satisfied with the output. The generated markup follows schema.org specifications and Google's structured data guidelines.</p>
+
+      <h3>Step 3: Add to Your Website</h3>
+      <p>Paste the code into your website's <code>&lt;head&gt;</code> section. If you use WordPress, you can add it via a plugin such as Yoast SEO or RankMath, or paste it into your theme's header.php file. For Shopify, use the theme.liquid file. For custom sites, add it directly to your HTML template.</p>
+
+      <h3>Step 4: Validate</h3>
+      <p>After adding the schema to your live site, validate it using Google's Rich Results Test or the Schema.org validator. Fix any errors or warnings that appear. Google Search Console will also flag structured data issues under the Enhancements section.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What is LocalBusiness schema markup?</h3>
+        <p>LocalBusiness schema is structured data in JSON-LD format that tells search engines specific details about your business: name, address, phone number, opening hours, services, and geographic area served. It helps Google display rich results and improves local search visibility.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Where do I add the schema code to my website?</h3>
+        <p>Paste the generated JSON-LD script tag into the <code>&lt;head&gt;</code> section of your homepage HTML. If you use WordPress, plugins like Yoast or RankMath can inject it automatically. For other CMS platforms, add it to your theme's header template.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How do I validate my schema markup?</h3>
+        <p>Use Google's Rich Results Test or Schema.org's validator. Paste your page URL or the raw JSON-LD code to check for errors and warnings. Google Search Console also reports structured data issues in the Enhancements section.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Does schema markup directly improve rankings?</h3>
+        <p>Schema markup is not a direct ranking factor, but it helps search engines understand your business accurately, which can improve how you appear in search results. For local businesses, it strengthens entity signals that influence local pack rankings and AI search citations.</p>
+      </div>
+
+      <div class="cta-box">
+        <h2>Need Schema Implemented Properly?</h2>
+        <p>We deploy LocalBusiness, Service, FAQPage, Review, and BreadcrumbList schema across every client site. Schema is one component of our comprehensive technical SEO service.</p>
+        <a href="/technical-seo-reading/">Technical SEO Services</a>
+      </div>
+
+      <p>Try our <a href="/tools/local-seo-checklist/">Local SEO Checklist</a> or <a href="/tools/seo-roi-calculator/">SEO ROI Calculator</a>. Learn more about our <a href="/services/">SEO services</a> or return to <a href="/">SEO Reading</a>.</p>
+    </div>
+  </section>
+
+  <script>
+    function generateSchema() {
+      const val = (id: string) => (document.getElementById(id) as HTMLInputElement)?.value?.trim() || '';
+
+      const name = val('biz-name');
+      const type = val('biz-type');
+      if (!name || !type) {
+        (document.querySelector('#schema-output code') as HTMLElement).textContent = '// Enter a business name to generate schema';
+        return;
+      }
+
+      const obj: Record<string, any> = {
+        "@context": "https://schema.org",
+        "@type": type,
+        "name": name,
+      };
+
+      const url = val('biz-url');
+      if (url) obj.url = url;
+
+      const desc = val('biz-description');
+      if (desc) obj.description = desc;
+
+      const email = val('biz-email');
+      if (email) obj.email = email;
+
+      const phone = val('biz-phone');
+      if (phone) obj.telephone = phone;
+
+      const street = val('biz-street');
+      const city = val('biz-city');
+      const region = val('biz-region');
+      const postcode = val('biz-postcode');
+      const country = val('biz-country');
+
+      if (street || city || postcode) {
+        const addr: Record<string, string> = { "@type": "PostalAddress" };
+        if (street) addr.streetAddress = street;
+        if (city) addr.addressLocality = city;
+        if (region) addr.addressRegion = region;
+        if (postcode) addr.postalCode = postcode;
+        if (country) addr.addressCountry = country;
+        obj.address = addr;
+      }
+
+      const lat = val('biz-geo-lat');
+      const lng = val('biz-geo-lng');
+      if (lat && lng) {
+        obj.geo = {
+          "@type": "GeoCoordinates",
+          "latitude": parseFloat(lat),
+          "longitude": parseFloat(lng)
+        };
+      }
+
+      const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+      const hours: string[] = [];
+      days.forEach(day => {
+        const enabled = (document.querySelector(`[data-day="${day}"]`) as HTMLInputElement)?.checked;
+        const open = (document.querySelector(`[data-day-open="${day}"]`) as HTMLInputElement)?.value;
+        const close = (document.querySelector(`[data-day-close="${day}"]`) as HTMLInputElement)?.value;
+        if (enabled && open && close) {
+          hours.push(`${day.slice(0, 2)} ${open}-${close}`);
+        }
+      });
+      if (hours.length) obj.openingHoursSpecification = hours.map(h => {
+        const [dayAbbr, times] = h.split(' ');
+        const [opens, closes] = times.split('-');
+        const dayMap: Record<string, string> = { Mo: 'Monday', Tu: 'Tuesday', We: 'Wednesday', Th: 'Thursday', Fr: 'Friday', Sa: 'Saturday', Su: 'Sunday' };
+        return {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": dayMap[dayAbbr],
+          "opens": opens,
+          "closes": closes
+        };
+      });
+
+      const areas = val('biz-areas');
+      if (areas) {
+        obj.areaServed = areas.split(',').map(a => a.trim()).filter(Boolean).map(a => ({
+          "@type": "City",
+          "name": a
+        }));
+      }
+
+      const json = JSON.stringify(obj, null, 2);
+      const codeEl = document.querySelector('#schema-output code') as HTMLElement;
+      codeEl.textContent = `<script type="application/ld+json">\n${json}\n<\/script>`;
+    }
+
+    document.querySelectorAll('#biz-name, #biz-type, #biz-url, #biz-description, #biz-email, #biz-phone, #biz-street, #biz-city, #biz-region, #biz-postcode, #biz-country, #biz-geo-lat, #biz-geo-lng, #biz-areas').forEach(el => {
+      el.addEventListener('input', generateSchema);
+    });
+    document.querySelectorAll('.day-enabled, [data-day-open], [data-day-close]').forEach(el => {
+      el.addEventListener('change', generateSchema);
+      el.addEventListener('input', generateSchema);
+    });
+
+    document.getElementById('copy-btn')?.addEventListener('click', () => {
+      const code = (document.querySelector('#schema-output code') as HTMLElement)?.textContent || '';
+      navigator.clipboard.writeText(code).then(() => {
+        const btn = document.getElementById('copy-btn');
+        if (btn) {
+          btn.textContent = 'Copied!';
+          setTimeout(() => { btn.textContent = 'Copy Code'; }, 2000);
+        }
+      });
+    });
+
+    generateSchema();
+  </script>
+</Base>

@@ -658,17 +658,26 @@ tr:hover td { background: var(--color-surface); }
 
 /* ── Glassmorphism ── */
 .glass {
-  backdrop-blur: 20px;
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .glass-dark {
-  backdrop-blur: 20px;
+  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   background: rgba(11, 37, 69, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Responsive Tables ── */
+@media (max-width: 768px) {
+  .prose table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 /* ── Responsive iframe ── */
