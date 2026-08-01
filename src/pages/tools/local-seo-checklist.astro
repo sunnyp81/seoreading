@@ -10,8 +10,7 @@ const schema = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
-      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://seoreading.uk/tools/" },
-      { "@type": "ListItem", "position": 3, "name": "Local SEO Checklist", "item": "https://seoreading.uk/tools/local-seo-checklist/" }
+      { "@type": "ListItem", "position": 2, "name": "Local SEO Checklist", "item": "https://seoreading.uk/tools/local-seo-checklist/" }
     ]
   },
   {
@@ -61,7 +60,7 @@ const categories = [
       { id: 'gbp-photos', text: '10+ high-quality photos uploaded (exterior, interior, team, work)', tip: 'Geo-tag photos with EXIF data. Upload at least 3 new photos monthly.' },
       { id: 'gbp-posts', text: 'Regular Google posts (at least weekly)', tip: 'Post updates, offers, or news weekly. Each post includes a CTA and relevant image.' },
       { id: 'gbp-services', text: 'Services/products section fully completed', tip: 'List every service with a description and price range where applicable.' },
-      { id: 'gbp-attributes', text: 'All relevant business attributes selected', tip: 'Wheelchair accessible, free Wi-Fi, appointment links — every attribute feeds ranking signals.' },
+      { id: 'gbp-attributes', text: 'All relevant business attributes selected', tip: 'Wheelchair accessible, free Wi-Fi, appointment links. Every attribute feeds ranking signals.' },
       { id: 'gbp-areas', text: 'Service areas configured for all locations you serve', tip: 'Add every town and suburb: Reading, Caversham, Tilehurst, Earley, Woodley, etc.' },
       { id: 'gbp-qa', text: 'Q&A section has owner-seeded questions and answers', tip: 'Pre-populate with common questions. Answer all user questions within 24 hours.' },
     ]
@@ -86,7 +85,7 @@ const categories = [
     items: [
       { id: 'cit-nap', text: 'NAP (Name, Address, Phone) is identical across all listings', tip: 'Even small differences (Ltd vs Limited, St vs Street) confuse search engines.' },
       { id: 'cit-general', text: 'Listed on Yell, Thomson Local, Yelp, FreeIndex, Cylex', tip: 'These are foundational UK directories. Claim and complete each profile fully.' },
-      { id: 'cit-industry', text: 'Listed on industry-specific directories', tip: 'Law Society, NAEA, Checkatrade, Bark — whichever applies to your sector.' },
+      { id: 'cit-industry', text: 'Listed on industry-specific directories', tip: 'Law Society, NAEA, Checkatrade, Bark: whichever applies to your sector.' },
       { id: 'cit-local', text: 'Listed on local Reading/Berkshire directories', tip: 'Reading business directories, Berkshire platforms, Thames Valley Chamber listings.' },
       { id: 'cit-apple', text: 'Apple Maps listing claimed via Apple Business Connect', tip: 'Critical for iPhone users. Visit businessconnect.apple.com to claim.' },
       { id: 'cit-bing', text: 'Bing Places listing claimed and optimised', tip: 'Bing powers Alexa, Cortana, and many AI assistants. Don\'t neglect it.' },
@@ -99,9 +98,9 @@ const categories = [
     weight: 3,
     items: [
       { id: 'op-title', text: 'Title tags include location + service (e.g. "Solicitor Reading")', tip: 'Keep under 60 characters. Format: Primary Keyword Location | Brand.' },
-      { id: 'op-h1', text: 'H1 on each page includes the target location', tip: 'One H1 per page. Include the area naturally — don\'t stuff keywords.' },
+      { id: 'op-h1', text: 'H1 on each page includes the target location', tip: 'One H1 per page. Include the area naturally, don\'t stuff keywords.' },
       { id: 'op-content', text: 'Service pages have 800+ words of unique, relevant content', tip: 'Thin pages signal low expertise. Cover the topic thoroughly with local context.' },
-      { id: 'op-location', text: 'Dedicated location pages for each area you serve', tip: 'Caversham, Tilehurst, Earley, Wokingham — each area deserves unique content.' },
+      { id: 'op-location', text: 'Dedicated location pages for each area you serve', tip: 'Caversham, Tilehurst, Earley, Wokingham: each area deserves unique content.' },
       { id: 'op-internal', text: 'Internal links connect service pages to location pages', tip: 'Build a hub-and-spoke structure. Service hubs link to area-specific variants.' },
       { id: 'op-nap', text: 'NAP visible on every page (footer or header)', tip: 'Consistent, crawlable NAP across the site reinforces local relevance.' },
       { id: 'op-map', text: 'Embedded Google Map on contact page', tip: 'Use an iframe embed of your GBP location. Reinforces geographic signals.' },
@@ -266,7 +265,7 @@ const categories = [
         resultsBox.style.display = 'block';
         let msg = '';
         if (pct < 30) {
-          msg = '<p class="text-text-muted">Your local SEO foundation needs significant work. Focus on <strong>Google Business Profile</strong> first — it has the highest impact on local pack visibility. Claim, verify, and fully complete your listing before moving to other areas.</p>';
+          msg = '<p class="text-text-muted">Your local SEO foundation needs significant work. Focus on <strong>Google Business Profile</strong> first; it has the highest impact on local pack visibility. Claim, verify, and fully complete your listing before moving to other areas.</p>';
         } else if (pct < 60) {
           msg = '<p class="text-text-muted">You have a reasonable foundation but there are clear gaps. Look at the unchecked items in your weakest category and prioritise those. <strong>Reviews and citations</strong> are often the quickest wins at this stage.</p>';
         } else if (pct < 85) {

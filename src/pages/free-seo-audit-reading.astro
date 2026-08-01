@@ -36,12 +36,12 @@ const schema = [
       {
         "@type": "Question",
         "name": "How does the free audit differ from the comprehensive paid audit?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The free audit comprises a 5-point health check covering indexation status, Core Web Vitals, local SEO presence, a top keyword snapshot, and one key recommendation. The comprehensive paid audit covers 50+ checkpoints across technical health, content gaps, backlink profile, local SEO, and competitor analysis, accompanied by a full prioritised action plan and a one-hour walkthrough call." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The free audit comprises a 5-point health check. The comprehensive paid audit covers 50+ checkpoints across technical health, content gaps, backlink profile, local SEO, and competitor analysis, accompanied by a full prioritised action plan and a one-hour walkthrough call. Refer to the comparison table above for the complete breakdown." }
       },
       {
         "@type": "Question",
         "name": "Is the audit restricted to Reading businesses?",
-        "acceptedAnswer": { "@type": "Answer", "text": "The free audit is available to any business; however, our local SEO analysis is most detailed for businesses in Reading, Berkshire, and the Thames Valley. We examine Reading-specific local signals including Google Business Profile, local directories, and local pack eligibility for your area." }
+        "acceptedAnswer": { "@type": "Answer", "text": "The free audit is available to any business; however, our local SEO analysis is most detailed for businesses in Reading, Berkshire, and the Thames Valley. We examine Reading-specific local signals including Google Business Profile optimisation, local directory presence, and local pack eligibility for your area." }
       }
     ]
   }
@@ -65,6 +65,11 @@ const schema = [
 
       <div class="quick-answer">
         <strong>Quick answer:</strong> Our free SEO audit is a 5-point health check encompassing your site's indexation status, Core Web Vitals, local SEO presence, top keyword snapshot, and one key recommendation. There is no obligation, no credit card requirement, and delivery is within 48 hours by email.
+      </div>
+
+      <div id="form-confirmation" class="hidden not-prose my-6 p-4 rounded-lg border border-accent bg-surface" role="status" aria-live="polite">
+        <p class="font-semibold text-brand">Thank you, your free audit request has been received.</p>
+        <p class="text-sm text-text-muted mt-1">Your report will arrive by email within 48 hours. If you have questions in the meantime, email <a href="mailto:hello@seoreading.uk" class="underline">hello@seoreading.uk</a>.</p>
       </div>
 
       <form action="https://api.staticforms.xyz/submit" method="POST" class="not-prose bg-surface rounded-xl p-6 md:p-8 my-8 border border-border">
@@ -111,11 +116,11 @@ const schema = [
       <p>The free SEO health check encompasses five baseline assessments that provide a clear snapshot of your website's current search performance.</p>
 
       <ol>
-        <li><strong>Indexation status</strong> — how many of your pages are present in Google's index, and are there pages missing or pages that ought not to be there?</li>
-        <li><strong>Core Web Vitals</strong> — does your site satisfy Google's speed and user experience thresholds? We examine LCP, INP, and CLS from real-world data.</li>
-        <li><strong>Local SEO presence</strong> — is your Google Business Profile established and optimised? Are your NAP details consistent across Reading directories?</li>
-        <li><strong>Top keyword snapshot</strong> — which queries is your site currently appearing for in Google, and at what positions?</li>
-        <li><strong>One key recommendation</strong> — the single highest-impact change you can implement immediately to improve your visibility within Reading search results.</li>
+        <li><strong>Indexation status</strong>: how many of your pages are present in Google's index, and are there pages missing or pages that ought not to be there?</li>
+        <li><strong>Core Web Vitals</strong>: does your site satisfy Google's speed and user experience thresholds? We examine LCP, INP, and CLS from real-world data.</li>
+        <li><strong>Local SEO presence</strong>: is your Google Business Profile established and optimised? Are your NAP details consistent across Reading directories?</li>
+        <li><strong>Top keyword snapshot</strong>: which queries is your site currently appearing for in Google, and at what positions?</li>
+        <li><strong>One key recommendation</strong>: the single highest-impact change you can implement immediately to improve your visibility within Reading search results.</li>
       </ol>
 
       <p>This is a focused health check rather than a comprehensive audit. It provides sufficient information to understand your baseline and determine whether a more thorough analysis merits consideration.</p>
@@ -138,7 +143,7 @@ const schema = [
 
       <p>Every Reading business deserves to understand its position in Google. Many business owners are unaware of whether their site is indexed correctly, whether it meets Core Web Vitals thresholds, or whether their Google Business Profile is properly optimised. A complimentary baseline check provides that clarity.</p>
 
-      <p>Moreover, we find that once business owners examine the data, the value of professional SEO becomes self-evident. The free audit is not a sales device — it is a genuine diagnostic upon which you may act independently or present to any SEO provider. Should you elect to engage us, the baseline data feeds directly into a comprehensive strategy.</p>
+      <p>Moreover, we find that once business owners examine the data, the value of professional SEO becomes self-evident. The free audit is not a sales device; it is a genuine diagnostic upon which you may act independently or present to any SEO provider. Should you elect to engage us, the baseline data feeds directly into a comprehensive strategy.</p>
 
       <h2>Free vs Comprehensive Audit</h2>
 
@@ -243,4 +248,14 @@ const schema = [
 
     </div>
   </section>
+
+  <script is:inline>
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      var banner = document.getElementById('form-confirmation');
+      if (banner) {
+        banner.classList.remove('hidden');
+        banner.scrollIntoView({ block: 'center' });
+      }
+    }
+  </script>
 </Base>

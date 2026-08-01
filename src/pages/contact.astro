@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "What should we prepare before getting in touch?",
-    a: "It is helpful to have your website URL to hand, a general idea of your target keywords or services, and any existing Google Analytics or Search Console access. If you have none of that prepared, there is no cause for concern — we can begin from scratch and conduct a thorough audit during the initial consultation."
+    a: "It is helpful to have your website URL to hand, a general idea of your target keywords or services, and any existing Google Analytics or Search Console access. If you have none of that prepared, there is no cause for concern; we can begin from scratch and conduct a thorough audit during the initial consultation."
   }
 ];
 
@@ -89,6 +89,11 @@ const faqSchema = {
 
       <div class="quick-answer">
         <p>Book a consultation with SEO Reading to discuss your search visibility. We are based in Reading and cover Caversham, Tilehurst, Earley, Wokingham, and the wider Berkshire area.</p>
+      </div>
+
+      <div id="form-confirmation" class="hidden not-prose my-6 p-4 rounded-lg border border-accent bg-surface" role="status" aria-live="polite">
+        <p class="font-semibold text-brand">Thank you, your message has been sent.</p>
+        <p class="text-sm text-text-muted mt-1">We will reply within one working day. If it is urgent, email <a href="mailto:hello@seoreading.uk" class="underline">hello@seoreading.uk</a> directly.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 my-8">
@@ -187,7 +192,17 @@ const faqSchema = {
 
       <h2>Next Steps</h2>
 
-      <p>Not certain where to begin? Browse our <a href="/services/">SEO services</a> to see what we offer, review our <a href="/seo-pricing-reading/">pricing</a> for transparent costs, or learn more <a href="/about/">about our consultancy</a> and how we work with Reading businesses. Every engagement begins with a conversation — no templates, no generic proposals. We listen first, then construct a strategy that fits your market and budget.</p>
+      <p>Not certain where to begin? Browse our <a href="/services/">SEO services</a> to see what we offer, review our <a href="/seo-pricing-reading/">pricing</a> for transparent costs, or learn more <a href="/about/">about our consultancy</a> and how we work with Reading businesses. Every engagement begins with a conversation, no templates, no generic proposals. We listen first, then construct a strategy that fits your market and budget.</p>
     </div>
   </section>
+
+  <script is:inline>
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      var banner = document.getElementById('form-confirmation');
+      if (banner) {
+        banner.classList.remove('hidden');
+        banner.scrollIntoView({ block: 'center' });
+      }
+    }
+  </script>
 </Base>

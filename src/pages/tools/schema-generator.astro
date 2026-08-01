@@ -10,8 +10,7 @@ const schema = [
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
-      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://seoreading.uk/tools/" },
-      { "@type": "ListItem", "position": 3, "name": "Schema Generator", "item": "https://seoreading.uk/tools/schema-generator/" }
+      { "@type": "ListItem", "position": 2, "name": "Schema Generator", "item": "https://seoreading.uk/tools/schema-generator/" }
     ]
   },
   {
@@ -42,7 +41,7 @@ const schema = [
       {
         "@type": "Question",
         "name": "How do I validate my schema markup?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Use Google's Rich Results Test (search.google.com/test/rich-results) or Schema.org's validator (validator.schema.org). Paste your page URL or the raw JSON-LD code to check for errors and warnings." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Use Google's Rich Results Test or Schema.org's validator. Paste your page URL or the raw JSON-LD code to check for errors and warnings. Google Search Console also reports structured data issues in the Enhancements section." }
       },
       {
         "@type": "Question",
@@ -182,7 +181,7 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
                 <input type="text" id="biz-geo-lat" class="form-input" placeholder="Latitude" />
                 <input type="text" id="biz-geo-lng" class="form-input" placeholder="Longitude" />
               </div>
-              <p class="text-xs text-text-muted mt-1">Find yours at maps.google.com — right-click your location.</p>
+              <p class="text-xs text-text-muted mt-1">Find yours at maps.google.com by right-clicking your location.</p>
             </div>
           </div>
         </div>
@@ -215,7 +214,7 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
       <p>Structured data helps search engines understand your business. LocalBusiness schema tells Google your name, address, phone number, opening hours, and the areas you serve. This information feeds into Google's Knowledge Graph, influences local pack rankings, and strengthens your entity presence for AI search engines like ChatGPT and Perplexity.</p>
 
       <h3>Step 1: Fill in Your Details</h3>
-      <p>Enter your business information in the form. Fields marked with * are required for valid schema. The more fields you complete, the stronger the signal to search engines. Pay particular attention to business type — select the most specific option available rather than the generic "Local Business".</p>
+      <p>Enter your business information in the form. Fields marked with * are required for valid schema. The more fields you complete, the stronger the signal to search engines. Pay particular attention to business type: select the most specific option available rather than the generic "Local Business".</p>
 
       <h3>Step 2: Copy the Code</h3>
       <p>The JSON-LD code updates in real time as you type. Click "Copy Code" when you are satisfied with the output. The generated markup follows schema.org specifications and Google's structured data guidelines.</p>
