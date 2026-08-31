@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+
+const title = 'Privacy Notice | SEO Reading';
+const description = 'How SEO Reading and ND Media Ltd collect, use, and protect personal information submitted through this website.';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
+      { "@type": "ListItem", "position": 2, "name": "Privacy", "item": "https://seoreading.uk/privacy/" }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": title,
+    "description": description,
+    "url": "https://seoreading.uk/privacy/",
+    "isPartOf": { "@id": "https://seoreading.uk/#website" },
+    "about": { "@id": "https://seoreading.uk/#organization" },
+    "inLanguage": "en-GB"
+  }
+];
+---
+
+<Base title={title} description={description} schema={schema}>
+  <section class="page-hero">
+    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
+    <div class="max-w-3xl mx-auto relative z-10">
+      <h1 class="fade-up">Privacy Notice</h1>
+      <p class="subtitle fade-up" style="transition-delay: 80ms;">How we handle information shared through seoreading.uk.</p>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="prose fade-up">
+      <p><strong>Last updated: 31 August 2026.</strong> SEO Reading is operated by ND Media Ltd, company number 10784524. ND Media Ltd is the data controller for personal information submitted through this website.</p>
+
+      <h2>Information We Collect</h2>
+      <p>Our enquiry and free audit forms collect the information you choose to provide. This may include your name, business name, email address, telephone number, website address, and message. We also receive ordinary technical request data needed to deliver and secure the website.</p>
+
+      <h2>How We Use Your Information</h2>
+      <p>We use form information to respond to your enquiry, prepare a requested audit, discuss services, prevent spam, and maintain necessary business records. We do not sell personal information. We do not add form respondents to a marketing list unless they make a separate, explicit choice to receive marketing.</p>
+
+      <h2>Lawful Basis and Retention</h2>
+      <p>We process enquiry information because it is necessary to take steps at your request before a possible contract and because we have a legitimate interest in answering genuine business enquiries. We retain it only for as long as it is reasonably needed for those purposes, an active client relationship, or a legal record-keeping obligation.</p>
+
+      <h2>Service Providers</h2>
+      <p>Cloudflare hosts and protects this website. Form submissions pass through a secured Cloudflare Worker so they can be delivered to us by email. These providers process limited information on our behalf under their own security and data protection commitments.</p>
+
+      <h2>Optional Analytics</h2>
+      <p>Google Analytics helps us understand which pages visitors use and whether the site works as expected. Analytics storage is denied by default. It is enabled only after you select “Accept analytics” in the on-page choice. Your choice is stored locally in your browser. Declining analytics does not affect forms or any other site feature.</p>
+
+      <h2>Your Rights</h2>
+      <p>UK data protection law may give you rights to access, correct, erase, restrict, or object to the use of your personal information. You may also ask for a portable copy where applicable. Email <a href="mailto:hello@seoreading.uk">hello@seoreading.uk</a> to make a request or ask a privacy question.</p>
+
+      <p>You may complain to the UK Information Commissioner's Office if you believe your information has been handled incorrectly. Visit <a href="https://ico.org.uk/make-a-complaint/" rel="noopener noreferrer">the ICO complaints page</a> for guidance.</p>
+
+      <h2>Changes to This Notice</h2>
+      <p>We will update this page when our data practices or service providers materially change. The date at the top identifies the current version.</p>
+
+      <p>Return to <a href="/">SEO Reading</a> or <a href="/contact/">contact us</a>.</p>
+    </div>
+  </section>
+</Base>

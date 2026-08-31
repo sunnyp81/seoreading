@@ -14,6 +14,37 @@ const siteUrl = 'https://seoreading.uk';
 const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
 const year = new Date().getFullYear();
 
+const entitySchema = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "ProfessionalService"],
+  "@id": "https://seoreading.uk/#organization",
+  "name": "SEO Reading",
+  "legalName": "ND MEDIA LTD",
+  "identifier": "10784524",
+  "url": "https://seoreading.uk/",
+  "email": "hello@seoreading.uk",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Reading",
+    "addressRegion": "Berkshire",
+    "addressCountry": "GB"
+  },
+  "areaServed": ["Reading", "Berkshire", "Thames Valley"],
+  "sameAs": ["https://find-and-update.company-information.service.gov.uk/company/10784524"]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://seoreading.uk/#website",
+  "url": "https://seoreading.uk/",
+  "name": "SEO Reading",
+  "publisher": { "@id": "https://seoreading.uk/#organization" },
+  "inLanguage": "en-GB"
+};
+
+const allSchema = [entitySchema, websiteSchema, ...schema];
+
 const navLinks = [
   { href: '/services/', label: 'Services', match: '/services' },
   { href: '/areas/', label: 'Areas', match: '/areas' },
@@ -49,14 +80,28 @@ const navLinks = [
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
-  {schema.map((s) => (
+  {allSchema.map((s) => (
     <script type="application/ld+json" set:html={JSON.stringify(s)} />
   ))}
     <!-- GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-190NG3QSFD"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
+      try {
+        if (window.localStorage.getItem('seo-reading-analytics-consent') === 'granted') {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+        }
+      } catch (e) {}
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-190NG3QSFD"></script>
+    <script is:inline>
       gtag('js', new Date());
       gtag('config', 'G-190NG3QSFD');
     </script>
@@ -81,6 +126,7 @@ const navLinks = [
           {navLinks.map(({ href, label, match }) => (
             <a
               href={href}
+              aria-current={currentPath.startsWith(match) ? 'page' : undefined}
               class:list={[
                 'text-[0.9rem] font-medium transition-colors relative pb-1',
                 currentPath.startsWith(match)
@@ -122,6 +168,7 @@ const navLinks = [
         {navLinks.map(({ href, label, match }) => (
           <a
             href={href}
+            aria-current={currentPath.startsWith(match) ? 'page' : undefined}
             class:list={[
               'block py-3 px-4 rounded-lg text-[0.95rem] font-medium transition-all duration-200',
               currentPath.startsWith(match)
@@ -208,14 +255,23 @@ const navLinks = [
 
       <!-- Footer bottom -->
       <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
-        <p>&copy; {year} SEO Reading. All rights reserved.</p>
+        <p>&copy; {year} SEO Reading. Operated by <a href="https://find-and-update.company-information.service.gov.uk/company/10784524" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">ND Media Ltd</a>, company no. 10784524.</p>
         <div class="flex gap-5">
+          <a href="/privacy/" class="hover:text-gray-300 transition-colors">Privacy</a>
           <a href="/sitemap-index.xml" class="hover:text-gray-300 transition-colors">Sitemap</a>
           <a href="/llms.txt" class="hover:text-gray-300 transition-colors">llms.txt</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <div id="analytics-consent" class="consent-banner" hidden role="region" aria-label="Analytics cookies">
+    <p><strong>Analytics choice</strong><br />We use Google Analytics to understand which pages help visitors. It is optional and remains off unless you accept.</p>
+    <div class="consent-actions">
+      <button type="button" id="analytics-decline" class="btn btn-outline">Decline</button>
+      <button type="button" id="analytics-accept" class="btn btn-primary">Accept analytics</button>
+    </div>
+  </div>
 
   <script>
     // Mobile menu
@@ -226,22 +282,37 @@ const navLinks = [
     const burgerBot = document.getElementById('burger-bot');
 
     if (btn && menu) {
+      const closeMobileMenu = () => {
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open navigation');
+        menu.style.maxHeight = '0';
+        menu.style.opacity = '0';
+        burgerTop?.classList.remove('translate-y-[7px]', 'rotate-45');
+        burgerMid?.classList.remove('opacity-0', 'scale-0');
+        burgerBot?.classList.remove('-translate-y-[7px]', '-rotate-45');
+      };
+
+      btn.setAttribute('aria-label', 'Open navigation');
       btn.addEventListener('click', () => {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!expanded));
 
         if (!expanded) {
+          btn.setAttribute('aria-label', 'Close navigation');
           menu.style.maxHeight = menu.scrollHeight + 'px';
           menu.style.opacity = '1';
           burgerTop?.classList.add('translate-y-[7px]', 'rotate-45');
           burgerMid?.classList.add('opacity-0', 'scale-0');
           burgerBot?.classList.add('-translate-y-[7px]', '-rotate-45');
         } else {
-          menu.style.maxHeight = '0';
-          menu.style.opacity = '0';
-          burgerTop?.classList.remove('translate-y-[7px]', 'rotate-45');
-          burgerMid?.classList.remove('opacity-0', 'scale-0');
-          burgerBot?.classList.remove('-translate-y-[7px]', '-rotate-45');
+          closeMobileMenu();
+        }
+      });
+      menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+          closeMobileMenu();
+          btn.focus();
         }
       });
     }
@@ -311,6 +382,29 @@ const navLinks = [
       });
     }, { threshold: 0.5 });
     document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+    // Horizontal tables remain reachable by keyboard at narrow widths.
+    document.querySelectorAll('.prose table').forEach((table, index) => {
+      table.setAttribute('tabindex', '0');
+      if (!table.hasAttribute('aria-label')) table.setAttribute('aria-label', `Data table ${index + 1}; scroll horizontally on small screens`);
+    });
+
+    // Optional analytics consent. Necessary form and site functions do not depend on it.
+    const consentBanner = document.getElementById('analytics-consent');
+    const acceptAnalytics = document.getElementById('analytics-accept');
+    const declineAnalytics = document.getElementById('analytics-decline');
+    try {
+      if (consentBanner && !window.localStorage.getItem('seo-reading-analytics-consent')) consentBanner.hidden = false;
+    } catch (e) {
+      if (consentBanner) consentBanner.hidden = false;
+    }
+    const saveAnalyticsChoice = (choice: 'granted' | 'denied') => {
+      try { window.localStorage.setItem('seo-reading-analytics-consent', choice); } catch (e) {}
+      gtag('consent', 'update', { analytics_storage: choice });
+      if (consentBanner) consentBanner.hidden = true;
+    };
+    acceptAnalytics?.addEventListener('click', () => saveAnalyticsChoice('granted'));
+    declineAnalytics?.addEventListener('click', () => saveAnalyticsChoice('denied'));
   </script>
 
 <!-- Post-submit confirmation. On a static build Astro.url.searchParams is empty at
@@ -339,15 +433,21 @@ const navLinks = [
     catch (e) { return; }
     if (params.get('sent') !== '1') return;
     var run = function () {
+      var existingConfirmation = document.querySelector('[data-form-confirmation]');
+      if (existingConfirmation) existingConfirmation.hidden = false;
+      var insertedConfirmation = false;
       var forms = document.querySelectorAll('form');
       for (var i = 0; i < forms.length; i++) {
         var f = forms[i];
         if (!f.querySelector('[name="redirectTo"], [name="redirect"]')) continue;
-        var box = document.createElement('div');
-        box.setAttribute('role', 'status');
-        box.style.cssText = 'border:1px solid currentColor;border-radius:8px;padding:1.25rem 1.5rem;margin:0 0 1.5rem;line-height:1.5';
-        box.innerHTML = '<strong>Thanks, your message has been sent.</strong><br>We have received it and will be in touch.';
-        f.parentNode.insertBefore(box, f);
+        if (!existingConfirmation && !insertedConfirmation) {
+          var box = document.createElement('div');
+          box.setAttribute('role', 'status');
+          box.style.cssText = 'border:1px solid currentColor;border-radius:8px;padding:1.25rem 1.5rem;margin:0 0 1.5rem;line-height:1.5';
+          box.innerHTML = '<strong>Thanks, your message has been sent.</strong><br>We have received it and will be in touch.';
+          f.parentNode.insertBefore(box, f);
+          insertedConfirmation = true;
+        }
         f.hidden = true;
       }
       track('generate_lead', {

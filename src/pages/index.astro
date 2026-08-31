@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 
 const title = 'SEO Reading | SEO Consultancy in Reading';
-const description = 'SEO Reading is a specialist search consultancy serving businesses across Reading and Berkshire. We deliver measurable results through local SEO, technical optimisation, and AI search strategy.';
+const description = 'Reading SEO consultancy for local, technical, and AI search strategy. Clear audits and practical optimisation for businesses across Berkshire.';
 
 const faqItems = [
   {
@@ -11,7 +11,7 @@ const faqItems = [
   },
   {
     q: 'How long before SEO produces measurable results?',
-    a: 'In our experience, most Reading businesses observe measurable ranking improvements within 8 to 12 weeks. Local SEO campaigns targeting Google Maps and the local pack can yield results more rapidly, sometimes within 4 to 6 weeks. Competitive national keywords require greater patience, typically 4 to 6 months for significant movement. We establish realistic timelines during the strategy phase and report progress on a monthly basis.'
+    a: 'SEO timelines depend on your current site, competition, content, authority, and the work required. Technical changes may be reflected after recrawling, while competitive commercial terms usually need sustained work over several months. We establish a baseline before implementation and report observed progress rather than promising a fixed ranking date.'
   },
   {
     q: 'Does SEO Reading only serve businesses based in Reading?',
@@ -87,7 +87,7 @@ const faqSchema = {
   }))
 };
 
-const schema = [orgSchema, breadcrumbSchema, faqSchema];
+const schema = [breadcrumbSchema, faqSchema];
 ---
 
 <Base title={title} description={description} schema={schema}>
@@ -120,7 +120,7 @@ const schema = [orgSchema, breadcrumbSchema, faqSchema];
             <span class="relative z-10">Get Your Free Audit</span>
             <span class="shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full"></span>
           </a>
-          <a href="/case-studies/" class="btn btn-outline border-white/30 text-white hover:bg-white/10 hover:border-white/50 py-3.5 px-7">View Results</a>
+          <a href="/case-studies/" class="btn btn-outline border-white/30 text-white hover:bg-white/10 hover:border-white/50 py-3.5 px-7">View SEO Plans</a>
         </div>
       </div>
 
@@ -183,8 +183,8 @@ const schema = [orgSchema, breadcrumbSchema, faqSchema];
           <div class="w-10 h-10 rounded-lg bg-brand/5 flex items-center justify-center mb-4">
             <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           </div>
-          <h3 class="font-semibold text-brand text-lg mb-2" style="font-family: var(--font-serif);">Map Pack Dominance</h3>
-          <p class="text-text-muted text-[0.95rem] leading-relaxed">Google Business Profile results appear above organic listings for virtually every local query. If your business is not in the top three, those prospective clients proceed directly to a competitor.</p>
+          <h3 class="font-semibold text-brand text-lg mb-2" style="font-family: var(--font-serif);">Local Pack Visibility</h3>
+          <p class="text-text-muted text-[0.95rem] leading-relaxed">Google often shows a local pack for location-led searches. Accurate business information, relevance, prominence, and distance all affect whether a business is eligible to appear.</p>
         </div>
         <div class="card fade-up stagger-child" style="--i: 1">
           <div class="w-10 h-10 rounded-lg bg-brand/5 flex items-center justify-center mb-4">
@@ -216,12 +216,12 @@ const schema = [orgSchema, breadcrumbSchema, faqSchema];
       <!-- Bento: 2-col asymmetric on md, 3-col on lg -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         <!-- Local SEO, featured, spans 2 on lg -->
-        <a href="/services/" class="group lg:col-span-2 card p-0 overflow-hidden flex flex-col md:flex-row no-underline fade-up" style="--i: 0">
+        <a href="/areas/" class="group lg:col-span-2 card p-0 overflow-hidden flex flex-col md:flex-row no-underline fade-up" style="--i: 0">
           <div class="flex-1 p-7">
             <span class="inline-block text-[0.7rem] font-semibold text-accent tracking-[0.1em] uppercase mb-3">Core Service</span>
             <h3 class="font-bold text-brand text-xl mb-3 group-hover:text-accent-dark transition-colors" style="font-family: var(--font-serif);">Local SEO</h3>
             <p class="text-text-muted text-[0.95rem] leading-relaxed mb-4">Google Business Profile optimisation, local citation building, review strategy, and on-page optimisation for location-specific keywords across Reading and the Thames Valley.</p>
-            <span class="text-accent text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">View services <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
+            <span class="text-accent text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Explore Reading area strategy <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
           </div>
           <!-- Mini growth chart -->
           <div class="hidden md:flex items-end justify-center w-48 p-6 bg-brand/[0.03]">
@@ -434,7 +434,7 @@ const schema = [orgSchema, breadcrumbSchema, faqSchema];
   <section class="py-16 md:py-24 bg-white" aria-labelledby="cases-heading">
     <div class="max-w-6xl mx-auto px-5">
       <div class="text-center mb-12">
-        <h2 id="cases-heading" class="font-bold text-brand mb-4 fade-up" style="font-family: var(--font-serif); font-size: clamp(1.5rem, 4vw, 2.25rem); letter-spacing: -0.02em;">Case Studies</h2>
+        <h2 id="cases-heading" class="font-bold text-brand mb-4 fade-up" style="font-family: var(--font-serif); font-size: clamp(1.5rem, 4vw, 2.25rem); letter-spacing: -0.02em;">Illustrative SEO Plans</h2>
         <div class="gold-rule-center fade-up" style="transition-delay: 80ms;"></div>
         <p class="text-text-muted text-lg mt-6 max-w-xl mx-auto fade-up" style="transition-delay: 160ms;">Illustrative, anonymised campaigns showing how we approach Reading's markets.</p>
       </div>
@@ -442,10 +442,10 @@ const schema = [orgSchema, breadcrumbSchema, faqSchema];
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <a href="/case-studies/reading-law-firm-organic-growth/" class="group card no-underline fade-up" style="--i: 0">
           <span class="inline-block text-[0.7rem] font-semibold text-accent tracking-[0.1em] uppercase mb-2">Legal Sector · Illustrative</span>
-          <h3 class="font-bold text-brand text-xl mb-2 group-hover:text-accent-dark transition-colors" style="font-family: var(--font-serif);">Law Firm SEO: A 340% Growth Scenario</h3>
-          <p class="text-text-muted text-sm leading-relaxed mb-4">An illustrative campaign: a mid-size law firm near Forbury Square grows organic traffic by 340% in eight months through technical SEO, content strategy, and local optimisation.</p>
+          <h3 class="font-bold text-brand text-xl mb-2 group-hover:text-accent-dark transition-colors" style="font-family: var(--font-serif);">Reading Law Firm SEO Growth Plan</h3>
+          <p class="text-text-muted text-sm leading-relaxed mb-4">An illustrative plan showing how technical SEO, practice-area content, and local optimisation can be sequenced for a Reading law firm.</p>
           <div class="flex items-center justify-between">
-            <span class="text-accent font-bold text-2xl" style="font-family: var(--font-serif);">340%</span>
+            <span class="text-accent font-bold text-lg" style="font-family: var(--font-serif);">Strategy scenario</span>
             <span class="text-accent text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
           </div>
         </a>
@@ -454,7 +454,7 @@ const schema = [orgSchema, breadcrumbSchema, faqSchema];
           <h3 class="font-bold text-brand text-xl mb-2 group-hover:text-accent-dark transition-colors" style="font-family: var(--font-serif);">Caversham Estate Agent: Google Maps Visibility</h3>
           <p class="text-text-muted text-sm leading-relaxed mb-4">An illustrative campaign: an independent estate agent builds Google Maps visibility across Reading, capturing the local pack for property searches in Caversham, Tilehurst, and Earley.</p>
           <div class="flex items-center justify-between">
-            <span class="text-accent font-bold text-2xl" style="font-family: var(--font-serif);">28 terms</span>
+            <span class="text-accent font-bold text-lg" style="font-family: var(--font-serif);">Strategy scenario</span>
             <span class="text-accent text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">Read more <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></span>
           </div>
         </a>

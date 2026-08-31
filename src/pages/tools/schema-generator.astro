@@ -22,7 +22,7 @@ const schema = [
     "applicationCategory": "SEO Tool",
     "operatingSystem": "Any",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
-    "provider": { "@type": "Organization", "name": "SEO Reading", "url": "https://seoreading.uk/", "sameAs": [] }
+    "provider": { "@id": "https://seoreading.uk/#organization" }
   },
   {
     "@context": "https://schema.org",
@@ -31,7 +31,7 @@ const schema = [
       {
         "@type": "Question",
         "name": "What is LocalBusiness schema markup?",
-        "acceptedAnswer": { "@type": "Answer", "text": "LocalBusiness schema is structured data in JSON-LD format that tells search engines specific details about your business: name, address, phone number, opening hours, services, and geographic area served. It helps Google display rich results and improves local search visibility." }
+        "acceptedAnswer": { "@type": "Answer", "text": "LocalBusiness schema is structured data in JSON-LD format that describes details such as a business name, address, phone number, opening hours, services, and area served. It can help search engines interpret those facts, but it does not guarantee a rich result or higher local rankings." }
       },
       {
         "@type": "Question",
@@ -46,7 +46,7 @@ const schema = [
       {
         "@type": "Question",
         "name": "Does schema markup directly improve rankings?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Schema markup is not a direct ranking factor, but it helps search engines understand your business accurately, which can improve how you appear in search results. For local businesses, it strengthens entity signals that influence local pack rankings and AI search citations." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Schema markup is not a direct ranking factor. Accurate markup can help search engines interpret and reconcile business facts, but local rankings and AI citations depend on many additional signals." }
       }
     ]
   }
@@ -229,7 +229,7 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
 
       <div class="faq-item">
         <h3 class="faq-question">What is LocalBusiness schema markup?</h3>
-        <p>LocalBusiness schema is structured data in JSON-LD format that tells search engines specific details about your business: name, address, phone number, opening hours, services, and geographic area served. It helps Google display rich results and improves local search visibility.</p>
+        <p>LocalBusiness schema is structured data in JSON-LD format that describes details such as a business name, address, phone number, opening hours, services, and area served. It can help search engines interpret those facts, but it does not guarantee a rich result or higher local rankings.</p>
       </div>
 
       <div class="faq-item">
@@ -244,12 +244,12 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
 
       <div class="faq-item">
         <h3 class="faq-question">Does schema markup directly improve rankings?</h3>
-        <p>Schema markup is not a direct ranking factor, but it helps search engines understand your business accurately, which can improve how you appear in search results. For local businesses, it strengthens entity signals that influence local pack rankings and AI search citations.</p>
+        <p>Schema markup is not a direct ranking factor. Accurate markup can help search engines interpret and reconcile business facts, but local rankings and AI citations depend on many additional signals.</p>
       </div>
 
       <div class="cta-box">
         <h2>Need Schema Implemented Properly?</h2>
-        <p>We deploy LocalBusiness, Service, FAQPage, Review, and BreadcrumbList schema across every client site. Schema is one component of our comprehensive technical SEO service.</p>
+        <p>We select schema types that match the visible content and current eligibility rules rather than adding every possible type. Schema is one component of our comprehensive technical SEO service.</p>
         <a href="/technical-seo-reading/">Technical SEO Services</a>
       </div>
 

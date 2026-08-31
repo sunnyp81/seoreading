@@ -11,11 +11,12 @@
 - [Technical SEO Reading](https://seoreading.uk/technical-seo-reading/): Technical SEO audits and implementation for Reading businesses, with expertise in enterprise sites at Green Park and Thames Valley Park.
 - [SEO Audit Reading](https://seoreading.uk/seo-audit-reading/): Comprehensive SEO audit service covering technical health, content gaps, backlink profile, and local visibility for Reading businesses.
 - [Free SEO Audit Reading](https://seoreading.uk/free-seo-audit-reading/): Complimentary SEO health check for Reading businesses: a baseline report on your site's Google visibility, delivered within 48 hours.
-- [SEO Pricing Reading](https://seoreading.uk/seo-pricing-reading/): Transparent SEO pricing for Reading businesses. Tiered packages from one-off audits to monthly retainers, typically 40-60% less than London agencies.
+- [SEO Pricing Reading](https://seoreading.uk/seo-pricing-reading/): Transparent SEO pricing for Reading businesses, from one-off audits to monthly retainers.
 - [AI Search Optimisation Reading](https://seoreading.uk/ai-search-optimisation-reading/): How to get your Reading business cited by ChatGPT, Perplexity, Claude, Copilot, and Google AI Overviews. Covers AEO, GEO, LLM SEO, and llms.txt.
-- [Case Studies](https://seoreading.uk/case-studies/): Illustrative, anonymised SEO case studies showing how campaigns are structured for Reading and Berkshire businesses.
-- [Law Firm SEO Case Study](https://seoreading.uk/case-studies/reading-law-firm-organic-growth/): Illustrative, anonymised scenario showing how technical SEO, content strategy, and local optimisation grow organic traffic for a Reading law firm.
-- [Estate Agent SEO Case Study](https://seoreading.uk/case-studies/caversham-estate-agent-google-maps-dominance/): Illustrative, anonymised scenario showing how a Caversham estate agent builds Google Maps visibility across Reading.
+- [Illustrative SEO Plans](https://seoreading.uk/case-studies/): Clearly labelled strategy scenarios showing how campaigns can be structured for Reading and Berkshire businesses. These are not verified client results.
+- [Law Firm SEO Plan](https://seoreading.uk/case-studies/reading-law-firm-organic-growth/): An illustrative plan for sequencing technical SEO, practice-area content, and local optimisation for a Reading law firm.
+- [Estate Agent SEO Plan](https://seoreading.uk/case-studies/caversham-estate-agent-google-maps-dominance/): An illustrative plan for building local search visibility for a Caversham estate agent.
+- [Privacy](https://seoreading.uk/privacy/): How ND Media Ltd handles enquiries and optional website analytics.
 - [Local SEO Checklist](https://seoreading.uk/tools/local-seo-checklist/): Free interactive local SEO checklist covering Google Business Profile, citations, reviews, and on-page signals for Reading businesses.
 - [Schema Generator](https://seoreading.uk/tools/schema-generator/): Free tool that generates valid LocalBusiness JSON-LD schema markup for local businesses.
 - [SEO ROI Calculator](https://seoreading.uk/tools/seo-roi-calculator/): Free calculator that estimates the traffic and revenue return of SEO investment from search volume, click-through, and conversion inputs.
