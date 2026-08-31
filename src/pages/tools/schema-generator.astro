@@ -143,14 +143,14 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
             <fieldset class="border border-border rounded-lg p-4">
               <legend class="form-label px-1">Address</legend>
               <div class="space-y-3">
-                <input type="text" id="biz-street" class="form-input" placeholder="Street address" />
+                <input type="text" id="biz-street" class="form-input" aria-label="Street address" placeholder="Street address" />
                 <div class="grid grid-cols-2 gap-3">
-                  <input type="text" id="biz-city" class="form-input" placeholder="City (e.g. Reading)" />
-                  <input type="text" id="biz-region" class="form-input" placeholder="County (e.g. Berkshire)" />
+                  <input type="text" id="biz-city" class="form-input" aria-label="City" placeholder="City (e.g. Reading)" />
+                  <input type="text" id="biz-region" class="form-input" aria-label="County" placeholder="County (e.g. Berkshire)" />
                 </div>
                 <div class="grid grid-cols-2 gap-3">
-                  <input type="text" id="biz-postcode" class="form-input" placeholder="Postcode (e.g. RG1 1AZ)" />
-                  <input type="text" id="biz-country" class="form-input" placeholder="Country code (e.g. GB)" value="GB" />
+                  <input type="text" id="biz-postcode" class="form-input" aria-label="Postcode" placeholder="Postcode (e.g. RG1 1AZ)" />
+                  <input type="text" id="biz-country" class="form-input" aria-label="Country code" placeholder="Country code (e.g. GB)" value="GB" />
                 </div>
               </div>
             </fieldset>
@@ -161,10 +161,10 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
                 {days.map(day => (
                   <div class="flex items-center gap-2">
                     <label class="w-20 text-sm text-text-muted shrink-0">{day.slice(0, 3)}</label>
-                    <input type="checkbox" class="day-enabled accent-accent" data-day={day} checked={day !== 'Sunday'} />
-                    <input type="time" class="form-input py-1.5 text-sm flex-1" data-day-open={day} value={day === 'Saturday' ? '09:00' : '09:00'} />
+                    <input type="checkbox" class="day-enabled accent-accent" data-day={day} aria-label={`${day} open`} checked={day !== 'Sunday'} />
+                    <input type="time" class="form-input py-1.5 text-sm flex-1" data-day-open={day} aria-label={`${day} opening time`} value={day === 'Saturday' ? '09:00' : '09:00'} />
                     <span class="text-text-muted text-sm">to</span>
-                    <input type="time" class="form-input py-1.5 text-sm flex-1" data-day-close={day} value={day === 'Saturday' ? '13:00' : '17:30'} />
+                    <input type="time" class="form-input py-1.5 text-sm flex-1" data-day-close={day} aria-label={`${day} closing time`} value={day === 'Saturday' ? '13:00' : '17:30'} />
                   </div>
                 ))}
               </div>
@@ -179,7 +179,7 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
               <label class="form-label" for="biz-geo-lat">Coordinates (optional)</label>
               <div class="grid grid-cols-2 gap-3">
                 <input type="text" id="biz-geo-lat" class="form-input" placeholder="Latitude" />
-                <input type="text" id="biz-geo-lng" class="form-input" placeholder="Longitude" />
+                <input type="text" id="biz-geo-lng" class="form-input" aria-label="Longitude" placeholder="Longitude" />
               </div>
               <p class="text-xs text-text-muted mt-1">Find yours at maps.google.com by right-clicking your location.</p>
             </div>

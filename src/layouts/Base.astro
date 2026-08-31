@@ -166,7 +166,7 @@ const navLinks = [
 
         <!-- Services column -->
         <div class="md:col-span-3">
-          <h4 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Services</h4>
+          <h2 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Services</h2>
           <ul class="space-y-2.5 text-sm text-gray-400">
             <li><a href="/services/" class="hover:text-white transition-colors duration-200">All Services</a></li>
             <li><a href="/technical-seo-reading/" class="hover:text-white transition-colors duration-200">Technical SEO</a></li>
@@ -178,7 +178,7 @@ const navLinks = [
 
         <!-- Resources column -->
         <div class="md:col-span-2">
-          <h4 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Explore</h4>
+          <h2 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Explore</h2>
           <ul class="space-y-2.5 text-sm text-gray-400">
             <li><a href="/free-seo-audit-reading/" class="hover:text-white transition-colors duration-200">Free Audit</a></li>
             <li><a href="/case-studies/" class="hover:text-white transition-colors duration-200">Case Studies</a></li>
@@ -192,7 +192,7 @@ const navLinks = [
 
         <!-- Contact column -->
         <div class="md:col-span-3">
-          <h4 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Contact</h4>
+          <h2 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Contact</h2>
           <ul class="space-y-2.5 text-sm text-gray-400">
             <li>
               <a href="mailto:hello@seoreading.uk" class="hover:text-white transition-colors duration-200 flex items-center gap-2">
@@ -318,7 +318,26 @@ const navLinks = [
      same empty form and assumes the send failed. -->
 <script is:inline>
   (function () {
-    if (window.location.search.indexOf('sent=1') === -1) return;
+    var track = function (eventName, parameters) {
+      if (typeof window.gtag === 'function') window.gtag('event', eventName, parameters);
+    };
+
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      var link = target && target.closest ? target.closest('a[href^="tel:"], a[href^="mailto:"]') : null;
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      track(href.indexOf('tel:') === 0 ? 'click_to_call' : 'click_to_email', {
+        contact_method: href.indexOf('tel:') === 0 ? 'phone' : 'email',
+        page_path: window.location.pathname,
+        transport_type: 'beacon'
+      });
+    });
+
+    var params;
+    try { params = new URLSearchParams(window.location.search); }
+    catch (e) { return; }
+    if (params.get('sent') !== '1') return;
     var run = function () {
       var forms = document.querySelectorAll('form');
       for (var i = 0; i < forms.length; i++) {
@@ -331,6 +350,12 @@ const navLinks = [
         f.parentNode.insertBefore(box, f);
         f.hidden = true;
       }
+      track('generate_lead', {
+        form_name: params.get('form') || 'enquiry',
+        page_path: window.location.pathname,
+        transport_type: 'beacon'
+      });
+      window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
     };
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
     else run();

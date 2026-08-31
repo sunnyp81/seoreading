@@ -14,8 +14,14 @@ pnpm-debug.log*
 
 
 # environment variables
-.env
-.env.production
+.env*
+!.env.example
+*.pem
+*.key
+wordpress-config.md
+master-builds.md
+.wrangler/
+.vercel/
 
 # macOS-specific files
 .DS_Store
