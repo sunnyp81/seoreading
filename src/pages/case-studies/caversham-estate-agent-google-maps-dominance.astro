@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
 
 const title = 'Caversham Estate Agent SEO Strategy | Local Plan';
 const description = 'An illustrative Caversham estate agent SEO plan covering Google Business Profile, local citations, reviews, area content, and measurable KPIs.';
@@ -57,19 +58,23 @@ const schema = [
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -right-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-2" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">A Caversham Estate Agent Local SEO Plan</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">An illustrative sequence for Google Business Profile, reviews, citations, and useful area content.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="A Caversham Estate Agent Local SEO Plan"
+    subtitle="An illustrative sequence for Google Business Profile, reviews, citations, and useful area content."
+    tag="Property sector · illustrative scenario, not a client result"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Strategy scenarios', href: '/case-studies/' }, { label: 'Caversham estate agent' }]}
+  >
+    <a slot="actions" href="/free-seo-audit-reading/" class="btn btn-primary">Get your free audit</a>
+    <a slot="actions" href="/case-studies/" class="btn btn-ghost-light">All scenarios</a>
+  </PageHeader>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
+  <section class="max-w-6xl mx-auto px-5 py-14">
     <div class="prose fade-up">
 
-      <p class="text-sm italic text-gray-600"><strong>Scenario disclosure:</strong> this is a hypothetical strategy example, not a client case study and not evidence of achieved results. It shows how we would structure and measure a campaign for a typical Caversham estate agent.</p>
+      <aside class="not-prose my-6 border-l-[3px] border-l-accent border border-border bg-paper px-5 py-4" aria-label="Scenario disclosure">
+        <p class="tag mb-1">Scenario disclosure</p>
+        <p class="text-[0.92rem] leading-relaxed text-text-muted">This is a hypothetical strategy example. It is not a client case study and not evidence of achieved results. It shows how we would structure and measure a campaign for a typical Caversham estate agent.</p>
+      </aside>
 
       <p>This scenario assumes an independent Caversham estate agent with an incomplete Google Business Profile, inconsistent citations, few recent reviews, and no useful area content. The plan focuses on verifiable local business information and customer decision support.</p>
 
@@ -147,8 +152,9 @@ const schema = [
 
       <div class="cta-box">
         <h2>Get Your Estate Agency's SEO Audit</h2>
-        <p class="text-white/90 mb-4">Discover where your Reading estate agency stands in Google Maps, organic search, and AI search engines. We will identify the local SEO opportunities specific to your areas and property types.</p>
-        <a href="/free-seo-audit-reading/">Book a Consultation</a>
+        <p>Discover where your Reading estate agency stands in Google Maps, organic search, and AI search engines. We will identify the local SEO opportunities specific to your areas and property types.</p>
+        <a href="/free-seo-audit-reading/">Get your free audit</a>
+        <p class="cta-note">Prefer to talk it through first? <a href="/contact/">Book a consultation</a>.</p>
       </div>
 
       <h2>Frequently Asked Questions</h2>

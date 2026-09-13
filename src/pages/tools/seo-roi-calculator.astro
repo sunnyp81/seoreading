@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
 
 const title = 'Free SEO ROI Calculator | Estimate Your Returns';
 const description = 'Calculate the potential return on investment from SEO for your business. Input your industry, customer value, and search volume to estimate traffic and revenue growth.';
@@ -54,20 +55,18 @@ const schema = [
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -right-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-2" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">SEO ROI Calculator</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">Estimate the traffic and revenue you could gain from improved search rankings. Adjust the inputs to match your business.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="SEO ROI Calculator"
+    subtitle="Estimate the traffic and revenue you could gain from improved search rankings. Adjust the inputs to match your business."
+    tag="Free tool · estimates only, based on the figures you enter"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'SEO ROI calculator' }]}
+  />
 
   <section class="max-w-5xl mx-auto px-5 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
       <!-- Inputs -->
       <div class="lg:col-span-2 fade-up">
-        <div class="bg-white border border-border rounded-xl p-6">
+        <div class="bg-white border border-border p-6">
           <h2 class="text-lg font-bold text-brand mb-5" style="font-family: var(--font-serif);">Your Business</h2>
 
           <div class="space-y-5">
@@ -130,44 +129,44 @@ const schema = [
         <div class="sticky top-[70px]">
           <!-- Results cards -->
           <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="bg-white border border-border rounded-xl p-5 text-center">
+            <div class="bg-white border border-border p-5 text-center">
               <p class="text-sm text-text-muted mb-1">Current Monthly Traffic</p>
               <p class="text-3xl font-bold text-text-muted" style="font-family: var(--font-serif);" id="roi-current-traffic">0</p>
             </div>
-            <div class="bg-white border border-accent rounded-xl p-5 text-center">
+            <div class="bg-white border border-accent p-5 text-center">
               <p class="text-sm text-text-muted mb-1">Projected Monthly Traffic</p>
               <p class="text-3xl font-bold text-accent" style="font-family: var(--font-serif);" id="roi-projected-traffic">0</p>
             </div>
-            <div class="bg-white border border-border rounded-xl p-5 text-center">
+            <div class="bg-white border border-border p-5 text-center">
               <p class="text-sm text-text-muted mb-1">Additional Leads/Month</p>
               <p class="text-3xl font-bold text-brand" style="font-family: var(--font-serif);" id="roi-leads">0</p>
             </div>
-            <div class="bg-white border border-border rounded-xl p-5 text-center">
+            <div class="bg-white border border-border p-5 text-center">
               <p class="text-sm text-text-muted mb-1">Additional Revenue/Month</p>
               <p class="text-3xl font-bold text-brand" style="font-family: var(--font-serif);" id="roi-revenue">£0</p>
             </div>
           </div>
 
           <!-- ROI summary -->
-          <div class="bg-brand rounded-xl p-6 text-white relative overflow-hidden mb-6">
+          <div class="bg-brand p-6 text-white relative overflow-hidden mb-6">
             <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
             <div class="relative z-10">
               <h3 class="text-lg font-bold mb-4" style="font-family: var(--font-serif);">12-Month Projection</h3>
               <div class="grid grid-cols-2 gap-4">
                 <div>
-                  <p class="text-gray-400 text-sm">Total Investment</p>
+                  <p class="text-[#A9B3C2] text-sm">Total Investment</p>
                   <p class="text-2xl font-bold text-white" id="roi-total-investment">£0</p>
                 </div>
                 <div>
-                  <p class="text-gray-400 text-sm">Projected Revenue</p>
+                  <p class="text-[#A9B3C2] text-sm">Projected Revenue</p>
                   <p class="text-2xl font-bold text-accent" id="roi-total-revenue">£0</p>
                 </div>
                 <div>
-                  <p class="text-gray-400 text-sm">Net Return</p>
+                  <p class="text-[#A9B3C2] text-sm">Net Return</p>
                   <p class="text-2xl font-bold" id="roi-net-return">£0</p>
                 </div>
                 <div>
-                  <p class="text-gray-400 text-sm">ROI</p>
+                  <p class="text-[#A9B3C2] text-sm">ROI</p>
                   <p class="text-2xl font-bold text-accent" id="roi-percentage">0%</p>
                 </div>
               </div>
@@ -175,7 +174,7 @@ const schema = [
           </div>
 
           <!-- Growth chart -->
-          <div class="bg-white border border-border rounded-xl p-5">
+          <div class="bg-white border border-border p-5">
             <h3 class="text-sm font-bold text-brand mb-3" style="font-family: var(--font-serif);">Monthly Revenue Growth</h3>
             <div class="relative h-48" id="roi-chart">
               <svg viewBox="0 0 400 160" class="w-full h-full" preserveAspectRatio="xMidYMid meet">
@@ -262,7 +261,7 @@ const schema = [
       <div class="cta-box">
         <h2>Get a Custom ROI Projection</h2>
         <p>This calculator uses averages. We build projections using your actual keyword data, competitor analysis, and market-specific conversion rates. Request a free audit to receive a tailored SEO business case.</p>
-        <a href="/free-seo-audit-reading/">Get Your Free Audit</a>
+        <a href="/free-seo-audit-reading/">Get your free audit</a>
       </div>
 
       <p>Try our <a href="/tools/local-seo-checklist/">Local SEO Checklist</a> or <a href="/tools/schema-generator/">Schema Markup Generator</a>. View our <a href="/seo-pricing-reading/">SEO pricing</a> or return to <a href="/">SEO Reading</a>.</p>

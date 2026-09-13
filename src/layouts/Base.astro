@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Riverline from '../components/Riverline.astro';
 
 interface Props {
   title: string;
@@ -16,19 +17,13 @@ const year = new Date().getFullYear();
 
 const entitySchema = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "ProfessionalService"],
+  "@type": "Organization",
   "@id": "https://seoreading.uk/#organization",
   "name": "SEO Reading",
   "legalName": "ND MEDIA LTD",
   "identifier": "10784524",
   "url": "https://seoreading.uk/",
   "email": "hello@seoreading.uk",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Reading",
-    "addressRegion": "Berkshire",
-    "addressCountry": "GB"
-  },
   "areaServed": ["Reading", "Berkshire", "Thames Valley"],
   "sameAs": ["https://find-and-update.company-information.service.gov.uk/company/10784524"]
 };
@@ -47,9 +42,10 @@ const allSchema = [entitySchema, websiteSchema, ...schema];
 
 const navLinks = [
   { href: '/services/', label: 'Services', match: '/services' },
+  { href: '/seo-pricing-reading/', label: 'Pricing', match: '/seo-pricing-reading' },
   { href: '/areas/', label: 'Areas', match: '/areas' },
   { href: '/industries/', label: 'Industries', match: '/industries' },
-  { href: '/case-studies/', label: 'Case Studies', match: '/case-studies' },
+  { href: '/case-studies/', label: 'Strategy Scenarios', match: '/case-studies' },
   { href: '/about/', label: 'About', match: '/about' },
 ];
 ---
@@ -75,8 +71,6 @@ const navLinks = [
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="geo.region" content="GB-RDG" />
-  <meta name="geo.placename" content="Reading, Berkshire" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet" />
@@ -107,80 +101,71 @@ const navLinks = [
     </script>
   </head>
 <body class="min-h-screen flex flex-col">
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-brand focus:text-white focus:px-4 focus:py-2 focus:rounded focus:z-50">Skip to content</a>
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-brand focus:text-white focus:px-4 focus:py-2 focus:z-50">Skip to content</a>
 
-  <header class="sticky top-0 z-40 transition-all duration-300" id="site-header">
-    <!-- Gold accent line -->
-    <div class="h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent" aria-hidden="true"></div>
+  <header class="sticky top-0 z-40 bg-surface border-b border-rule" id="site-header">
+    <nav class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between gap-4" aria-label="Primary">
+      <!-- Wordmark: the gold keel under "Reading" is the same rule used throughout -->
+      <a href="/" class="group flex items-baseline gap-1.5 shrink-0" aria-label="SEO Reading, home">
+        <span class="text-[0.62rem] font-semibold text-accent-ink tracking-[0.2em] uppercase">SEO</span>
+        <span class="relative text-[1.35rem] font-bold text-brand tracking-tight" style="font-family: var(--font-serif)">
+          Reading
+          <span class="absolute -bottom-0.5 left-0 h-[2px] w-full bg-accent" aria-hidden="true"></span>
+        </span>
+      </a>
 
-    <div class="bg-white/95 backdrop-blur-md border-b border-border/40">
-      <nav class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between transition-all duration-300" id="site-nav">
-        <!-- Logo -->
-        <a href="/" class="group flex items-baseline gap-1.5">
-          <span class="text-[0.65rem] font-bold text-accent tracking-[0.18em] uppercase">SEO</span>
-          <span class="text-[1.4rem] font-bold text-brand tracking-tight transition-colors group-hover:text-brand-light" style="font-family: var(--font-serif)">Reading</span>
-        </a>
-
-        <!-- Desktop nav -->
-        <div class="hidden lg:flex items-center gap-8">
-          {navLinks.map(({ href, label, match }) => (
-            <a
-              href={href}
-              aria-current={currentPath.startsWith(match) ? 'page' : undefined}
-              class:list={[
-                'text-[0.9rem] font-medium transition-colors relative pb-1',
-                currentPath.startsWith(match)
-                  ? 'text-brand after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-accent after:rounded-full'
-                  : 'text-text-muted hover:text-brand'
-              ]}
-            >{label}</a>
-          ))}
-          <a href="/contact/" class="btn btn-primary text-[0.85rem] py-2.5 px-5 relative overflow-hidden">
-            <span class="relative z-10">Book a Consultation</span>
-            <span class="shimmer absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full"></span>
-          </a>
-        </div>
-
-        <!-- Mobile hamburger -->
-        <button
-          id="mobile-menu-btn"
-          class="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg hover:bg-surface transition-colors"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <span id="burger-top" class="block w-5 h-[2px] bg-brand transition-all duration-300 origin-center"></span>
-          <span id="burger-mid" class="block w-5 h-[2px] bg-brand mt-[5px] transition-all duration-300"></span>
-          <span id="burger-bot" class="block w-5 h-[2px] bg-brand mt-[5px] transition-all duration-300 origin-center"></span>
-        </button>
-      </nav>
-    </div>
-
-    <!-- Mobile menu: glassmorphism slide-down -->
-    <div
-      id="mobile-menu"
-      class="lg:hidden overflow-hidden transition-all duration-400 max-h-0 opacity-0"
-      role="navigation"
-      aria-label="Mobile navigation"
-      style="backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); background: rgba(250, 247, 242, 0.95);"
-    >
-      <div class="max-w-5xl mx-auto px-5 py-6 flex flex-col gap-1">
+      <!-- Desktop nav -->
+      <div class="hidden lg:flex items-center gap-6">
         {navLinks.map(({ href, label, match }) => (
           <a
             href={href}
             aria-current={currentPath.startsWith(match) ? 'page' : undefined}
             class:list={[
-              'block py-3 px-4 rounded-lg text-[0.95rem] font-medium transition-all duration-200',
+              'text-[0.875rem] py-1.5 border-b-2 transition-colors',
               currentPath.startsWith(match)
-                ? 'bg-white text-brand shadow-sm'
-                : 'text-text-muted hover:bg-white hover:text-brand hover:shadow-sm'
+                ? 'text-brand font-semibold border-accent'
+                : 'text-text-muted border-transparent hover:text-brand hover:border-rule'
             ]}
           >{label}</a>
         ))}
-        <div class="mt-3 pt-3 border-t border-border/60">
-          <a href="/contact/" class="btn btn-primary w-full text-center block">Book a Consultation</a>
-        </div>
+        <a href="/free-seo-audit-reading/" class="btn btn-primary text-[0.85rem] py-2 px-4">Free SEO audit</a>
       </div>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="mobile-menu-btn"
+        class="lg:hidden flex flex-col justify-center items-center w-11 h-11 border border-border hover:border-brand transition-colors"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span id="burger-top" class="block w-5 h-[2px] bg-brand transition-all duration-200 origin-center"></span>
+        <span id="burger-mid" class="block w-5 h-[2px] bg-brand mt-[5px] transition-all duration-200"></span>
+        <span id="burger-bot" class="block w-5 h-[2px] bg-brand mt-[5px] transition-all duration-200 origin-center"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div
+      id="mobile-menu"
+      class="lg:hidden overflow-hidden transition-all duration-300 max-h-0 invisible bg-surface border-t border-rule"
+    >
+      <nav class="max-w-6xl mx-auto px-5 py-4 flex flex-col" aria-label="Mobile">
+        {navLinks.map(({ href, label, match }) => (
+          <a
+            href={href}
+            aria-current={currentPath.startsWith(match) ? 'page' : undefined}
+            class:list={[
+              'flex items-center min-h-12 px-3 -mx-3 border-l-2 text-[0.95rem] transition-colors',
+              currentPath.startsWith(match)
+                ? 'border-accent text-brand font-semibold bg-surface-dark'
+                : 'border-transparent text-text-muted hover:text-brand hover:bg-surface-dark'
+            ]}
+          >{label}</a>
+        ))}
+        <a href="/free-seo-audit-reading/" class="btn btn-primary w-full mt-4">Free SEO audit</a>
+        <a href="/contact/" class="btn btn-outline w-full mt-2">Book a consultation</a>
+      </nav>
     </div>
   </header>
 
@@ -188,85 +173,85 @@ const navLinks = [
     <slot />
   </main>
 
-  <footer class="bg-brand-dark text-white mt-20 relative overflow-hidden">
-    <!-- Atmospheric elements -->
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -top-32 -right-32 w-64 h-64 rounded-full opacity-10 blur-[80px]" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
+  <footer class="bg-brand-dark text-white mt-20 relative">
+    <div class="absolute inset-x-0 top-0 h-7 overflow-hidden" aria-hidden="true">
+      <Riverline tone="light" class="h-7" />
+    </div>
 
-    <!-- Gold accent top -->
-    <div class="h-[2px] bg-gradient-to-r from-transparent via-accent/50 to-transparent relative z-10" aria-hidden="true"></div>
-
-    <div class="max-w-6xl mx-auto px-5 pt-14 pb-10 relative z-10">
+    <div class="max-w-6xl mx-auto px-5 pt-16 pb-10">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
-        <!-- Brand column -->
+        <!-- Identity -->
         <div class="md:col-span-4">
           <div class="flex items-baseline gap-1.5 mb-4">
-            <span class="text-[0.6rem] font-bold text-accent tracking-[0.18em] uppercase">SEO</span>
-            <span class="text-xl font-bold tracking-tight" style="font-family: var(--font-serif)">Reading</span>
+            <span class="text-[0.6rem] font-semibold text-accent tracking-[0.2em] uppercase">SEO</span>
+            <span class="relative text-xl font-bold tracking-tight" style="font-family: var(--font-serif)">
+              Reading
+              <span class="absolute -bottom-0.5 left-0 h-[2px] w-full bg-accent" aria-hidden="true"></span>
+            </span>
           </div>
-          <p class="text-sm text-gray-400 leading-relaxed max-w-xs">Search marketing consultancy based in Reading, Berkshire. We help Thames Valley businesses achieve prominence in Google and AI-powered search engines.</p>
-          <div class="mt-5 flex items-center gap-2 text-sm text-gray-400">
-            <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            Reading, Berkshire, UK
-          </div>
+          <p class="text-sm text-[#A9B3C2] leading-relaxed max-w-xs">Remote-first search consultancy serving Reading, Berkshire, and the Thames Valley. SEO strategy and delivery are led by Sunny Patel.</p>
+          <dl class="evidence evidence-dark mt-6 max-w-xs text-left">
+            <div class="evidence-row">
+              <dt class="evidence-key">service area</dt>
+              <dd class="evidence-value">Reading, Berkshire, Thames Valley</dd>
+            </div>
+            <div class="evidence-row">
+              <dt class="evidence-key">delivery</dt>
+              <dd class="evidence-value">Remote-first, online consultations</dd>
+            </div>
+          </dl>
         </div>
 
-        <!-- Services column -->
+        <!-- Services -->
         <div class="md:col-span-3">
-          <h2 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Services</h2>
-          <ul class="space-y-2.5 text-sm text-gray-400">
-            <li><a href="/services/" class="hover:text-white transition-colors duration-200">All Services</a></li>
-            <li><a href="/technical-seo-reading/" class="hover:text-white transition-colors duration-200">Technical SEO</a></li>
-            <li><a href="/seo-audit-reading/" class="hover:text-white transition-colors duration-200">SEO Audit</a></li>
-            <li><a href="/ai-search-optimisation-reading/" class="hover:text-white transition-colors duration-200">AI Search Optimisation</a></li>
-            <li><a href="/seo-pricing-reading/" class="hover:text-white transition-colors duration-200">Pricing</a></li>
+          <h2 class="tag tag-on-dark mb-4">Services</h2>
+          <ul class="space-y-2.5 text-sm text-[#A9B3C2]">
+            <li><a href="/services/" class="hover:text-white transition-colors">All services</a></li>
+            <li><a href="/technical-seo-reading/" class="hover:text-white transition-colors">Technical SEO</a></li>
+            <li><a href="/seo-audit-reading/" class="hover:text-white transition-colors">SEO audit</a></li>
+            <li><a href="/ai-search-optimisation-reading/" class="hover:text-white transition-colors">AI search optimisation</a></li>
+            <li><a href="/seo-pricing-reading/" class="hover:text-white transition-colors">Pricing</a></li>
           </ul>
         </div>
 
-        <!-- Resources column -->
+        <!-- Explore -->
         <div class="md:col-span-2">
-          <h2 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Explore</h2>
-          <ul class="space-y-2.5 text-sm text-gray-400">
-            <li><a href="/free-seo-audit-reading/" class="hover:text-white transition-colors duration-200">Free Audit</a></li>
-            <li><a href="/case-studies/" class="hover:text-white transition-colors duration-200">Case Studies</a></li>
-            <li><a href="/areas/" class="hover:text-white transition-colors duration-200">Areas</a></li>
-            <li><a href="/industries/" class="hover:text-white transition-colors duration-200">Industries</a></li>
-            <li><a href="/tools/local-seo-checklist/" class="hover:text-white transition-colors duration-200">Local SEO Checklist</a></li>
-            <li><a href="/tools/schema-generator/" class="hover:text-white transition-colors duration-200">Schema Generator</a></li>
-            <li><a href="/tools/seo-roi-calculator/" class="hover:text-white transition-colors duration-200">SEO ROI Calculator</a></li>
+          <h2 class="tag tag-on-dark mb-4">Explore</h2>
+          <ul class="space-y-2.5 text-sm text-[#A9B3C2]">
+            <li><a href="/free-seo-audit-reading/" class="hover:text-white transition-colors">Free audit</a></li>
+            <li><a href="/case-studies/" class="hover:text-white transition-colors">Strategy scenarios</a></li>
+            <li><a href="/areas/" class="hover:text-white transition-colors">Areas</a></li>
+            <li><a href="/industries/" class="hover:text-white transition-colors">Industries</a></li>
+            <li><a href="/tools/local-seo-checklist/" class="hover:text-white transition-colors">Local SEO checklist</a></li>
+            <li><a href="/tools/schema-generator/" class="hover:text-white transition-colors">Schema generator</a></li>
+            <li><a href="/tools/seo-roi-calculator/" class="hover:text-white transition-colors">SEO ROI calculator</a></li>
           </ul>
         </div>
 
-        <!-- Contact column -->
+        <!-- Contact -->
         <div class="md:col-span-3">
-          <h2 class="text-xs font-semibold tracking-[0.12em] uppercase text-accent mb-4">Contact</h2>
-          <ul class="space-y-2.5 text-sm text-gray-400">
-            <li>
-              <a href="mailto:hello@seoreading.uk" class="hover:text-white transition-colors duration-200 flex items-center gap-2">
-                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                hello@seoreading.uk
-              </a>
-            </li>
-            <li><a href="/about/" class="hover:text-white transition-colors duration-200">About Us</a></li>
-            <li><a href="/contact/" class="hover:text-white transition-colors duration-200">Get in Touch</a></li>
+          <h2 class="tag tag-on-dark mb-4">Contact</h2>
+          <ul class="space-y-2.5 text-sm text-[#A9B3C2]">
+            <li><a href="mailto:hello@seoreading.uk" class="hover:text-white transition-colors">hello@seoreading.uk</a></li>
+            <li><a href="/about/" class="hover:text-white transition-colors">About SEO Reading</a></li>
+            <li><a href="/contact/" class="hover:text-white transition-colors">Book a consultation</a></li>
           </ul>
         </div>
       </div>
 
-      <!-- Footer bottom -->
-      <div class="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
-        <p>&copy; {year} SEO Reading. Operated by <a href="https://find-and-update.company-information.service.gov.uk/company/10784524" rel="noopener noreferrer" class="hover:text-gray-300 transition-colors">ND Media Ltd</a>, company no. 10784524.</p>
-        <div class="flex gap-5">
-          <a href="/privacy/" class="hover:text-gray-300 transition-colors">Privacy</a>
-          <a href="/sitemap-index.xml" class="hover:text-gray-300 transition-colors">Sitemap</a>
-          <a href="/llms.txt" class="hover:text-gray-300 transition-colors">llms.txt</a>
+      <div class="border-t border-white/12 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-[#8E99A8]">
+        <p>&copy; {year} SEO Reading. Operated by <a href="https://find-and-update.company-information.service.gov.uk/company/10784524" rel="noopener noreferrer" class="underline decoration-white/25 underline-offset-4 hover:text-white transition-colors">ND Media Ltd</a>, company no. 10784524.</p>
+        <div class="flex flex-wrap gap-5">
+          <a href="/privacy/" class="hover:text-white transition-colors">Privacy</a>
+          <a href="/sitemap-index.xml" class="hover:text-white transition-colors">Sitemap</a>
+          <a href="/llms.txt" class="hover:text-white transition-colors">llms.txt</a>
         </div>
       </div>
     </div>
   </footer>
 
   <div id="analytics-consent" class="consent-banner" hidden role="region" aria-label="Analytics cookies">
-    <p><strong>Analytics choice</strong><br />We use Google Analytics to understand which pages help visitors. It is optional and remains off unless you accept.</p>
+    <p><strong>Analytics choice</strong><br />Google Analytics helps us understand site use. It stays off unless you accept.</p>
     <div class="consent-actions">
       <button type="button" id="analytics-decline" class="btn btn-outline">Decline</button>
       <button type="button" id="analytics-accept" class="btn btn-primary">Accept analytics</button>
@@ -286,23 +271,23 @@ const navLinks = [
         btn.setAttribute('aria-expanded', 'false');
         btn.setAttribute('aria-label', 'Open navigation');
         menu.style.maxHeight = '0';
-        menu.style.opacity = '0';
+        // visibility, not just height: collapsed links must leave the tab order
+        menu.classList.add('invisible');
         burgerTop?.classList.remove('translate-y-[7px]', 'rotate-45');
-        burgerMid?.classList.remove('opacity-0', 'scale-0');
+        burgerMid?.classList.remove('opacity-0');
         burgerBot?.classList.remove('-translate-y-[7px]', '-rotate-45');
       };
 
-      btn.setAttribute('aria-label', 'Open navigation');
       btn.addEventListener('click', () => {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!expanded));
 
         if (!expanded) {
           btn.setAttribute('aria-label', 'Close navigation');
+          menu.classList.remove('invisible');
           menu.style.maxHeight = menu.scrollHeight + 'px';
-          menu.style.opacity = '1';
           burgerTop?.classList.add('translate-y-[7px]', 'rotate-45');
-          burgerMid?.classList.add('opacity-0', 'scale-0');
+          burgerMid?.classList.add('opacity-0');
           burgerBot?.classList.add('-translate-y-[7px]', '-rotate-45');
         } else {
           closeMobileMenu();
@@ -316,72 +301,6 @@ const navLinks = [
         }
       });
     }
-
-    // Header shrink on scroll
-    const header = document.getElementById('site-header');
-    const nav = document.getElementById('site-nav');
-    if (header && nav) {
-      let ticking = false;
-      window.addEventListener('scroll', () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            if (window.scrollY > 60) {
-              nav.classList.replace('py-4', 'py-2');
-            } else {
-              nav.classList.replace('py-2', 'py-4');
-            }
-            ticking = false;
-          });
-          ticking = true;
-        }
-      }, { passive: true });
-    }
-
-    // Fade-up scroll observer
-    const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          fadeObserver.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
-
-    // Card spotlight tracking
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
-        (e.currentTarget as HTMLElement).style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-        (e.currentTarget as HTMLElement).style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-      });
-    });
-
-    // Animated counters
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const el = e.target as HTMLElement;
-          const target = parseInt(el.dataset.count || '0', 10);
-          const suffix = el.dataset.suffix || '';
-          const prefix = el.dataset.prefix || '';
-          const duration = 1800;
-          const start = performance.now();
-
-          function tick(now: number) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 4);
-            const current = Math.round(target * eased);
-            el.textContent = prefix + current.toLocaleString() + suffix;
-            if (progress < 1) requestAnimationFrame(tick);
-          }
-          requestAnimationFrame(tick);
-          counterObserver.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
     // Horizontal tables remain reachable by keyboard at narrow widths.
     document.querySelectorAll('.prose table').forEach((table, index) => {

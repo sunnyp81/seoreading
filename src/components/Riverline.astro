@@ -1,0 +1,27 @@
+---
+// Abstract Berkshire meander used as the site's rule. Decorative only:
+// it is not a map and carries no data.
+interface Props {
+  tone?: 'gold' | 'light' | 'navy';
+  class?: string;
+}
+
+const { tone = 'gold', class: className = '' } = Astro.props;
+
+const stroke = tone === 'light' ? 'rgba(255,255,255,0.55)' : tone === 'navy' ? 'rgba(11,37,69,0.35)' : '#D4AF37';
+const bank = tone === 'light' ? 'rgba(255,255,255,0.18)' : tone === 'navy' ? 'rgba(11,37,69,0.12)' : 'rgba(212,175,55,0.35)';
+
+const river = 'M0,34 C80,34 112,10 196,11 C280,12 306,44 392,45 C478,46 512,12 604,14 C696,16 724,45 812,46 C900,47 936,15 1024,16 C1096,17 1140,28 1200,30';
+const bankPath = 'M0,42 C80,42 112,18 196,19 C280,20 306,52 392,53 C478,54 512,20 604,22 C696,24 724,53 812,54 C900,55 936,23 1024,24 C1096,25 1140,36 1200,38';
+---
+
+<svg
+  class={`riverline ${className}`}
+  viewBox="0 0 1200 56"
+  preserveAspectRatio="none"
+  aria-hidden="true"
+  focusable="false"
+>
+  <path d={bankPath} stroke={bank} />
+  <path d={river} stroke={stroke} />
+</svg>

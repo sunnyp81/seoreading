@@ -1,0 +1,25 @@
+---
+// Ruled key/value rows. Used wherever the site states scope, method or
+// what gets checked, so the offer reads like something you can inspect.
+interface Item {
+  key: string;
+  value: string;
+}
+
+interface Props {
+  items: Item[];
+  dark?: boolean;
+  class?: string;
+}
+
+const { items, dark = false, class: className = '' } = Astro.props;
+---
+
+<dl class={`evidence ${dark ? 'evidence-dark' : ''} ${className}`}>
+  {items.map((item) => (
+    <div class="evidence-row">
+      <dt class="evidence-key">{item.key}</dt>
+      <dd class="evidence-value" set:html={item.value} />
+    </div>
+  ))}
+</dl>

@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
 
 const title = 'Reading Law Firm SEO Strategy | Campaign Plan';
 const description = 'An illustrative Reading law firm SEO plan covering technical priorities, practice-area content, local search work, and measurable KPIs.';
@@ -57,19 +58,23 @@ const schema = [
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -left-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-1" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">A Reading Law Firm SEO Growth Plan</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">An illustrative sequence for technical SEO, practice-area content, and local visibility near Forbury Square.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="A Reading Law Firm SEO Growth Plan"
+    subtitle="An illustrative sequence for technical SEO, practice-area content, and local visibility near Forbury Square."
+    tag="Legal sector · illustrative scenario, not a client result"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Strategy scenarios', href: '/case-studies/' }, { label: 'Reading law firm' }]}
+  >
+    <a slot="actions" href="/free-seo-audit-reading/" class="btn btn-primary">Get your free audit</a>
+    <a slot="actions" href="/case-studies/" class="btn btn-ghost-light">All scenarios</a>
+  </PageHeader>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
+  <section class="max-w-6xl mx-auto px-5 py-14">
     <div class="prose fade-up">
 
-      <p class="text-sm italic text-gray-600"><strong>Scenario disclosure:</strong> this is a hypothetical strategy example, not a client case study and not evidence of achieved results. It shows how we would structure and measure a campaign for a typical Reading law firm.</p>
+      <aside class="not-prose my-6 border-l-[3px] border-l-accent border border-border bg-paper px-5 py-4" aria-label="Scenario disclosure">
+        <p class="tag mb-1">Scenario disclosure</p>
+        <p class="text-[0.92rem] leading-relaxed text-text-muted">This is a hypothetical strategy example. It is not a client case study and not evidence of achieved results. It shows how we would structure and measure a campaign for a typical Reading law firm.</p>
+      </aside>
 
       <p>This scenario assumes a mid-size law firm near Forbury Square with technical debt, thin practice-area pages, and limited local search visibility. The plan combines technical remediation, focused legal content, and local optimisation.</p>
 
@@ -135,8 +140,9 @@ const schema = [
 
       <div class="cta-box">
         <h2>Get Your Law Firm's SEO Audit</h2>
-        <p class="text-white/90 mb-4">Discover where your Reading law firm stands in Google Search and AI search engines. We will identify the technical issues, content gaps, and local SEO opportunities specific to your practice areas and locations.</p>
-        <a href="/seo-audit-reading/">Book a Consultation</a>
+        <p>Discover where your Reading law firm stands in Google Search and AI search engines. We will identify the technical issues, content gaps, and local SEO opportunities specific to your practice areas and locations.</p>
+        <a href="/seo-audit-reading/">See the comprehensive audit</a>
+        <p class="cta-note">Or start with the <a href="/free-seo-audit-reading/">free five-point check</a>.</p>
       </div>
 
       <h2>Frequently Asked Questions</h2>

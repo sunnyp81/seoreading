@@ -1,13 +1,24 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ArticleRail from '../../components/ArticleRail.astro';
+
+const railItems = [
+  { key: 'technical seo', value: '<a href="/technical-seo-reading/">Speed, crawlability, schema, indexation</a>' },
+  { key: 'seo audits', value: '<a href="/seo-audit-reading/">Technical, content, backlink, competitor</a>' },
+  { key: 'content strategy', value: 'Keyword-mapped pages built on verified demand' },
+  { key: 'local seo', value: '<a href="/areas/">Google Business Profile, citations, area pages</a>' },
+  { key: 'ai search', value: '<a href="/ai-search-optimisation-reading/">Entity signals, structured data, citability</a>' }
+];
 
 const title = 'SEO Services in Reading: Technical, Local & AI';
-const description = 'Full-range SEO services for Reading and Berkshire businesses. Technical SEO, content strategy, local SEO, AI search optimisation. Based in Reading.';
+const description = 'SEO services for Reading and Berkshire businesses. Technical SEO, content strategy, local SEO, and AI search optimisation from a remote-first consultancy.';
 
 const schema = [
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": "https://seoreading.uk/services/#breadcrumb",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
       { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://seoreading.uk/services/" }
@@ -89,18 +100,20 @@ const schema = [
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <!-- Page hero -->
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -right-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-2" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">SEO Services for Reading Businesses</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">Technical SEO, content strategy, local SEO, and AI search optimisation. Every service is grounded in data and tailored to Reading's commercial landscape.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="SEO Services for Reading Businesses"
+    subtitle="Technical SEO, content strategy, local SEO, and AI search optimisation. Every service is grounded in data and tailored to Reading's commercial landscape."
+    tag="Five services · remote-first delivery"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Services' }]}
+  >
+    <a slot="actions" href="/free-seo-audit-reading/" class="btn btn-primary">Get your free audit</a>
+    <a slot="actions" href="/seo-pricing-reading/" class="btn btn-ghost-light">See SEO pricing</a>
+  </PageHeader>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
-    <div class="prose fade-up">
+  <section class="max-w-6xl mx-auto px-5 py-14">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
+    <div class="lg:col-span-8">
+    <div class="prose prose-flush fade-up">
 
       <p>SEO Reading provides a comprehensive range of search engine optimisation services designed for businesses operating in Reading, Berkshire, and the Thames Valley corridor. Every service we deliver is grounded in technical rigour, data drawn from Google Search Console and Bing Webmaster Tools, and a thorough understanding of how Reading's commercial landscape shapes local search behaviour.</p>
 
@@ -124,7 +137,7 @@ const schema = [
 
       <p>Our audits extend well beyond automated tool outputs. We manually review your top landing pages, analyse search intent alignment, check for keyword cannibalisation, and assess your internal linking structure. For businesses targeting multiple Reading locations or service areas, we audit your local landing page architecture to ensure each page has a distinct purpose and sufficient content depth.</p>
 
-      <p>For those who wish to evaluate our approach before committing, our <a href="/free-seo-audit-reading/">free SEO audit</a> covers the essentials: indexation status, top technical errors, Core Web Vitals scores, and three priority recommendations you can act on immediately.</p>
+      <p>For those who wish to evaluate our approach before committing, our <a href="/free-seo-audit-reading/">free SEO audit</a> covers the essentials: indexation status, Core Web Vitals, local signals, a query snapshot, and the one priority action to take first.</p>
 
       <h2>Content Strategy and Creation</h2>
 
@@ -190,11 +203,25 @@ const schema = [
 
       <div class="cta-box">
         <h2>Book a Consultation</h2>
-        <p>Discover where your Reading business stands in search. Our free audit covers indexation, technical health, and three priority actions you can implement straightaway.</p>
-        <a href="/free-seo-audit-reading/">Book a Consultation</a>
+        <p>Discover where your Reading business stands in search. The free health check covers indexation, Core Web Vitals, local signals, a query snapshot, and the one priority action to take first.</p>
+        <a href="/free-seo-audit-reading/">Get your free audit</a>
       </div>
 
       <p>Back to our <a href="/">SEO consultancy in Reading overview</a>. Explore our work across <a href="/areas/">Reading and Berkshire areas</a> or see how we serve <a href="/industries/">Reading's key industries</a>.</p>
+    </div>
+    </div>
+
+      <div class="lg:col-span-4">
+        <ArticleRail
+          heading="Services at a glance"
+          items={railItems}
+          primaryHref="/free-seo-audit-reading/"
+          primaryLabel="Get your free audit"
+          secondaryHref="/seo-pricing-reading/"
+          secondaryLabel="See SEO pricing"
+          note="Scope and fees are agreed before any paid work begins."
+        />
+      </div>
     </div>
   </section>
 </Base>

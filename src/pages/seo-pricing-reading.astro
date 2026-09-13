@@ -1,5 +1,15 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ArticleRail from '../components/ArticleRail.astro';
+
+const railItems = [
+  { key: 'seo audit', value: 'From £300, one-off' },
+  { key: 'starter', value: '£500 per month' },
+  { key: 'growth', value: '£1,000 per month' },
+  { key: 'enterprise', value: '£2,000 per month' },
+  { key: 'commitment', value: 'Initial three months, then rolling with 30 days&rsquo; notice' }
+];
 
 const faqs = [
   {
@@ -16,11 +26,11 @@ const faqs = [
   },
   {
     q: "When should results be expected?",
-    a: "Most Reading businesses observe measurable improvements within 3-4 months. Local SEO gains (Google Maps, the local pack) often materialise more rapidly, within 4-8 weeks. Competitive terms such as \"solicitors reading\" or \"accountants reading\" typically require 4-6 months to shift significantly."
+    a: "There is no reliable fixed timeline for SEO results. Timing depends on the site's starting position, competition, technical constraints, content, and authority. We establish a baseline and report observed changes without promising a ranking date."
   },
   {
-    q: "Why are your fees lower than those of London agencies?",
-    a: "Lower overheads. We do not maintain a Shoreditch office lease, nor do we interpose an account manager layer between you and the strategist. You work directly with a senior SEO consultant who operates in Reading. The expertise is equivalent; the postcode premium is removed."
+    q: "How should I compare SEO consultancy fees?",
+    a: "Compare the agreed deliverables, who will do the work, reporting, contract terms, and any additional costs. Our published prices set out the available scopes; we confirm the fit and fee with you before paid work begins."
   },
   {
     q: "Is it possible to switch tiers or cancel?",
@@ -31,6 +41,7 @@ const faqs = [
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
+  "@id": "https://seoreading.uk/seo-pricing-reading/#breadcrumb",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
     { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://seoreading.uk/services/" },
@@ -95,85 +106,101 @@ const schema = [breadcrumbSchema, webPageSchema, faqSchema, serviceSchema];
   description="Transparent SEO pricing for Reading businesses. Monthly retainers from £500 and one-off audits from £300, with scope and deliverables shown clearly."
   schema={schema}
 >
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -left-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-1" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">SEO Pricing for Reading Businesses</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">Transparent SEO pricing for Reading businesses. Tiered packages from one-off audits to monthly retainers.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="SEO Pricing for Reading Businesses"
+    subtitle="Transparent SEO pricing for Reading businesses. Tiered packages from one-off audits to monthly retainers."
+    tag="Audits from £300 · retainers £500 to £2,000 per month"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'Pricing' }]}
+  >
+    <a slot="actions" href="/free-seo-audit-reading/" class="btn btn-primary">Get your free audit</a>
+    <a slot="actions" href="/contact/" class="btn btn-ghost-light">Book a consultation</a>
+  </PageHeader>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
-    <div class="prose fade-up">
+  <section class="max-w-6xl mx-auto px-5 py-14">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
+    <div class="lg:col-span-8">
+    <div class="prose prose-flush fade-up">
 
       <p>SEO Reading publishes clear pricing for businesses in Reading and Berkshire. Each tier shows its scope, monthly deliverables, and intended fit so you can assess the likely commitment before arranging a call.</p>
 
       <p>Every business presents different objectives, competitive landscapes, and starting positions. A cafe on <strong>Broad Street</strong> competing for "brunch reading" requires a different investment than a law firm at <strong>Forbury Square</strong> targeting "commercial solicitors berkshire." The pricing below reflects that reality accordingly.</p>
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> SEO pricing in Reading ranges from £300 for a one-off audit to £500-£2,000/month for ongoing retainers. Most Reading SMEs invest £750-£1,200/month for meaningful organic growth.
+        <strong>Quick answer:</strong> A paid SEO audit starts at £300. Monthly service tiers range from £500 to £2,000 and list their deliverables below; final scope and fees are agreed before paid work begins.
       </div>
 
-      <p>We publish our prices because concealed pricing wastes everyone's time. Below you will find our three monthly retainer tiers, one-off service costs, and a direct comparison against typical London agency fees.</p>
+      <p>We publish our prices so you can review the available scopes before getting in touch. The page sets out one-off service costs and monthly retainers; final scope and fees are agreed with you before paid work begins.</p>
 
       <h2>Pricing Tiers</h2>
 
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6 my-8">
+    <!-- Tiers read as a spec sheet: price and scope on one line, deliverables
+         ruled beneath, so tiers can be compared row by row rather than by card. -->
+    <div class="not-prose my-10 space-y-5">
 
       <div class="pricing-tier">
-        <p class="text-sm font-semibold text-accent uppercase tracking-wide mb-1">Starter</p>
-        <p class="text-3xl font-bold text-brand mb-1">£500<span class="text-base font-normal text-text-muted">/month</span></p>
-        <p class="text-sm text-text-muted mb-4">For small Reading businesses</p>
-        <ul class="text-sm space-y-2 mb-6">
-          <li>Monthly technical SEO monitoring</li>
-          <li>2 optimised content pieces per month</li>
-          <li>Local SEO management (Google Business Profile)</li>
-          <li>Monthly performance report</li>
-          <li>On-page optimisation for key pages</li>
-          <li>Core Web Vitals monitoring</li>
+        <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 pb-4 border-b border-rule">
+          <div>
+            <p class="tag">Starter</p>
+            <p class="text-2xl font-bold text-brand mt-1" style="font-family: var(--font-serif);">£500<span class="text-base font-normal text-text-muted"> per month</span></p>
+          </div>
+          <p class="text-sm text-text-muted">For small Reading businesses</p>
+        </div>
+        <ul class="grid sm:grid-cols-2 gap-x-8 mt-4 text-[0.92rem]">
+          <li class="border-b border-rule py-2">Monthly technical SEO monitoring</li>
+          <li class="border-b border-rule py-2">2 optimised content pieces per month</li>
+          <li class="border-b border-rule py-2">Local SEO management (Google Business Profile)</li>
+          <li class="border-b border-rule py-2">Monthly performance report</li>
+          <li class="border-b border-rule py-2">On-page optimisation for key pages</li>
+          <li class="border-b border-rule py-2">Core Web Vitals monitoring</li>
         </ul>
-        <p class="text-xs text-text-muted"><strong>Best for:</strong> Cafes near Broad Street, independent shops, local tradespeople, new businesses establishing their first organic presence.</p>
+        <p class="text-[0.82rem] text-text-muted mt-4"><strong class="text-brand">Best for:</strong> Cafes near Broad Street, independent shops, local tradespeople, new businesses establishing their first organic presence.</p>
       </div>
 
       <div class="pricing-tier featured">
-        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-brand-dark text-xs font-bold px-3 py-1 rounded-full">Most Popular</span>
-        <p class="text-sm font-semibold text-accent uppercase tracking-wide mb-1">Growth</p>
-        <p class="text-3xl font-bold text-brand mb-1">£1,000<span class="text-base font-normal text-text-muted">/month</span></p>
-        <p class="text-sm text-text-muted mb-4">For established Reading businesses</p>
-        <ul class="text-sm space-y-2 mb-6">
-          <li>Full technical SEO audit and ongoing fixes</li>
-          <li>4 optimised content pieces per month</li>
-          <li>Link building (outreach and digital PR)</li>
-          <li>Local SEO management</li>
-          <li>Competitor tracking and gap analysis</li>
-          <li>Fortnightly reporting with strategy calls</li>
-          <li>Schema markup implementation</li>
+        <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 pb-4 border-b border-rule">
+          <div>
+            <p class="tag">Growth</p>
+            <p class="text-2xl font-bold text-brand mt-1" style="font-family: var(--font-serif);">£1,000<span class="text-base font-normal text-text-muted"> per month</span></p>
+          </div>
+          <p class="text-sm text-text-muted">For established Reading businesses</p>
+        </div>
+        <ul class="grid sm:grid-cols-2 gap-x-8 mt-4 text-[0.92rem]">
+          <li class="border-b border-rule py-2">Full technical SEO audit and ongoing fixes</li>
+          <li class="border-b border-rule py-2">4 optimised content pieces per month</li>
+          <li class="border-b border-rule py-2">Link building (outreach and digital PR)</li>
+          <li class="border-b border-rule py-2">Local SEO management</li>
+          <li class="border-b border-rule py-2">Competitor tracking and gap analysis</li>
+          <li class="border-b border-rule py-2">Fortnightly reporting with strategy calls</li>
+          <li class="border-b border-rule py-2">Schema markup implementation</li>
         </ul>
-        <p class="text-xs text-text-muted"><strong>Best for:</strong> Estate agents, accountancy firms, law firms at Forbury Square, dental practices, and established service businesses positioned for growth.</p>
+        <p class="text-[0.82rem] text-text-muted mt-4"><strong class="text-brand">Best for:</strong> Estate agents, accountancy firms, law firms at Forbury Square, dental practices, and established service businesses positioned for growth.</p>
       </div>
 
       <div class="pricing-tier">
-        <p class="text-sm font-semibold text-accent uppercase tracking-wide mb-1">Enterprise</p>
-        <p class="text-3xl font-bold text-brand mb-1">£2,000<span class="text-base font-normal text-text-muted">/month</span></p>
-        <p class="text-sm text-text-muted mb-4">For larger organisations and multi-location</p>
-        <ul class="text-sm space-y-2 mb-6">
-          <li>Everything in Growth, plus:</li>
-          <li>AI search optimisation (ChatGPT, Copilot, Perplexity)</li>
-          <li>Advanced schema and entity strategy</li>
-          <li>Weekly reporting with priority Slack/email support</li>
-          <li>Dedicated SEO strategist</li>
-          <li>Multi-location or multi-service campaign management</li>
-          <li>Conversion rate optimisation recommendations</li>
+        <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 pb-4 border-b border-rule">
+          <div>
+            <p class="tag">Enterprise</p>
+            <p class="text-2xl font-bold text-brand mt-1" style="font-family: var(--font-serif);">£2,000<span class="text-base font-normal text-text-muted"> per month</span></p>
+          </div>
+          <p class="text-sm text-text-muted">For larger organisations and multi-location</p>
+        </div>
+        <ul class="grid sm:grid-cols-2 gap-x-8 mt-4 text-[0.92rem]">
+          <li class="border-b border-rule py-2">Everything in Growth, plus:</li>
+          <li class="border-b border-rule py-2">AI search optimisation (ChatGPT, Copilot, Perplexity)</li>
+          <li class="border-b border-rule py-2">Advanced schema and entity strategy</li>
+          <li class="border-b border-rule py-2">Weekly reporting with priority Slack or email support</li>
+          <li class="border-b border-rule py-2">Dedicated SEO strategist</li>
+          <li class="border-b border-rule py-2">Multi-location or multi-service campaign management</li>
+          <li class="border-b border-rule py-2">Conversion rate optimisation recommendations</li>
         </ul>
-        <p class="text-xs text-text-muted"><strong>Best for:</strong> Companies at Green Park, Thames Valley Park, multi-branch businesses, and organisations targeting national terms alongside local.</p>
+        <p class="text-[0.82rem] text-text-muted mt-4"><strong class="text-brand">Best for:</strong> Companies at Green Park, Thames Valley Park, multi-branch businesses, and organisations targeting national terms alongside local.</p>
       </div>
 
     </div>
 
-    <div class="prose">
+    <div class="prose prose-flush">
 
       <p>All tiers include direct access to a senior SEO consultant, no junior account managers, no intermediaries. You communicate with the individual conducting the work.</p>
 
@@ -215,56 +242,9 @@ const schema = [breadcrumbSchema, webPageSchema, faqSchema, serviceSchema];
 
       <p>One-off services are typically delivered within 5-10 working days. Payment terms are 50% upfront and 50% upon delivery.</p>
 
-      <h2>Reading vs London: Price Comparison</h2>
+      <h2>How to Compare SEO Proposals</h2>
 
-      <p>Reading businesses are frequently approached by London agencies first. The resulting sticker shock is considerable. Below is a direct comparison of what equivalent services cost.</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Service</th>
-            <th>London Agency (Typical)</th>
-            <th>SEO Reading</th>
-            <th>Saving</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Monthly SEO retainer</td>
-            <td>£2,000-£5,000</td>
-            <td>£500-£2,000</td>
-            <td>40-75%</td>
-          </tr>
-          <tr>
-            <td>SEO audit</td>
-            <td>£1,000-£3,000</td>
-            <td>£300-£600</td>
-            <td>60-80%</td>
-          </tr>
-          <tr>
-            <td>Content (per piece)</td>
-            <td>£300-£600</td>
-            <td>£150-£300</td>
-            <td>50%</td>
-          </tr>
-          <tr>
-            <td>Technical SEO fix</td>
-            <td>£1,500-£3,000</td>
-            <td>£500-£1,000</td>
-            <td>60-70%</td>
-          </tr>
-          <tr>
-            <td>Link building (per month)</td>
-            <td>£1,000-£2,500</td>
-            <td>£400-£1,000</td>
-            <td>50-60%</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p>Provider location does not determine SEO quality. A Reading-based consultancy can add value through local market knowledge, direct access to the strategist, and a cost base that differs from a larger agency. Compare the proposed work, evidence, reporting, and contract terms rather than relying on postcode alone.</p>
-
-      <p>A Reading-based consultancy also comprehends the local commercial landscape: the Thames Valley technology corridor, the concentration of professional services within the town centre, and the commuter-belt dynamics that make local search intent materially different from central London.</p>
+      <p>Ask each provider to define the work included, who will deliver it, how progress will be reported, and what happens if priorities change. Compare like-for-like scopes and contract terms before choosing a provider.</p>
 
       <h2>What Affects SEO Pricing</h2>
 
@@ -309,12 +289,26 @@ const schema = [breadcrumbSchema, webPageSchema, faqSchema, serviceSchema];
 
       <div class="cta-box">
         <h2>Request Your Free SEO Audit</h2>
-        <p class="text-gray-200 mt-2">Discover precisely where your Reading business stands in search. No obligation, no jargon, simply a clear report detailing what is working, what is not, and what to address first.</p>
-        <a href="/free-seo-audit-reading/">Book a Consultation</a>
+        <p class="mt-2">Discover precisely where your Reading business stands in search. No obligation, no jargon, simply a clear report detailing what is working, what is not, and what to address first.</p>
+        <a href="/free-seo-audit-reading/">Get your free audit</a>
       </div>
 
       <p class="text-sm text-text-muted">Prepared to discuss your SEO requirements? <a href="/contact/">Get in touch</a> or explore our full range of <a href="/services/">SEO services</a> for Reading businesses.</p>
 
+    </div>
+    </div>
+
+      <div class="lg:col-span-4">
+        <ArticleRail
+          heading="Published prices"
+          items={railItems}
+          primaryHref="/free-seo-audit-reading/"
+          primaryLabel="Get your free audit"
+          secondaryHref="/contact/"
+          secondaryLabel="Book a consultation"
+          note="Final scope and fees are agreed with you before paid work begins. No ranking guarantees are offered."
+        />
+      </div>
     </div>
   </section>
 </Base>

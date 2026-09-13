@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
 
 const title = 'Industry SEO Reading | Sector Experts';
 const description = "Specialist SEO for Reading's dominant industries: technology, legal, financial services, estate agents, hospitality, and recruitment.";
@@ -8,6 +9,7 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": "https://seoreading.uk/industries/#breadcrumb",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
       { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://seoreading.uk/industries/" }
@@ -62,16 +64,17 @@ const schema = [
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -right-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-2" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">SEO for Reading's Key Industries</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">Industry-specific search optimisation for the sectors that define Reading's economy.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="SEO for Reading's Key Industries"
+    subtitle="Industry-specific search optimisation for the sectors that define Reading's economy."
+    tag="Technology, legal, financial services, property, hospitality, recruitment"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Industries' }]}
+  >
+    <a slot="actions" href="/free-seo-audit-reading/" class="btn btn-primary">Get your free audit</a>
+    <a slot="actions" href="/services/" class="btn btn-ghost-light">See all services</a>
+  </PageHeader>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
+  <section class="max-w-6xl mx-auto px-5 py-14">
     <div class="prose fade-up">
 
       <p>SEO Reading delivers industry-specific search optimisation for the sectors that define Reading's economy. Reading is not a generic market. It has an outsized concentration of technology firms, a dense legal and financial services cluster, a competitive property market, and a hospitality sector shaped by its commuter population and university. Each industry requires a distinct SEO approach because each one faces different search patterns, compliance requirements, and competitive dynamics.</p>
@@ -173,7 +176,8 @@ const schema = [
       <div class="cta-box">
         <h2>Book a Consultation</h2>
         <p>Discover how your Reading business compares to competitors in your sector. Our free audit includes industry benchmarks, keyword gap analysis, and three priority actions.</p>
-        <a href="/free-seo-audit-reading/">Book a Consultation</a>
+        <a href="/free-seo-audit-reading/">Get your free audit</a>
+        <p class="cta-note">Prefer to talk it through first? <a href="/contact/">Book a consultation</a>.</p>
       </div>
 
       <p>Back to <a href="/">SEO Reading homepage</a>. See our full <a href="/services/">SEO services</a> or find out which <a href="/areas/">Reading areas</a> we cover.</p>

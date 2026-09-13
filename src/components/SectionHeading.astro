@@ -1,0 +1,21 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  lede?: string;
+  /** Monospace micro-label. Must carry a fact, not an ornament. */
+  tag?: string;
+  tone?: 'dark' | 'light';
+  class?: string;
+}
+
+const { id, title, lede, tag, tone = 'dark', class: className = '' } = Astro.props;
+const light = tone === 'light';
+---
+
+<div class={`max-w-3xl ${className}`}>
+  {tag && <p class={`tag ${light ? 'tag-on-dark' : ''} mb-2 fade-up`}>{tag}</p>}
+  <h2 id={id} class={`section-title ${light ? 'section-title-light' : ''} fade-up`}>{title}</h2>
+  <div class={`mt-4 h-px w-16 ${light ? 'bg-accent/70' : 'bg-accent'}`} aria-hidden="true"></div>
+  {lede && <p class={`section-lede ${light ? 'section-lede-light' : ''} mt-5 fade-up`}>{lede}</p>}
+</div>

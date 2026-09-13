@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
 
 const title = 'Reading SEO Strategy Examples | Campaign Plans';
 const description = 'Clearly labelled SEO strategy scenarios for Reading businesses, showing campaign structure, priorities, measurement, and realistic constraints.';
@@ -27,9 +28,10 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": "https://seoreading.uk/case-studies/#breadcrumb",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
-      { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://seoreading.uk/case-studies/" }
+      { "@type": "ListItem", "position": 2, "name": "Strategy Scenarios", "item": "https://seoreading.uk/case-studies/" }
     ]
   },
   {
@@ -54,16 +56,17 @@ const schema = [
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -left-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-1" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">Reading SEO Strategy Examples</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">Illustrative campaign plans showing priorities and measurement for common Reading business types. They are not client results.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="Reading SEO Strategy Examples"
+    subtitle="Illustrative campaign plans showing priorities and measurement for common Reading business types. They are not client results."
+    tag="Illustrative scenarios · no client outcomes shown"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Strategy scenarios' }]}
+  >
+    <a slot="actions" href="/free-seo-audit-reading/" class="btn btn-primary">Get your free audit</a>
+    <a slot="actions" href="/seo-pricing-reading/" class="btn btn-ghost-light">See SEO pricing</a>
+  </PageHeader>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
+  <section class="max-w-6xl mx-auto px-5 py-14">
     <div class="prose fade-up">
 
       <p>SEO Reading publishes clearly labelled strategy scenarios showing how search campaigns can be structured for businesses across Reading and Berkshire. These pages explain the work and measurement framework without presenting fictional businesses or projected figures as client evidence.</p>
@@ -78,19 +81,21 @@ const schema = [
 
       <p>Transparency is central to how we operate. These scenarios present the strategy, likely constraints, and measurement approach behind a campaign. SEO combines technical optimisation, useful content, and relevant authority signals within the competitive markets Reading businesses operate in.</p>
 
-      <div class="grid md:grid-cols-2 gap-6 my-8">
-        <div class="border border-gray-200 rounded-lg p-6">
-          <h3 class="mt-0">Reading Law Firm SEO Growth Plan</h3>
-          <p>An illustrative scenario showing how technical remediation, practice-area content, and local optimisation could be prioritised for a law firm near Forbury Square.</p>
-          <p class="text-lg font-semibold text-brand">Includes: baseline, work sequence, and KPIs</p>
-          <a href="/case-studies/reading-law-firm-organic-growth/">Read the strategy scenario &rarr;</a>
-        </div>
-        <div class="border border-gray-200 rounded-lg p-6">
-          <h3 class="mt-0">Caversham Estate Agent Local SEO Plan</h3>
-          <p>An illustrative scenario showing how Google Business Profile work, local citations, reviews, and area content could be prioritised for an independent estate agent.</p>
-          <p class="text-lg font-semibold text-brand">Includes: local baseline, work sequence, and KPIs</p>
-          <a href="/case-studies/caversham-estate-agent-google-maps-dominance/">Read the strategy scenario &rarr;</a>
-        </div>
+      <div class="not-prose grid md:grid-cols-2 gap-x-10 gap-y-8 my-10">
+        <a href="/case-studies/reading-law-firm-organic-growth/" class="group block border-t-2 border-brand pt-5 no-underline hover:border-accent transition-colors">
+          <p class="tag mb-2">Legal sector &middot; illustrative</p>
+          <h3 class="font-bold text-brand text-xl mb-2 group-hover:text-accent-ink transition-colors" style="font-family: var(--font-serif);">Reading law firm SEO growth plan</h3>
+          <p class="text-text-muted text-sm leading-relaxed mb-3">An illustrative scenario showing how technical remediation, practice-area content, and local optimisation could be prioritised for a law firm near Forbury Square.</p>
+          <p class="tag mb-3">Includes: baseline, work sequence, KPIs</p>
+          <span class="text-accent-ink text-sm font-semibold">Read the strategy scenario &rarr;</span>
+        </a>
+        <a href="/case-studies/caversham-estate-agent-google-maps-dominance/" class="group block border-t-2 border-brand pt-5 no-underline hover:border-accent transition-colors">
+          <p class="tag mb-2">Property sector &middot; illustrative</p>
+          <h3 class="font-bold text-brand text-xl mb-2 group-hover:text-accent-ink transition-colors" style="font-family: var(--font-serif);">Caversham estate agent local SEO plan</h3>
+          <p class="text-text-muted text-sm leading-relaxed mb-3">An illustrative scenario showing how Google Business Profile work, local citations, reviews, and area content could be prioritised for an independent estate agent.</p>
+          <p class="tag mb-3">Includes: local baseline, work sequence, KPIs</p>
+          <span class="text-accent-ink text-sm font-semibold">Read the strategy scenario &rarr;</span>
+        </a>
       </div>
 
       <h2>What Makes Reading Businesses Different for SEO</h2>
@@ -105,8 +110,9 @@ const schema = [
 
       <div class="cta-box">
         <h2>Find Out Where You Stand</h2>
-        <p class="text-white/90 mb-4">Request a free SEO audit and we will show you precisely where your Reading business ranks, what is holding you back, and what opportunities you are missing. No commitment, no obligation.</p>
-        <a href="/free-seo-audit-reading/">Book a Consultation</a>
+        <p>Request a free SEO audit and we will show you precisely where your Reading business ranks, what is holding you back, and what opportunities you are missing. No commitment, no obligation.</p>
+        <a href="/free-seo-audit-reading/">Get your free audit</a>
+        <p class="cta-note">Prefer to talk it through first? <a href="/contact/">Book a consultation</a>.</p>
       </div>
 
       <h2>Frequently Asked Questions</h2>

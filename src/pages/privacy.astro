@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
 
 const title = 'Privacy Notice | SEO Reading';
 const description = 'How SEO Reading and ND Media Ltd collect, use, and protect personal information submitted through this website.';
@@ -27,15 +28,14 @@ const schema = [
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">Privacy Notice</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">How we handle information shared through seoreading.uk.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="Privacy Notice"
+    subtitle="How we handle information shared through seoreading.uk."
+    tag="Controller: ND Media Ltd, company no. 10784524"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Privacy' }]}
+  />
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
+  <section class="max-w-6xl mx-auto px-5 py-14">
     <div class="prose fade-up">
       <p><strong>Last updated: 31 August 2026.</strong> SEO Reading is operated by ND Media Ltd, company number 10784524. ND Media Ltd is the data controller for personal information submitted through this website.</p>
 

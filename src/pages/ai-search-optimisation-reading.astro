@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
 
 const title = 'AI Search Optimisation Reading | AEO';
 const description = 'Get your Reading business cited by ChatGPT, Perplexity, Claude, Copilot, and Google AI Overviews. AI search, AEO, GEO, and LLM SEO services.';
@@ -8,6 +9,7 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": "https://seoreading.uk/ai-search-optimisation-reading/#breadcrumb",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
       { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://seoreading.uk/services/" },
@@ -109,16 +111,17 @@ const schema = [
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -right-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-2" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">AI Search Optimisation for Reading Businesses</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">Get your Reading business cited by ChatGPT, Perplexity, Claude, Copilot, and Google AI Overviews.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="AI Search Optimisation for Reading Businesses"
+    subtitle="Get your Reading business cited by ChatGPT, Perplexity, Claude, Copilot, and Google AI Overviews."
+    tag="Entity signals, structured data, citability"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'AI search optimisation' }]}
+  >
+    <a slot="actions" href="/free-seo-audit-reading/" class="btn btn-primary">Get your free audit</a>
+    <a slot="actions" href="/services/" class="btn btn-ghost-light">See all services</a>
+  </PageHeader>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
+  <section class="max-w-6xl mx-auto px-5 py-14">
     <div class="prose fade-up">
 
       <p>SEO Reading delivers AI search optimisation services that enable Reading businesses to secure citations from ChatGPT, Perplexity, Claude, Microsoft Copilot, and Google AI Overviews. Whereas traditional SEO positions your website within the blue links, AI search optimisation ensures your business is referenced when a prospective customer asks an AI assistant to recommend a provider in Reading.</p>
@@ -630,7 +633,8 @@ const schema = [
       <div class="cta-box">
         <h2>Book a Consultation</h2>
         <p>Discover whether ChatGPT, Perplexity, and Google AI Overviews cite your Reading business, or your competitors. Our audit tests your visibility across all major AI search platforms and provides a prioritised action plan.</p>
-        <a href="/free-seo-audit-reading/">Book a Consultation</a>
+        <a href="/free-seo-audit-reading/">Get your free audit</a>
+        <p class="cta-note">Prefer to talk it through first? <a href="/contact/">Book a consultation</a>.</p>
       </div>
 
       <p>Back to <a href="/services/">SEO Services</a> or <a href="/">SEO Reading homepage</a>. Explore our <a href="/technical-seo-reading/">technical SEO</a>, <a href="/seo-audit-reading/">SEO audit</a>, and <a href="/seo-pricing-reading/">pricing</a> pages. Review our clearly labelled <a href="/case-studies/">strategy scenarios</a>.</p>

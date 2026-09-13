@@ -1,0 +1,57 @@
+---
+import Riverline from './Riverline.astro';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  /** Monospace micro-label. Must carry a fact, not an ornament. */
+  tag?: string;
+  crumbs?: Crumb[];
+}
+
+const { title, subtitle, tag, crumbs = [] } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto">
+    {crumbs.length > 0 && (
+      <nav aria-label="Breadcrumb" class="mb-5">
+        <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.78rem]" style="font-family: var(--font-mono)">
+          {crumbs.map((crumb, i) => (
+            <li class="flex items-center gap-2">
+              {i > 0 && <span class="text-white/35" aria-hidden="true">/</span>}
+              {crumb.href ? (
+                <a href={crumb.href} class="text-white/70 underline decoration-white/25 underline-offset-4 hover:text-white hover:decoration-accent transition-colors">{crumb.label}</a>
+              ) : (
+                <span class="text-accent" aria-current="page">{crumb.label}</span>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+    )}
+
+    {tag && <p class="tag tag-on-dark mb-3">{tag}</p>}
+
+    <h1 class="max-w-[22ch]">{title}</h1>
+
+    {subtitle && <p class="subtitle">{subtitle}</p>}
+
+    {Astro.slots.has('actions') && (
+      <div class="relative z-10 mt-7 flex flex-wrap gap-3">
+        <slot name="actions" />
+      </div>
+    )}
+  </div>
+
+  <div class="absolute inset-x-0 bottom-0 h-8 opacity-90" aria-hidden="true">
+    <Riverline tone="light" class="h-8" />
+  </div>
+</section>

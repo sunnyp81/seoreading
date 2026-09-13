@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
 
 const title = 'Local SEO Areas in Reading & Berkshire';
 const description = 'Local SEO strategy across Reading, Caversham, Tilehurst, Earley, Woodley, Wokingham, Newbury, and the wider Berkshire area.';
@@ -8,6 +9,7 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": "https://seoreading.uk/areas/#breadcrumb",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://seoreading.uk/" },
       { "@type": "ListItem", "position": 2, "name": "Areas", "item": "https://seoreading.uk/areas/" }
@@ -28,7 +30,7 @@ const schema = [
     "name": "Local SEO Across Reading and Berkshire",
     "description": "Area-specific local SEO strategies for Reading, Caversham, Tilehurst, Earley, Woodley, Wokingham, Bracknell, Newbury, and Thatcham.",
     "provider": {
-      "@type": "LocalBusiness",
+      "@type": "Organization",
       "name": "SEO Reading",
       "url": "https://seoreading.uk/",
       "areaServed": { "@type": "City", "name": "Reading", "containedInPlace": { "@type": "AdministrativeArea", "name": "Berkshire" } }
@@ -81,16 +83,17 @@ const schema = [
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -left-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-1" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">Local SEO Across Reading and Berkshire</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">Local SEO strategies tailored to every area of Reading and the wider Thames Valley corridor.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="Local SEO Across Reading and Berkshire"
+    subtitle="Local SEO strategies tailored to every area of Reading and the wider Thames Valley corridor."
+    tag="Reading, Caversham, Tilehurst, Earley, Woodley, Wokingham, Bracknell, Newbury, Thatcham"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Areas' }]}
+  >
+    <a slot="actions" href="/free-seo-audit-reading/" class="btn btn-primary">Get your free audit</a>
+    <a slot="actions" href="/services/" class="btn btn-ghost-light">See all services</a>
+  </PageHeader>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
+  <section class="max-w-6xl mx-auto px-5 py-14">
     <div class="prose fade-up">
 
       <p>SEO Reading serves businesses across Reading and the wider Berkshire region with search optimisation strategies built upon local knowledge. Every area possesses its own commercial character, search patterns, and competitive dynamics. We adapt our approach to match the specific locality your business operates in, from Reading town centre to the outer Thames Valley corridor.</p>
@@ -181,7 +184,8 @@ const schema = [
       <div class="cta-box">
         <h2>Book a Consultation</h2>
         <p>Tell us where your business is based and who your customers are. We will identify the search opportunities specific to your part of Reading and Berkshire.</p>
-        <a href="/contact/">Book a Consultation</a>
+        <a href="/contact/">Book a consultation</a>
+        <p class="cta-note">Or request the <a href="/free-seo-audit-reading/">free five-point check</a> first.</p>
       </div>
 
       <p>Want to assess your own local presence first? Work through our free <a href="/tools/local-seo-checklist/">local SEO checklist</a> to see where your business stands before speaking to us.</p>

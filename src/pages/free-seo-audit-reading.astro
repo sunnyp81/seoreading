@@ -1,5 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ArticleRail from '../components/ArticleRail.astro';
+
+// Mirrors the five checks described in the body copy below.
+const checkRows = [
+  { key: 'indexation', value: 'How many of your pages Google holds, and what is missing' },
+  { key: 'core web vitals', value: 'LCP, INP, and CLS against Google&rsquo;s thresholds' },
+  { key: 'local signals', value: 'Google Business Profile setup and NAP consistency' },
+  { key: 'query snapshot', value: 'Queries you already appear for, and at what positions' },
+  { key: 'priority action', value: 'The single highest-impact change to make first' }
+];
 
 const schema = [
   {
@@ -30,8 +41,8 @@ const schema = [
       },
       {
         "@type": "Question",
-        "name": "What is the delivery timeframe for the free audit?",
-        "acceptedAnswer": { "@type": "Answer", "text": "You will receive your free SEO health check report within 48 hours of form submission. Reports are delivered by email as a PDF document." }
+        "name": "When will you respond to my free audit request?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We aim to reply within one working day. After reviewing the request, we will confirm whether the free health check is a fit and agree the expected report delivery time." }
       },
       {
         "@type": "Question",
@@ -49,66 +60,82 @@ const schema = [
 ---
 
 <Base title="Free SEO Audit Reading | Quick Check" description="Get a free SEO health check for your Reading business. Discover how your site performs in Google and what quick wins are available. No obligation." schema={schema}>
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -right-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-2" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">Free SEO Audit for Reading Businesses</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">Complimentary SEO health check for Reading businesses.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="Free SEO Audit for Reading Businesses"
+    subtitle="Complimentary SEO health check for Reading businesses. Five checks, one priority action, no obligation."
+    tag="Reply within one working day · no credit card"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Services', href: '/services/' }, { label: 'Free SEO audit' }]}
+  >
+    <a slot="actions" href="#audit-request" class="btn btn-primary">Request the check</a>
+    <a slot="actions" href="/seo-pricing-reading/" class="btn btn-ghost-light">See SEO pricing</a>
+  </PageHeader>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
-    <div class="prose fade-up">
+  <section class="max-w-6xl mx-auto px-5 py-14">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-14">
+    <div class="lg:col-span-8">
+    <div class="prose prose-flush fade-up">
 
-      <p>SEO Reading provides a complimentary SEO health check for businesses in Reading and Berkshire. Submit your website URL below and receive a baseline report within 48 hours detailing how your site performs in Google, what quick wins are available, and where the most significant opportunities reside.</p>
+      <p>SEO Reading provides a complimentary SEO health check for businesses in Reading and Berkshire. Submit your website URL and we will reply within one working day to confirm whether the five-point check is a fit and when we can send it.</p>
 
       <div class="quick-answer">
-        <strong>Quick answer:</strong> Our free SEO audit is a 5-point health check encompassing your site's indexation status, Core Web Vitals, local SEO presence, top keyword snapshot, and one key recommendation. There is no obligation, no credit card requirement, and delivery is within 48 hours by email.
+        <strong>Quick answer:</strong> The free SEO audit checks indexation, Core Web Vitals, local SEO presence, a top keyword snapshot, and one key recommendation. We aim to reply within one working day and confirm the report delivery time after reviewing your request. There is no obligation or credit card requirement.
       </div>
 
-      <div id="form-confirmation" data-form-confirmation hidden class="not-prose my-6 p-4 rounded-lg border border-accent bg-surface" role="status" aria-live="polite">
+      <div id="form-confirmation" data-form-confirmation hidden class="not-prose my-6 p-5 border border-border border-l-[3px] border-l-accent bg-paper" role="status" aria-live="polite">
         <p class="font-semibold text-brand">Thank you, your free audit request has been received.</p>
-        <p class="text-sm text-text-muted mt-1">Your report will arrive by email within 48 hours. If you have questions in the meantime, email <a href="mailto:hello@seoreading.uk" class="underline">hello@seoreading.uk</a>.</p>
+        <p class="text-sm text-text-muted mt-1">We will review your request and reply within one working day to confirm the expected report delivery time. For questions, email <a href="mailto:hello@seoreading.uk" class="underline">hello@seoreading.uk</a>.</p>
       </div>
 
-      <form action="https://emailit-worker.sunnypat81.workers.dev/" method="POST" class="not-prose bg-surface rounded-xl p-6 md:p-8 my-8 border border-border">
+      <div class="not-prose my-8">
+        <h2 class="tag mb-4">The five checks</h2>
+        <dl class="evidence">
+          {checkRows.map((row) => (
+            <div class="evidence-row">
+              <dt class="evidence-key">{row.key}</dt>
+              <dd class="evidence-value" set:html={row.value} />
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <form id="audit-request" action="https://emailit-worker.sunnypat81.workers.dev/" method="POST" class="not-prose bg-paper border border-border border-t-2 border-t-accent p-6 md:p-8 my-8">
         <input type="hidden" name="accessKey" value="sf_9e906eb6c00416b9d3354749" />
         <input type="hidden" name="_site" value="seoreading.uk" />
         <input type="hidden" name="subject" value="SEO Reading: Free Audit Request (seoreading.uk)" />
         <input type="hidden" name="redirectTo" value="https://seoreading.uk/free-seo-audit-reading/?sent=1&amp;form=free-audit" />
         <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="Leave this field blank" />
-        <h2 class="text-xl font-bold text-brand mb-6">Request Your Free SEO Health Check</h2>
+        <h2 class="text-xl font-bold text-brand mb-1" style="font-family: var(--font-serif);">Request your free SEO health check</h2>
+        <p class="text-sm text-text-muted mb-6">Fields marked required are the minimum we need to run the check.</p>
 
-        <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
           <div>
-            <label for="business-name" class="block text-sm font-medium text-text mb-1">Business Name <span class="text-accent">*</span></label>
-            <input type="text" id="business-name" name="business_name" required class="w-full px-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light focus:border-transparent text-text" placeholder="e.g. Smith & Sons Plumbing" />
+            <label for="business-name" class="form-label">Business name <span class="text-accent-ink">(required)</span></label>
+            <input type="text" id="business-name" name="business_name" required class="form-input" placeholder="e.g. Smith &amp; Sons Plumbing" />
           </div>
           <div>
-            <label for="website-url" class="block text-sm font-medium text-text mb-1">Website URL <span class="text-accent">*</span></label>
-            <input type="url" id="website-url" name="website_url" required class="w-full px-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light focus:border-transparent text-text" placeholder="https://example.co.uk" />
+            <label for="website-url" class="form-label">Website URL <span class="text-accent-ink">(required)</span></label>
+            <input type="url" id="website-url" name="website_url" required class="form-input" placeholder="https://example.co.uk" />
           </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-4 mb-4">
+        <div class="grid md:grid-cols-2 gap-5 mb-5">
           <div>
-            <label for="email" class="block text-sm font-medium text-text mb-1">Email Address <span class="text-accent">*</span></label>
-            <input type="email" id="email" name="email" required class="w-full px-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light focus:border-transparent text-text" placeholder="you@business.co.uk" />
+            <label for="email" class="form-label">Email address <span class="text-accent-ink">(required)</span></label>
+            <input type="email" id="email" name="email" required class="form-input" placeholder="you@business.co.uk" />
           </div>
           <div>
-            <label for="phone" class="block text-sm font-medium text-text mb-1">Phone <span class="text-text-muted">(optional)</span></label>
-            <input type="tel" id="phone" name="phone" class="w-full px-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light focus:border-transparent text-text" placeholder="07xxx xxxxxx" />
+            <label for="phone" class="form-label">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="07xxx xxxxxx" />
           </div>
         </div>
 
         <div class="mb-6">
-          <label for="message" class="block text-sm font-medium text-text mb-1">Anything specific you would like examined? <span class="text-text-muted">(optional)</span></label>
-          <textarea id="message" name="message" rows="3" class="w-full px-4 py-2.5 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-light focus:border-transparent text-text resize-y" placeholder="e.g. We recently redesigned our site and traffic dropped..."></textarea>
+          <label for="message" class="form-label">Anything specific you would like examined? (optional)</label>
+          <textarea id="message" name="message" rows="3" class="form-input resize-y" placeholder="e.g. We recently redesigned our site and traffic dropped..."></textarea>
         </div>
 
-        <button type="submit" class="w-full md:w-auto bg-accent text-brand-dark font-semibold px-8 py-3 rounded-lg hover:bg-accent-light transition-colors cursor-pointer">Submit Free Audit Request</button>
-        <p class="text-sm text-text-muted mt-3">No spam. No obligation. Report delivered within 48 hours. We use your details to prepare and deliver the audit as explained in our <a href="/privacy/" class="underline">privacy notice</a>.</p>
+        <button type="submit" class="btn btn-primary w-full md:w-auto">Submit free audit request</button>
+        <p class="text-sm text-text-muted mt-4">No spam and no obligation. We aim to reply within one working day and confirm report timing after reviewing your request. We use your details as explained in our <a href="/privacy/" class="text-brand underline decoration-accent underline-offset-4">privacy notice</a>.</p>
       </form>
 
       <h2>What You Get in Your Free Audit</h2>
@@ -133,7 +160,7 @@ const schema = [
 
       <h3>Step 2: Receive Your Report</h3>
 
-      <p>Within 48 hours, we deliver your SEO health check report by email. It is a concise PDF covering the five baseline checks with clear pass/fail indicators and a brief explanation accompanying each finding.</p>
+      <p>We review each request and reply within one working day to confirm fit and expected delivery time. The report is sent by email as a concise PDF covering the five baseline checks, with a brief explanation of each finding.</p>
 
       <h3>Step 3: Optional Discussion Call</h3>
 
@@ -203,7 +230,7 @@ const schema = [
           </tr>
           <tr>
             <td>Delivery time</td>
-            <td>48 hours</td>
+            <td>Reply within one working day; report date confirmed after review</td>
             <td>7-14 working days</td>
           </tr>
           <tr>
@@ -224,8 +251,8 @@ const schema = [
       </div>
 
       <div class="faq-item">
-        <h3 class="faq-question">What is the delivery timeframe for the free audit?</h3>
-        <p>You will receive your free SEO health check report within 48 hours of form submission. Reports are delivered by email as a PDF document.</p>
+          <h3 class="faq-question">When will you respond to my free audit request?</h3>
+        <p>We aim to reply within one working day. After reviewing the request, we will confirm whether the free health check is a fit and agree the expected report delivery time.</p>
       </div>
 
       <div class="faq-item">
@@ -241,11 +268,25 @@ const schema = [
       <div class="cta-box">
         <h2>Considering a More Thorough Analysis?</h2>
         <p>The free health check establishes a baseline. Our comprehensive SEO audit delivers a complete strategy. This includes 50+ checkpoints, competitor benchmarking, and a prioritised action plan.</p>
-        <a href="/seo-audit-reading/">Book a Consultation</a>
+        <a href="/seo-audit-reading/">See the comprehensive audit</a>
       </div>
 
       <p>Consult our <a href="/seo-pricing-reading/">pricing page</a> for audit and retainer costs. Back to <a href="/services/">all services</a> or return to our <a href="/">SEO consultancy in Reading overview</a>.</p>
 
+    </div>
+    </div>
+
+      <div class="lg:col-span-4">
+        <ArticleRail
+          heading="What the free check covers"
+          items={checkRows}
+          primaryHref="#audit-request"
+          primaryLabel="Request the check"
+          secondaryHref="/seo-audit-reading/"
+          secondaryLabel="Compare with the paid audit"
+          note="Sent by email as a short PDF. No credit card, and no automatic enrolment in a paid service."
+        />
+      </div>
     </div>
   </section>
 

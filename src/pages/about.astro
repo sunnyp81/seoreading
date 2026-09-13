@@ -1,21 +1,31 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import EvidenceList from '../components/EvidenceList.astro';
+
+const identityRows = [
+  { key: 'practitioner', value: 'Sunny Patel, <a href="https://sunnypatel.co.uk/">public profile documents 15+ years in SEO</a>' },
+  { key: 'trading entity', value: 'ND Media Ltd, <a href="https://find-and-update.company-information.service.gov.uk/company/10784524" rel="noopener noreferrer">company no. 10784524 at Companies House</a>' },
+  { key: 'delivery', value: 'Remote-first. Online consultations and reporting; no walk-in office' },
+  { key: 'service area', value: '<a href="/areas/">Reading, Berkshire, and the wider Thames Valley</a>' },
+  { key: 'evidence', value: 'Owned-site portfolio with first-party Search Console data, shown separately from client work' }
+];
 
 const title = 'About SEO Reading | Reading SEO Agency';
-const description = 'SEO Reading is a search consultancy based in Reading, Berkshire. We specialise in local SEO, technical SEO, and AI search optimisation for Thames Valley businesses.';
+const description = 'SEO Reading is a remote-first search consultancy serving Reading, Berkshire, and the Thames Valley. Led by SEO consultant Sunny Patel.';
 
 const faqItems = [
   {
     q: 'What qualifications does your team have?',
-    a: 'Rather than leading with certificates, we would point to the work itself: continuous testing, direct Google Search Console data analysis, and hands-on SEO across dozens of live sites that we build and manage ourselves. That day-to-day practice, spanning local service businesses and competitive national niches, is what keeps our recommendations current and evidence-based.'
+    a: 'Sunny Patel leads SEO Reading. His public profile documents more than 15 years in SEO and links to examples from an owned-site portfolio. Those portfolio results are first-party property data, not client campaign outcomes.'
   },
   {
     q: 'How long has SEO Reading been operating?',
-    a: 'SEO Reading brings over eight years of hands-on SEO experience. During that time, we have worked across local business sites, national campaigns, and everything in between. The industry has changed dramatically in that period, from keyword-driven tactics to entity-based search to AI citations, and we have adapted our methodology at every stage to remain effective.'
+    a: 'SEO consultant Sunny Patel has more than 15 years of SEO experience, as documented on his public profile. SEO Reading is a remote-first consultancy serving Reading and Berkshire businesses.'
   },
   {
     q: 'Do you work with businesses outside Reading?',
-    a: 'Yes. While Reading and Berkshire form our core focus, we work with businesses across the Thames Valley and nationally. We regularly serve clients in Wokingham, Bracknell, Henley-on-Thames, Newbury, and Maidenhead. For businesses outside the region, we offer remote SEO consultancy with the same data-driven approach that underpins all of our engagements.'
+    a: 'Yes. SEO Reading serves businesses across Reading, Berkshire, and the Thames Valley. Remote consultancy is available to UK-wide businesses that need a local search presence in the area.'
   },
   {
     q: 'What industries does SEO Reading specialise in?',
@@ -36,12 +46,6 @@ const orgSchema = {
   "@type": "Organization",
   "name": "SEO Reading",
   "url": "https://seoreading.uk",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Reading",
-    "addressRegion": "Berkshire",
-    "addressCountry": "GB"
-  },
   "sameAs": []
 };
 
@@ -71,30 +75,28 @@ const schema = [breadcrumbSchema, faqSchema];
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -left-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-1" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">About SEO Reading, Search Consultancy in Reading</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">A Reading-based consultancy with expertise across local, technical, and AI search optimisation.</p>
+  <PageHeader
+    title="About SEO Reading, Search Consultancy in Reading"
+    subtitle="A remote-first consultancy for local, technical, and AI search optimisation across Reading and Berkshire."
+    tag="Led by Sunny Patel · trading as ND Media Ltd"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'About' }]}
+  />
+
+  <!-- Identity stated as checkable rows, each one traceable to its source. -->
+  <section class="bg-paper border-b border-rule py-10 md:py-12" aria-labelledby="identity-heading">
+    <div class="max-w-6xl mx-auto px-5">
+      <h2 id="identity-heading" class="tag mb-5">Who you are dealing with</h2>
+      <EvidenceList items={identityRows} />
     </div>
   </section>
 
-  <section class="max-w-6xl mx-auto px-4 py-12">
+  <section class="max-w-6xl mx-auto px-5 py-14">
     <div class="prose fade-up">
 
-      <nav aria-label="Breadcrumb" class="text-sm mb-8">
-        <ol class="flex gap-2">
-          <li><a href="/">Home</a></li>
-          <li aria-hidden="true">/</li>
-          <li aria-current="page">About</li>
-        </ol>
-      </nav>
-
-      <p>SEO Reading is a specialist search consultancy based in Reading, Berkshire. We work with local businesses and national brands to improve their visibility in Google and AI-powered search engines, delivering measurable organic growth across the Thames Valley and beyond.</p>
+      <p>SEO Reading is a remote-first search consultancy serving Reading, Berkshire, and the wider Thames Valley. SEO consultant Sunny Patel leads the work through ND Media Ltd (company number 10784524).</p>
 
       <div class="quick-answer">
-        <p><strong>Quick answer:</strong> SEO Reading is a Reading-based search consultancy that combines technical SEO expertise with deep knowledge of the Berkshire business landscape. We work with businesses from Caversham to Green Park, providing transparent, data-driven strategies that produce measurable results.</p>
+        <p><strong>Quick answer:</strong> SEO Reading provides remote-first SEO consultancy for businesses serving Reading and Berkshire. Sunny Patel leads strategy and delivery directly; his public profile records more than 15 years in SEO and links to first-party portfolio evidence.</p>
       </div>
 
       <h2>Our Consultancy</h2>
@@ -103,7 +105,7 @@ const schema = [breadcrumbSchema, faqSchema];
 
       <p>Our core disciplines are <a href="/technical-seo-reading/">technical SEO</a>, local search optimisation, content strategy, and <a href="/ai-search-optimisation-reading/">AI search optimisation</a>. These are not marketing terms on a brochure; they represent the specific capabilities we apply to every campaign, each informed by data from Google Search Console, Ahrefs, and direct measurement. Moreover, we view these disciplines as interconnected: a technical fix that improves crawlability, for instance, compounds the effect of a well-executed content strategy.</p>
 
-      <p>We understand the Reading business landscape because we operate within it. We recognise the distinction between the footfall-driven independent shops on Broad Street and the enterprise procurement cycles at Green Park and Thames Valley Park. That contextual understanding matters considerably when constructing an SEO strategy. A one-size-fits-all approach from a distant agency that has never set foot in Berkshire will, in our experience, miss the nuances that determine whether a campaign converts or stalls.</p>
+      <p>Reading businesses compete across distinct local contexts. Retailers around Broad Street, professional firms near Forbury Square, and B2B companies around Green Park may serve different customers and areas. We use your service area, Search Console data, and competitor results to plan around those differences.</p>
 
       <p>Our approach is practical and results-focused. Every recommendation we make is tied to a measurable outcome, more impressions, improved rankings, higher click-through rates, or increased lead generation. We do not produce 60-page reports filled with jargon that gather dust on a shelf. We identify what will move the needle and execute it with precision.</p>
 
@@ -149,9 +151,9 @@ const schema = [breadcrumbSchema, faqSchema];
 
       <h2>Areas We Cover</h2>
 
-      <p>Our primary service area encompasses Reading and the surrounding towns. Within Reading, we work with businesses in the town centre, Caversham, Tilehurst, Earley, Woodley, Whitley, Calcot, and Shinfield.</p>
+      <p>Our service area includes Reading town centre, Caversham, Tilehurst, Earley, Woodley, Whitley, Calcot, and Shinfield.</p>
 
-      <p>Across wider Berkshire and the Thames Valley, we serve clients in Wokingham, Bracknell, Henley-on-Thames, Newbury, and Maidenhead. We also work with UK-wide businesses that require a local SEO presence in the Reading area.</p>
+      <p>Across Berkshire and the Thames Valley, our service area includes Wokingham, Bracknell, Henley-on-Thames, Newbury, and Maidenhead. We also work remotely with UK-wide businesses that need a local SEO presence in Reading.</p>
 
       <p>See our <a href="/areas/">areas page</a> for location-specific information about SEO in your town.</p>
 
@@ -165,7 +167,7 @@ const schema = [breadcrumbSchema, faqSchema];
 
       <p>We are deliberately selective about the clients we take on. We maintain a limited roster at any given time to ensure each engagement receives proper attention. We will not accept your business if we do not believe we can deliver meaningful results. That assessment begins with the initial audit.</p>
 
-      <p>See illustrative examples of our approach on our <a href="/case-studies/">case studies page</a>.</p>
+      <p>Our <a href="/case-studies/">Reading strategy scenarios</a> are illustrative examples, not client case studies. Sunny Patel’s <a href="https://sunnypatel.co.uk/">public profile</a> links to owned-site portfolio results with first-party Search Console data.</p>
 
       <h2>Frequently Asked Questions</h2>
 
@@ -178,8 +180,9 @@ const schema = [breadcrumbSchema, faqSchema];
 
       <div class="cta-box">
         <h2>Ready to Improve Your Search Visibility?</h2>
-        <p>Book a consultation to discuss what SEO can achieve for your Reading business. No jargon, no pressure, simply an honest assessment of your opportunities and a clear path forward.</p>
-        <p><a href="/contact/">Book a consultation</a> or request a <a href="/free-seo-audit-reading/">free SEO audit</a> to get started.</p>
+        <p>Start with the free five-point health check. No jargon, no pressure, simply an honest assessment of your opportunities and a clear path forward.</p>
+        <a href="/free-seo-audit-reading/">Get your free audit</a>
+        <p class="cta-note">Prefer to talk it through first? <a href="/contact/">Book a consultation</a>.</p>
       </div>
 
     </div>

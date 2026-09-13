@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PageHeader from '../../components/PageHeader.astro';
 
 const title = 'Free Local Business Schema Generator | JSON-LD';
 const description = 'Generate valid LocalBusiness schema markup (JSON-LD) for your website. Enter your business details and copy the structured data code. Free, no signup required.';
@@ -89,20 +90,18 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
 ---
 
 <Base title={title} description={description} schema={schema}>
-  <section class="page-hero">
-    <div class="absolute inset-0 dot-grid-light pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-20 -left-32 w-[300px] h-[300px] rounded-full opacity-10 blur-[80px] aurora-1" style="background: radial-gradient(circle, #D4AF37, transparent 70%);" aria-hidden="true"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h1 class="fade-up">Local Business Schema Generator</h1>
-      <p class="subtitle fade-up" style="transition-delay: 80ms;">Generate valid JSON-LD structured data for your business. Fill in the form, copy the code, paste it into your site.</p>
-    </div>
-  </section>
+  <PageHeader
+    title="Local Business Schema Generator"
+    subtitle="Generate valid JSON-LD structured data for your business. Fill in the form, copy the code, paste it into your site."
+    tag="Free tool · runs in your browser, nothing is stored"
+    crumbs={[{ label: 'Home', href: '/' }, { label: 'Schema generator' }]}
+  />
 
   <section class="max-w-5xl mx-auto px-5 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <!-- Form -->
       <div class="fade-up">
-        <div class="bg-white border border-border rounded-xl p-6">
+        <div class="bg-white border border-border p-6">
           <h2 class="text-lg font-bold text-brand mb-5" style="font-family: var(--font-serif);">Business Details</h2>
 
           <div class="space-y-4">
@@ -140,7 +139,7 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
               <input type="tel" id="biz-phone" class="form-input" placeholder="+44 118 xxx xxxx" />
             </div>
 
-            <fieldset class="border border-border rounded-lg p-4">
+            <fieldset class="border border-border border-t-2 border-t-rule p-4">
               <legend class="form-label px-1">Address</legend>
               <div class="space-y-3">
                 <input type="text" id="biz-street" class="form-input" aria-label="Street address" placeholder="Street address" />
@@ -155,7 +154,7 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
               </div>
             </fieldset>
 
-            <fieldset class="border border-border rounded-lg p-4">
+            <fieldset class="border border-border border-t-2 border-t-rule p-4">
               <legend class="form-label px-1">Opening Hours</legend>
               <div class="space-y-2">
                 {days.map(day => (
@@ -190,12 +189,12 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
       <!-- Output -->
       <div class="fade-up stagger-child" style="--i: 1">
         <div class="sticky top-[70px]">
-          <div class="bg-brand-dark rounded-xl p-6 text-white">
+          <div class="bg-brand-dark p-6 text-white">
             <div class="flex items-center justify-between mb-4">
               <h2 class="text-lg font-bold" style="font-family: var(--font-serif);">Generated Schema</h2>
               <button id="copy-btn" class="text-xs bg-accent text-brand-dark px-3 py-1.5 rounded font-semibold hover:bg-accent-light transition-colors">Copy Code</button>
             </div>
-            <pre id="schema-output" class="text-sm leading-relaxed overflow-x-auto max-h-[65vh] overflow-y-auto text-gray-300" style="font-family: 'Courier New', monospace; tab-size: 2;"><code></code></pre>
+            <pre id="schema-output" class="text-sm leading-relaxed overflow-x-auto max-h-[65vh] overflow-y-auto text-[#C7CEDA]" style="font-family: 'Courier New', monospace; tab-size: 2;"><code></code></pre>
           </div>
           <p class="text-sm text-text-muted mt-3">Paste this inside a <code class="bg-surface-dark px-1.5 py-0.5 rounded text-xs">&lt;script type="application/ld+json"&gt;</code> tag in your page's <code class="bg-surface-dark px-1.5 py-0.5 rounded text-xs">&lt;head&gt;</code>.</p>
           <div class="mt-3 flex gap-2">
@@ -250,7 +249,7 @@ const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
       <div class="cta-box">
         <h2>Need Schema Implemented Properly?</h2>
         <p>We select schema types that match the visible content and current eligibility rules rather than adding every possible type. Schema is one component of our comprehensive technical SEO service.</p>
-        <a href="/technical-seo-reading/">Technical SEO Services</a>
+        <a href="/technical-seo-reading/">See technical SEO services</a>
       </div>
 
       <p>Try our <a href="/tools/local-seo-checklist/">Local SEO Checklist</a> or <a href="/tools/seo-roi-calculator/">SEO ROI Calculator</a>. Learn more about our <a href="/services/">SEO services</a> or return to <a href="/">SEO Reading</a>.</p>
