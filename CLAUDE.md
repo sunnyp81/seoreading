@@ -1,5 +1,7 @@
 # seoreading.uk — repo brain
 
+**MERGED 27 Oct 2026:** seoreading.uk now 301-redirects to sunnypatel.co.uk (Sunny approved the merge). `npm run build` runs scripts/redirect-build.mjs and outputs only dist/_redirects and robots.txt; the Astro site source is kept and builds with `npm run build:site`. Revert that build-script change to restore the site.
+
 Astro 5 + Tailwind 4 static site, local SEO lead-gen agency site for Reading/Berkshire. Deploy: git push to `master` on GitHub (`sunnyp81/seoreading`), Cloudflare Pages git integration auto-builds (`npm run build`, output `dist`). No wrangler.toml, no manual CLI deploy step needed.
 
 ## 2026-07-07 — GSC recovery pass

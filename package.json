@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/redirect-build.mjs",
+    "build:site": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
